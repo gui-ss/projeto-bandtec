@@ -1,0 +1,130 @@
+
+p{
+    color:whitesmoke;
+ font-size: 25px;
+font-family: monospace;
+text-shadow: 1px 1px 1px #111111;
+
+}
+
+body{
+    background-color: #1C1C1C;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: arial bold;
+}
+.header{
+    background-color: rgb(24, 24,24);
+    height: 100px;
+    padding: 20px;
+    border-bottom:#66CDAA 10px solid;
+    color: white;
+   
+   
+   
+}
+
+.titulo{
+    text-align: center;
+    float: right;
+    padding-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 10px 10px 10px #111111;
+   
+    
+}
+
+.titulo h1{
+    text-shadow: 10px 10px 10px #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cor {
+    color:#66CDAA;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+.titulo2{
+    border-radius: 20px;
+    -webkit-font-smoothing:antialiased;
+        color: ghostwhite;
+        text-shadow: 10px 10px 10px #111111;
+        text-align: center;
+        margin: 0 0 50px 0;
+        font-family: 'Courier New', Courier, monospace ;
+        text-transform: uppercase;
+    }
+
+
+
+
+#principal{
+    clear: both;
+    background-size: 60%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url(logo-png.png);
+    background-position: center;
+    min-height: 800px;
+    padding: 100px;
+    box-shadow: 20px;
+   font-size: 20px;
+    
+
+}
+#logo{
+    float: left;
+}
+
+
+footer{
+    clear: both;
+    background-color:rgb(24, 24,24);
+    color: #66CDAA;
+    height: 30px;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #111111;
+    font-family: monospace;
+    font-size: 20px;
+    
+}
+
+.container{
+width: 1020px;
+margin: 0 auto;
+
+
+}
+.efeito{
+    background-color: rgba(0,0,0,0.5);
+    padding: 100px;
+    border-radius: 20px;
+    
+}
+.btn{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+   
+    
+
+}
+.btn-cor{
+    background-color: #66CDAA;
+    box-shadow: 0px 1px 0px #1C1C1C;
+
+}.btn-cor:hover{
+    background: #1C1C1C;
+    box-shadow: 0px 1px 0px #1C1C1C;
+}
+#resultado{
+    color: antiquewhite;
+    font-family: monospace;
+}
