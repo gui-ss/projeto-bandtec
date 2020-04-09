@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.github.com/guilherme-lindo/projeto-bandtec/blob/master/Site/logo.png
+    <img src="https://raw.github.com/guilherme-lindo/projeto-bandtec/Site/logo.png
 " alt="Chamaleon logo" width="72">
 </p>
 
