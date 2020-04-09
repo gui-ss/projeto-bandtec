@@ -1,3 +1,9 @@
+<p align="center">
+    <img src="https://raw.github.com/guilherme-lindo/projeto-bandtec/blob/master/Site/logo.png
+" alt="Chamaleon logo" width="72">
+</p>
+
+
 # Chameleon Project
 
 >Projeto idealizado por Adaías Santos, Christian Raphael, Gisele Flor, 
