@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"  type="text/css" href="simulador.css">
+
+
+    </head>
+<body>
+    
+      <header>
+          <div class="header" >
+            <div class="container">
+                  <div id="logo">
+          <img src="logo-png.png" height="110px" width="150px
+          " >
+         <div class="titulo"><h1> <span class="cor">Chameleon </span> Solution</h1></div>
+      </div>
+    </div>
+      
+
+    </div>
+      </header>
+        <div id="principal" >
+              <div class="container">
+                    <div class="efeito">
+              <h1 class="titulo2"> Simulador Financeiro</h1>
+              <p>
+                  A Chameleon Solutios é vitalicia para seu negócio e satisfação de seus clientes!<br>
+                  Veja os planos disponiveis para seu Comércio<br><br>
+                  Por quantos Meses você gostaria de contratar?<br><br>
+                  <input id="mes" placeholder="  Insira o numero de meses" style="width: 200px;height: 50px"><br>
+                  <br>
+                  <button class="btn btn-cor" onclick="calcular()">Venha Conosco</button>
+                  <br><br>
+                  <div id="resultado"></div>
+            </p>
+              
+      </div>
+      </div>
+
+ </div>
+<footer>Chameleon Solution</footer>
+
+
+
+            
+            
+        </center>
+        </body>
+        </html>
+        <script>
+            function calcular(){
+                var meis = Number(mes.value);
+                var tt = meis * 150;
+        
+                if (meis < 6){
+                    
+                     resultado.innerHTML = `Seu plano seria o Simples<br> E seu investimento seria de apenas R$${(tt).toFixed(2)}!`
+            }
+        
+                if (meis >=6){
+                    if (meis < 12){
+                        tt = tt - (tt * 0.05);
+                        resultado.innerHTML = `Seu plano seria o Plus<br> E seu investimento seria de apenas R$${(tt).toFixed(2)}!`
+                    }
+            }
+        
+                if (meis >= 12){
+                    tt = tt - (tt * 0.15);
+                    
+                    resultado.innerHTML = `Seu plano seria o Premiun<br> E seu investimento seria de apenas R$${(tt).toFixed(2)}!`;
+            }
+        }
+        </script>
+                  
+            
+                  
+                  
+                  
+                   
+
+
+
+                  
+
+
+            
