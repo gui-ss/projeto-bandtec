@@ -8,6 +8,6 @@ Guilherme da Silva, Guilherme de Sá e Gustavo Henrique.
 
 
 
- ![logo](https://github.com/guilherme-lindo/projeto-bandtec/blob/master/Site/logo.png)
+ ![logo](https://github.com/guilherme-lindo/projeto-bandtec/blob/master/Site/img/logo.png)
 
 </span>
