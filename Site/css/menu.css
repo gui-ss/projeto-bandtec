@@ -1,0 +1,105 @@
+nav#nav-menu {
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+    position: fixed;
+    font-weight: 500;
+    transition: .5s;
+}
+
+nav#nav-menu div.container{
+    flex-wrap: wrap;
+}
+
+div.logo-container {
+    flex: 1;
+    justify-content: start;
+}
+
+img.logo {
+    width: 40px;
+}
+
+h3.logo-name {
+    display: none;
+    margin-left: 30px;
+}
+
+div.menu-container {
+    flex: 1;
+}
+
+div.menu-container ul.menu {
+    list-style: none;
+    justify-content: space-between;
+}
+
+div.login-container {
+    flex: .5;
+}
+
+ul.menu {
+    list-style: none;
+}
+
+a.login-link {
+    color: white;
+    text-decoration: none;
+}
+
+a.menu-link {
+    position: relative;
+    color: rgb(199, 199, 199);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+a.menu-link:hover {
+    color: white;
+}
+
+a.active {
+    color: white;
+}
+
+/* APOS O SCROLL */
+
+nav.scrolled {
+    color: rgb(49, 49, 49) !important;
+    background: white;
+    box-shadow: 0px 0px 10px 2px rgba(53, 53, 53, 0.281);
+}
+
+nav.scrolled h3.logo-name {
+    display: block;
+}
+
+nav.scrolled a.active {
+    color: rgb(49, 49, 49);
+}
+
+nav.scrolled a.menu-link:hover {
+    color: rgb(49, 49, 49);
+}
+
+nav.scrolled a.menu-link::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    bottom: -4px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 0%;
+    transition:.5s;
+}
+
+nav.scrolled a.menu-link:hover::after {
+    display: block;
+    width: 80%;
+    background: #36BD95;
+}
+
+nav.scrolled a.login-link {
+    color: rgb(49, 49, 49);
+}
