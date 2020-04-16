@@ -23,3 +23,8 @@ div.container {
     justify-content: center;
     align-items: center;
 }
+
+.contato {
+    background-image: url(../img/bg-contact-us-section.gif);
+    
+}
