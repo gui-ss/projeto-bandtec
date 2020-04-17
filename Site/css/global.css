@@ -26,9 +26,14 @@ div.container {
 
 /* PÁGINA CONTATO*/
 
+.contato img {
+    width: 500px;
+    margin-top: 200px;
+}
+
 .contato {
     background-image: url(../img/bg-contact-us-section.gif);
-    background-size: 1400px;
+    background-size: 1300px;
     
 }
 
