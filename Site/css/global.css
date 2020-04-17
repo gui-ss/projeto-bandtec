@@ -28,3 +28,20 @@ div.container {
     background-image: url(../img/bg-contact-us-section.gif);
     
 }
+
+.contato form {
+    float: right;
+}
+.contato h1 {
+    
+    margin-top: 300px;
+
+}
+
+.contato input {
+    background-color: gainsboro;
+    height: 60px;
+    width: 500px;
+
+
+}
