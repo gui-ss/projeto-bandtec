@@ -42,6 +42,19 @@ div.container {
     background-color: gainsboro;
     height: 60px;
     width: 500px;
+    border-radius: 10px;
+    border-style: none;
+    margin: 6px;
 
+}
+
+
+.contato button {
+    background-color: green;
+    color: white;
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: none;
 
 }
