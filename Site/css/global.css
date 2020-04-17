@@ -24,37 +24,55 @@ div.container {
     align-items: center;
 }
 
+/* PÁGINA CONTATO*/
+
 .contato {
     background-image: url(../img/bg-contact-us-section.gif);
+    background-size: 1400px;
     
 }
 
 .contato form {
     float: right;
+
 }
 .contato h1 {
-    
-    margin-top: 300px;
+    margin-top: 150px;
+    font-size: 45px;
+    color: #4F4F4F;
+
 
 }
 
 .contato input {
-    background-color: gainsboro;
-    height: 60px;
-    width: 500px;
+    background-color: rgb(237, 241, 240);
+    width: 400px;
+    height: 50px;
     border-radius: 10px;
     border-style: none;
     margin: 6px;
+    font-size: medium;
+    padding-left: 15px;
+    outline: none;
 
+}
+
+
+#message_contact {
+   padding-bottom: 100px;
 }
 
 
 .contato button {
-    background-color: green;
+    text-align: center;
+    background-color:#3cdb98;
     color: white;
-    width: 500px;
+    width: 415px;
     height: 50px;
     border-radius: 10px;
     border-style: none;
+    font-size: large;
+    margin: 5px;
 
 }
+
