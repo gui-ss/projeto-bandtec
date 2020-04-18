@@ -45,11 +45,12 @@ ul.menu {
 a.login-link {
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 a.menu-link {
     position: relative;
-    color: rgb(199, 199, 199);
+    color: rgb(219, 219, 219);
     text-decoration: none;
     transition: color .2s;
 }
@@ -72,6 +73,10 @@ nav.scrolled {
 
 nav.scrolled h3.logo-name {
     display: block;
+}
+
+nav.scrolled a.menu-link {
+    color: rgb(192, 189, 189);
 }
 
 nav.scrolled a.active {

@@ -47,7 +47,7 @@
                 <div class="login-container">
                     <ul class="menu flex">
                         <li class="item-menu">
-                            <a href="#" class='login-link'>Login</a>
+                            <a onclick='openModal()' class='login-link'>Login</a>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +58,7 @@
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
 
-        <section id="home" style='background: cornflowerblue'>
+        <section id="home" >
             <div class="container">
 
             </div>
@@ -102,7 +102,34 @@
 
     </footer>
 
+    <div id="modal-login" onclick='closeModal()'>
+        <div class="container flex">
+            <div class="login-area flex">
+                <div class='content'>
+                    <div class="container">
+                        <h2>LOGO DO SISTEMA</h2>
+
+                        <form class='form-login'>
+                            <input type="text" placeholder="E-mail">
+
+                            <input type="text" placeholder="Senha">
+
+                            <button>Login</button>
+                        </form>
+
+                        <a href="" class='link-registro'>ou clique aqui para se <span>registrar</span></a>
+                    </div>
+                </div>
+
+                <div class="image flex">
+                    <img src="./img/img-login.png" alt="Mulher em uma biblioteca">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/menu-animation.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
