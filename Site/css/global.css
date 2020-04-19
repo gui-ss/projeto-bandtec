@@ -31,9 +31,52 @@ div.container {
     align-items: center;
 }
 
+
+/* HOME */
+
 #home {
     background-image: url(../img/bg-home.gif);
     background-size: 100% 100%;
+}
+
+.conteudo-home {
+    padding-top: 165px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+#home .container h1 {
+    font-size: 45px;
+    color: rgb(63, 63, 63);
+    float: left;
+}
+
+#home .container h3 {
+    color: rgb(63, 63, 63);
+    float: left;
+    letter-spacing: 2px;
+}
+
+#home .container p {
+    width: 400px;
+    margin-top: 20px;
+    line-height: 1.5;
+    color: rgb(63, 63, 63);
+}
+
+#home .container button{
+    width: 200px;
+    background: #3cdb98;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#home img{
+    width: 770px;
+    float: right;
+    margin-top: 90px;
 }
 
 /* PÁGINA CONTATO*/
@@ -56,7 +99,7 @@ div.container {
 .contato h1 {
     margin-top: 150px;
     font-size: 45px;
-    color: #4F4F4F;
+    color: rgb(63, 63, 63);
 
 
 }
