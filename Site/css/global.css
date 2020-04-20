@@ -78,6 +78,99 @@ div.container {
     float: right;
     margin-top: 90px;
 }
+/* PÁGINA NOSSO TIME*/
+
+.time {
+    background-image: url(../img/bg-our-team-section.gif);
+    background-size: 100% 100%;
+}
+
+.perfil{
+    height: 100px;
+    width: 100px;
+    border-radius: 30px;
+}
+
+.time_title {
+
+    height: 300px;
+    width: 250px;
+    float: left;
+    margin-top: 40px;
+}
+
+.time_title h1{
+    font-size: 60px;
+}
+
+.time_title p{
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+    box-sizing: border-box;
+    opacity: 0.5;
+}
+
+.equipe1{
+    height:280px ;
+    width: 220px;
+    float: right;
+    margin-top: 45px;
+    background-color: white;
+    margin-left: 30px;
+    text-align: center;
+}
+
+.equipe1 i{
+    opacity: 0.5;
+}
+
+.equipe1 ul li{
+    list-style: none;
+    float: left;
+    margin-left: 30px;  
+}
+
+.equipe1 ul {
+    margin-top: 60px;
+}
+
+.equipe1 ul li img{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+}
+
+.equipe2{
+    height:280px ;
+    width: 220px;
+    float: right;
+    margin-top: 30px;
+    background-color: white;
+    margin-left: 30px;
+    text-align: center;
+}
+
+.equipe2 i {
+    opacity: 0.5;
+}
+.equipe2 ul li{
+    list-style: none;
+    float: left;
+    margin-left: 30px;
+    
+}
+
+.equipe2 ul{
+    margin-top: 60px;
+}
+
+.equipe2 ul li img{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+}
+/*FIM NOSSO TIME*/
 
 /* PÁGINA CONTATO*/
 
