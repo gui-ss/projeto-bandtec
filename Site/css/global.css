@@ -245,6 +245,7 @@ div#modal-login .container {
 }
 
 div.login-area {
+    position: relative;
     width: 85%;
     height: 85%;
     background: url('../img/bg-login-modal.jpg');
@@ -328,4 +329,22 @@ a.link-registro span {
 
 a.link-registro span:hover {
     text-decoration: underline;
+}
+
+.close-area {
+    position: absolute;
+    width: 30px;
+    top: 15px;
+    right: 20px;
+}
+
+#icon-close-modal {
+    font-size: 30px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.596);
+    transition: color .5s;
+}
+
+#icon-close-modal:hover {
+    color: rgb(255, 42, 42);
 }
