@@ -5,7 +5,7 @@ create table tbAcervo(
 idAcervo int primary key auto_increment,
 nomeAcervo varchar (50),
 TelefoneAcervo char (14),
-cnpj char (15),
+cnpj char (18),
 tipo varchar(40),
 ruaAvenida varchar (60),
 numero int,
@@ -49,4 +49,21 @@ fkSensor int,
 foreign key(fkSensor) references tbSensor(idSensor)
 );
 
+create table tbArea(
+idArea int primary key auto_increment,
+tipo varchar (50),
+quantidadeArea int,
+fkAcervo int,
+foreign key(fkAcervo) references tbAcervo(idAcervo)
+);
+
+
+insert into tbAcervo values 
+(null, "Biblioteca Pública", "(11)94584-8455", "02.548520000169", "Biblioteca", "Avenida Paulista",  "497", "Bela Vista", "São Paulo", "SP", "01310-200");
+
+select * from tbAcervo;
+
+insert into tbUsuario values (null, "João Augusto", "17/10/1975", "789.458.784-57", "(11)94784-5468", "joaoaugusto@gmail.com", "joaoaugusto", "12345678", 1);
+
+select * from tbUsuario;
 
