@@ -349,3 +349,51 @@ a.link-registro span:hover {
 #icon-close-modal:hover {
     color: rgb(255, 42, 42);
 }
+
+/* PÁGINA SOBRE NÓS*/
+
+#about-us {
+    background-image: url(../img/bg-about-us-section.gif);
+    background-size: 100% 100%;
+}
+#about-us h1{
+    font-size: 60px;
+    margin-top: 20px;
+    color: rgb(63, 63, 63);
+
+}
+.sobre{
+    color: rgb(63, 63, 63);
+    
+    text-align: left;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+   height: 100px;
+   width: 700px;
+
+}
+
+
+
+
+.valores{
+    color: rgb(63, 63, 63);
+    text-align: left;
+    padding: 60px 0;
+}
+.valores ul{
+    list-style-type: none;
+    display: flex;
+    
+}
+.valores  li{
+   
+    padding-left: 100px;
+  
+}
+
+.valores h3{
+    color: #3cdb98;
+    font-family: Arial, Helvetica, sans-serif;
+}
