@@ -86,9 +86,10 @@ div.container {
 }
 
 .perfil{
-    height: 100px;
-    width: 100px;
-    border-radius: 30px;
+    height: 150px;
+    width: 150px;
+    border-radius: 70px;
+    margin-top: 10px;
 }
 
 .time_title {
@@ -132,7 +133,7 @@ div.container {
 }
 
 .equipe1 ul {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .equipe1 ul li img{
@@ -162,7 +163,7 @@ div.container {
 }
 
 .equipe2 ul{
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .equipe2 ul li img{
