@@ -3,36 +3,66 @@ let $ = document.querySelector.bind(document);
 let navMenu = $("#nav-menu");
 let navLinks = document.querySelectorAll(".menu-link");
 
+let scroll = 0;
+
 document.addEventListener("scroll", activeNavBar);
-navLinks.forEach(linkElement => linkElement.addEventListener("click", linkAnimations));
+navLinks.forEach(linkElement => linkElement.addEventListener("click", smoothScroll));
 
 function activeNavBar(){
     if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-        navMenu.classList.add("scrolled");
+        navMenu.classList.add("scrolled");  
     }
     else {
         navMenu.classList.remove("scrolled");
     }
+
+    scroll = document.scrollingElement.scrollTop;
+    activeLinkAfterScoll();
 }
 
-//função para unir todas animações de link do menu
-function linkAnimations(event) {
-    activeLink(event);
-    smoothScroll(event);
+//ativar o link no menu de acordo com a seção atual
+function activeLinkAfterScoll() { 
+    let sectionHome = document.getElementById('home').offsetTop - 50;
+    let sectionAbout = document.getElementById('about-us').offsetTop - 50;
+    let sectionProject = document.getElementById('our-project').offsetTop - 50;
+    let sectionTeam = document.getElementById('our-team').offsetTop - 50;
+    let sectionContact = document.getElementById('contact-us').offsetTop - 50;
+
+    if(scroll >= sectionHome && scroll < sectionAbout) {
+        navLinks[0].classList.add('active');
+        removeActiveClass(0);
+        
+    }
+    else if(scroll >= sectionAbout && scroll < sectionProject) {
+        navLinks[1].classList.add('active');
+
+        removeActiveClass(1);
+    }
+    else if(scroll >= sectionProject  && scroll < sectionTeam) {
+        navLinks[2].classList.add('active');
+
+        removeActiveClass(2);
+    }
+    else if(scroll >= sectionTeam && scroll < sectionContact) {
+        navLinks[3].classList.add('active');
+
+        removeActiveClass(3);
+    }
+    else if(scroll >= sectionContact)  {
+        navLinks[4].classList.add('active');
+
+        removeActiveClass(4);
+    }
 }
 
-//estilizar o link da sessão ativa 
-function activeLink(event) {
-    const targetHref = event.currentTarget.getAttribute('href');
+function removeActiveClass(current) {
+    let currentLink = navLinks[current];
 
-    navLinks.forEach(aElement => {
-        if(aElement.getAttribute('href') == targetHref) {
-            aElement.classList.add("active");
+    for(let i = 0; i < navLinks.length; i++) {
+        if(navLinks[i] != currentLink) {
+            navLinks[i].classList.remove('active');
         }
-        else {
-            aElement.classList.remove("active");
-        }
-    })
+    }
 }
 
 //animação de scroll
