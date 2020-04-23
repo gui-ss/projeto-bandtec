@@ -6,7 +6,7 @@ idAcervo int primary key auto_increment,
 nomeAcervo varchar (50),
 TelefoneAcervo char (14),
 cnpj char (18),
-tipo varchar(40),
+tipoAcervo varchar(40),
 ruaAvenida varchar (60),
 numero int,
 bairro varchar (60),
@@ -28,6 +28,14 @@ fkAcervo int,
 foreign key(fkAcervo) references tbAcervo(idAcervo)
 );
 
+create table tbArea(
+idArea int primary key auto_increment,
+tipoArea varchar (50),
+quantidadeArea int,
+fkAcervo int,
+foreign key(fkAcervo) references tbAcervo(idAcervo)
+);
+
 create table tbSensor(
 idSensor int primary key auto_increment,
 umidadeMin int,
@@ -35,8 +43,8 @@ umidadeMax int,
 temperaturaMin int,
 temperaturaMax int,
 statusSensor varchar (20),
-fkAcervo int,
-foreign key(fkAcervo) references tbAcervo(idAcervo)
+fkArea int,
+foreign key(fkArea) references tbArea(idArea)
 );
 
 create table tbRegistro(
@@ -49,13 +57,7 @@ fkSensor int,
 foreign key(fkSensor) references tbSensor(idSensor)
 );
 
-create table tbArea(
-idArea int primary key auto_increment,
-tipo varchar (50),
-quantidadeArea int,
-fkAcervo int,
-foreign key(fkAcervo) references tbAcervo(idAcervo)
-);
+
 
 
 insert into tbAcervo values 
@@ -66,4 +68,17 @@ select * from tbAcervo;
 insert into tbUsuario values (null, "João Augusto", "17/10/1975", "789.458.784-57", "(11)94784-5468", "joaoaugusto@gmail.com", "joaoaugusto", "12345678", 1);
 
 select * from tbUsuario;
+
+insert into tbArea values (null, "Sala de Leitura", 3, 1);
+
+select * from tbArea;
+
+select tbAcervo.*, nomeUsuario, fkAcervo as 'Acervo' from tbAcervo,tbUsuario
+    where fkAcervo=idAcervo;
+    
+select tbAcervo.*, tipoArea, quantidadeArea, fkAcervo as 'Acervo' from tbAcervo, tbArea where fkAcervo=idAcervo;
+
+update tbUsuario set nomeUsuario = 'Paulo José' where idUsuario = 1; 
+
+delete nomeUsuario from tbUsuario where idUsuario = 1;
 
