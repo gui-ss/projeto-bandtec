@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chameleon Digital Solutions</title>
+    <title>Document</title>
 
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-
-    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/global.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
-
-    <!-- CABEÇALHO DO SITE -->
     <header>
+
         <nav id='nav-menu' class='flex'>
             <div class="container flex">
                 <div class="logo-container flex">
-                    <img src="img/logo.png" alt="Logo Chameleon" class='logo'>
-
-                    <h3 class='logo-name'>Chameleon</h3>
+                    <h2 class='logo-name'>Chameleon</h2>
                 </div>
 
                 <div class="menu-container">
@@ -38,6 +31,9 @@
                             <a href="#our-project" class='menu-link'>Projeto</a>
                         </li>
                         <li class="item-menu">
+                            <a href="#gallery" class='menu-link'>Galeria</a>
+                        </li>
+                        <li class="item-menu">
                             <a href="#our-team" class='menu-link'>Equipe</a>
                         </li>
                         <li class="item-menu">
@@ -47,9 +43,12 @@
                 </div>
 
                 <div class="login-container">
-                    <ul class="menu flex">
+                    <ul class="menu">
                         <li class="item-menu">
-                            <a onclick='openModal()' class='login-link'>Login</a>
+                            <a href="#" class='page-link'>Simulador</a>
+                        </li>
+                        <li class="item-menu">
+                            <a onclick='openModal()' class='page-link'>Login</a>
                         </li>
                     </ul>
                 </div>
@@ -57,257 +56,301 @@
         </nav>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main>
-
         <section id="home">
+
             <div class="container">
-                <div class="conteudo-home">
-                    <h1>Chameleon</h1>
-                    <h3>Digital Solutions</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, autem praesentium? Obcaecati, sunt a. Expedita corporis pariatur, quasi porro?</p>
-                    <button>Ver Mais</button>
+                <div class="content flex">
+                    <div class="text">
+                        <h1 id='home-title'>Lorem ipsum dolor</h1>
+                        <p id='home-desc'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur doloremque maiores rerum totam incidunt. Tempora necessitatibus, saepe praesentium reprehenderit tempore repellendus consequatur optio fuga in eaque nulla sit temporibus assumenda.</p>
+                        <div class='buttons'>
+                            <button class='more'>
+                                Veja mais
+                            </button>
+                        </div>
+                    </div>
+    
+                    <div class="image flex">
+                        <img src="./img/img-home.png">
+                    </div>
                 </div>
             </div>
-            <img src="img/img-home.png" alt="">
+
+              <svg class="home-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+                <defs>
+                  <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+                </defs>
+                <g class="wave1">
+                  <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+                </g>
+                <g class="wave2">
+                  <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+                </g>
+                <g class="wave3">
+                  <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+                </g>
+              </svg>
         </section>
 
         <section id="about-us">
             <div class="container">
-                <h1>SOBRE <br> NÓS</h1>
-                <div class="sobre">
+                <img src="img/img-sobre.jpg">
+                <div class="about-component">
+                    <h1>Conheça um pouco mais sobre a nossa empresa</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae maiores reiciendis, nam natus itaque explicabo ad quos harum, est dolore!</p>
+                    
+                    <div class="card-info">
+                        <div class="card-icon">
+                            <div class="contour-icon">
+                                <i class="fa fa-trophy" id="icone"></i>
+                            </div>
+                        </div>
+                        <div class="card-text">
+                            <h2>Missão</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum rem consequuntur ipsum autem mollitia.</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-icon">
+                            <div class="contour-icon">
+                                <i class="fa fa-eye" id="icone"></i>
+                            </div>
+                        </div>
+                        <div class="card-text">
+                            <h2>Visão</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum rem consequuntur ipsum autem mollitia.</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-icon">
+                            <div class="contour-icon">
+                                <i class="fa fa-diamond" id="icone"></i>
+                            </div>
+                        </div>
+                        <div class="card-text">
+                            <h2>Valores</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id='our-project'>
+            <div class="container">
+                <div class="project-content">
+                    <h1>Conheça um pouco mais sobre e entenda melhor o nosso projeto bookcare :)</h1>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis veritatis quis ratione commodi similique veniam quia, quibusdam, deleniti laborum maiores ut dicta quos ullam perspiciatis blanditiis recusandae eius, voluptate iusto.</h3>
+
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quia voluptas perferendis maiores similique! Delectus sed ratione eius accusamus velit, culpa repudiandae modi? Quas molestias recusandae aperiam delectus placeat pariatur.
+                        <i class="fa fa-check" id="check"></i>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel laboriosam facilis assumenda asperiores quae doloribus dolorum provident? 
                     </p>
+                    <p>
+                        <i class="fa fa-check" id="check"></i>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel laboriosam facilis assumenda asperiores quae doloribus dolorum provident? 
+                    </p>
+                    <p>
+                        <i class="fa fa-check" id="check"></i>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel laboriosam facilis assumenda asperiores quae doloribus dolorum provident? 
+                    </p>
+                    
+                </div>
+                <img src="img/img-project.jpg">
+            </div>
+        </section>
 
-                    <div class="valores">
-                        <div class="container-valores">
-                            <ul>
-                                <li>
+        <section id='gallery'>
+            <div class="container">
+                <h3 class='section-title'>Galeria</h3>
+                <h2 class='title'>VEJA A GALERIA DE FOTOS</h2>
+                <div class="galeria">
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-1.jpg" alt="">
+                    </div>
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-2.jpg" alt="">
+                    </div>
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-3.jpg" alt="">
+                    </div>
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-4.jpg" alt="">
+                    </div>
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-5.jpg" alt="">
+                    </div>
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-6.jpg" alt="">
+                    </div>
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-7.jpg" alt="">
+                    </div>
+                    <div class="card-img">
+                        <img src="img/gallery/gallery-8.jpg" alt="">
+                    </div>
+                   
+                </div>
+                
+            </div>
+        </section>
 
-                                    <h3>Missão</h3>
+        <section id='our-team'>
+            <div class="container">
+                <h3 class='section-title'>Equipe</h3>
+                <h2 class='title'>NOSSO TIME ÍNCRIVEL</h2>
 
+                <ul class="team-list" id='teamList'>
+                    <div id="line-one" class="flex">
 
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </div>
+                    <div id="line-two" class="flex">
 
-                                    </p>
-                                </li>
-                                <li>
+                    </div> 
+                </ul>
+            </div>
+        </section>
 
-                                    <h3>Visão</h3>
+        <section id="contact-us">
+            <div class='container'>
+                <h3 class="section-title">Contato</h3>
+                <h2 class="title">FALE CONOSCO</h2>
 
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                    </p>
-                                </li>
-                                <li>
+                <div class="contact-content flex">
+                    <div class="contact-info flex">
 
-                                    <h3>Valores</h3>
+                        <div class="card-contact flex">
+                            <div class="contact-icon flex">
+                                <i class="fa fa-map" id="icone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Onde nos encontrar:</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                            </div>
+                        </div>
 
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                    </p>
-                                </li>
-                            </ul>
+                        <div class="card-contact  flex">
+                            <div class="contact-icon flex">        
+                                <i class="fa fa-envelope" id="icone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Nosso e-mail:</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                            </div>
+                        </div>
+
+                        <div class="card-contact  flex">
+                            <div class="contact-icon flex">
+                                <i class="fa fa-phone" id="icone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Nosso telefone:</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="contact-area">
+                        <form action="" class='flex'>
+                            <div class="form-input">
+                                <input type="text" placeholder="Nome">
+                            </div>
 
-                </div>
-        </section>
+                            <div class="form-input">
+                                <input type="email" placeholder="Email">
+                            </div>
 
-        <!--PROJETO-->
+                            <div class="big-form-input">
+                                <input type="text" placeholder="Assunto">
+                            </div>
 
-        <section id="our-project" class="projeto">
-            <div class="container">
-                <div class="conteudo-projeto">
-                    <h1>PROJETO</h1>
-                    <p>Lorem ipsum, dolor sit amet <br> consectetur adipisicing elit.<br> Sed tempora voluptatem, labore <br> optio quod pariatur itaque placeat</p>
+                            <div class="big-form-input">
+                                <textarea name="" id="" cols="30" rows="10" placeholder="Sua mensagem"></textarea>
+                            </div>
 
-                    <div class="box-slide">
+                            <div class='button-area flex'>
+                                <button type="submit" class='button-contact'>Enviar</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="box-slide2">
-                    </div>
-                </div>
-
-
-                <img src="img/img-project.png" alt="">
-            </div>
-        </section>
-
-        <!--FIM PROJETO-->
-
-        <!--NOSSO TIME-->
-
-        <section class="time" id="our-team">
-            <div class="container">
-                <div class="time_title">
-                    <h1>NOSSO TIME</h1>
-                    <p>
-                        Nosso Time é composto por Profissionais competentes e eficiêntes, dispostos a proporcionar a melhor experiência e rentabilidade para o seu negócio.
-                    </p>
-                </div>
-                <div class="equipe1">
-                    <img class="perfil" src="img/gisele.png" alt="">
-                    <h3>Gisele Flor</h3><br>
-                    <h5><i>Desenvolvedor</i></h5>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/gisele-araujo" target="blank"><img src="img/git.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="http://fb.com/giwkiss" target="blank"><img src="img/face.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="" target="blank"><img src="img/linkedin.png" alt=""></a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="equipe1">
-                    <img class="perfil" src="img/chris.png"
-                        alt="">
-                    <h3>Christian Raphael</h3><br>
-                    <h5><i>Desenvolvedor</i></h5>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/christian-raphael" target="blank"><img src="img/git.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="http://facebook.com/christianrpl" target="blank"><img src="img/face.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="http://linkedin.com/in/christian-raphael-8560b5182" target="blank"><img src="img/linkedin.png" alt=""></a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="equipe1">
-                    <img class="perfil" src="img/adaias.png" alt="">
-                    <h3>Adaías Santos</h3><br>
-                    <h5><i>Desenvolvedor</i></h5>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/shaftmind" target="blank"><img src="img/git.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/adaias.santosalmeida" target="blank"><img src="img/face.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/ada%C3%ADas-santos-7581171a5/" target="blank"><img src="img/linkedin.png" alt=""></a>
-                        </li>
-                    </ul>
-
-                </div>
-
-                <div class="equipe2">
-                    <img class="perfil" src="img/gustavo.png" alt="">
-                    <h3>Gustavo Henrique</h3><br>
-                    <h5><i>Desenvolvedor</i></h5>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/gustavo-henrique1" target="blank"><img src="img/git.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="" target="blank"><img src="img/face.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="" target="blank"><img src="img/linkedin.png" alt=""></a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="equipe2">
-                    <img class="perfil" src="img/guilhermesa.png" alt="">
-                    <h3>Guilherme de Sá</h3><br>
-                    <h5><i>Desenvolvedor</i></h5>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/guilherme-d-sa" target="blank"><img src="img/git.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="" target="blank"><img src="img/face.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="" target="blank"><img src="img/linkedin.png" alt=""></a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="equipe2">
-                    <img class="perfil" src="img/guilhermesilva.png" alt="">
-                    <h3>Guilherme Silva</h3><br>
-                    <h5><i>Desenvolvedor</i></h5>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/guilherme-lindo" target="blank"><img src="img/git.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/guilherme.silvasantos.1" target="blank"><img src="img/face.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="" target="blank"><img src="img/linkedin.png" alt=""></a>
-                        </li>
-                    </ul>
-
                 </div>
             </div>
         </section>
-
-        <section id="contact-us" class="contato">
-            <div class="container">
-                <img src="img/img-contact.png" alt="">
-                <form>
-                    <h1>CONTATO</h1>
-                    <input id="name_contact" placeholder="Nome"> <br>
-                    <input id="email_contact" placeholder="E-mail"> <br>
-                    <input id="message_contact" placeholder="Mensagem..."> <br>
-                    <button onclick="send()">Enviar</button>
-                </form>
-            </div>
-        </section>
-
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
-
-    </footer>
-
-    <div id="modal-login" onclick='closeModal()'>
-        <div class="container flex" id='container-modal'>
-            <div class="login-area flex">
-                <div class="close-area">
-                    <i class="fas fa-times" id="icon-close-modal"></i>
-                </div>
-
-                <div class='content'>
-                    <div class="container">
-                        <h2>LOGO DO SISTEMA</h2>
-
-                        <form class='form-login'>
-                            <input type="text" placeholder="E-mail">
-
-                            <input type="text" placeholder="Senha">
-
-                            <button>Login</button>
-                        </form>
-
-                        <a href="" class='link-registro'>ou clique aqui para se <span>registrar</span></a>
-                    </div>
-                </div>
-
-                <div class="image flex">
-                    <img src="./img/img-login.png" alt="Mulher em uma biblioteca">
+        <div class="container container-footer">
+            <div class='news flex'>
+                <h3>Fique por dentro das novidades do nosso projeto ;)</h3>
+                <div class="flex">
+                    <input type="text" class='input-news' placeholder="Digite seu email">
+                    <button class='button-news'>Receber novidades</button>
                 </div>
             </div>
         </div>
-    </div>
 
+        <div class="container container-footer flex">
+            <div class="info-footer">
+                <h2>Chameleon</h2>
+                <p class='desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                <p class='location'>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                <div class="footer-contact">
+                    <p> <b>Telefone:</b> (xx) xxxx-xxxx </p>
+                    <p> <b>Email:</b> exemplo@chameleon.com</p>
+                </div>
+            </div>
+
+            <div class="nav-footer">
+                <h3>Voltar para</h3>
+                <ul class='menu-footer'>
+                    <li>
+                        <a href="#home"> <i class='fa fa-angle-right icon'></i> Home</a>
+                    </li>
+                    <li >
+                        <a href="#about-us"> <i class='fa fa-angle-right icon'></i> Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#our-project"> <i class='fa fa-angle-right icon'></i> Projeto</a>
+                    </li>
+                    <li>
+                        <a href="#gallery"> <i class='fa fa-angle-right icon'></i> Galeria</a>
+                    </li>
+                    <li>
+                        <a href="#our-team"> <i class='fa fa-angle-right icon'></i> Equipe</a>
+                    </li>
+                    <li>
+                        <a href="#contact-us"> <i class='fa fa-angle-right icon'></i> Contato</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="login-footer">
+                <h3>Outros Links</h3>
+                <ul class='menu-footer'>
+                    <li>
+                        <a href="#home"> <i class='fa fa-angle-right icon'></i> Simulador Financeiro</a>
+                    </li>
+                    <li >
+                        <a href="#about-us"> <i class='fa fa-angle-right icon'></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <hr class='line'>
+
+            <div class='final-footer'>
+                &copy; Chameleon 2020
+            </div>
+        </div>
+    </footer>
+
+    <script src='js/content-js.js'></script>
     <script src="js/menu-animation.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
-
 </html>
+
