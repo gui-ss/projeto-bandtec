@@ -29,7 +29,7 @@ div.container {
 }
 
 nav {
-  z-index: 100;
+  z-index: 10;
 }
 
 h3.section-title{
@@ -650,9 +650,10 @@ footer h3 {
   flex-wrap: wrap;
 }
 
-.news div {
+.news form {
   flex: 1;
   justify-content: flex-end;
+  width: 100%
 }
 
 .input-news {
@@ -751,4 +752,127 @@ footer h3 {
   color: white;
   padding: 10px 0;
   font-style: italic;
+}
+
+/* MODAL DE LOGIN */
+
+div#modal-login {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(44, 44, 44, 0.712);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.2s linear;
+  z-index: 20
+}
+
+div#modal-login .container {
+  height: 100%;
+}
+
+div.login-area {
+  position: relative;
+  width: 85%;
+  height: 85%;
+  background-size: 100% 100%;
+  border-radius: 5px;
+  padding-top: 5%;
+  box-sizing: border-box;
+  background: white;
+}
+
+div.login-area div.content, div.image {
+  height: 90%;
+}
+
+div.login-area div.content {
+  width: 40%;
+}
+
+div.login-area div.content h2 {
+  font-size: 42px;
+}
+
+div.login-area div.content div.container {
+  float: right;
+}
+
+div.login-area div.image {
+  width: 60%;
+}
+
+div.login-area div.image img {
+  width: 90%;
+}
+
+.modal-active {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+form.form-login {
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+form.form-login .input-login, .btn-login {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+form.form-login .input-login {
+  background: rgb(219, 219, 219);
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+form.form-login .btn-login {
+  background: #3cdb98;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+form.form-login .input-login::placeholder {
+  font-size: 16px;
+  color: rgb(141, 141, 141);
+  
+}
+
+a.link-registro {
+  color: rgb(54, 54, 54);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a.link-registro span {
+  color: #3cdb98;
+}
+
+a.link-registro span:hover {
+  text-decoration: underline;
+}
+
+.close-area {
+  position: absolute;
+  width: 30px;
+  top: 15px;
+  right: 20px;
+}
+
+#icon-close-modal {
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(194, 194, 194);
+  transition: color .5s;
+}
+
+#icon-close-modal:hover {
+  color: rgb(255, 42, 42);
 }

@@ -45,7 +45,7 @@
                 <div class="login-container">
                     <ul class="menu">
                         <li class="item-menu">
-                            <a href="#" class='page-link'>Simulador</a>
+                            <a  href="../simulador/simulador.html" class='page-link'>Simulador</a>
                         </li>
                         <li class="item-menu">
                             <a onclick='openModal()' class='page-link'>Login</a>
@@ -283,10 +283,12 @@
         <div class="container container-footer">
             <div class='news flex'>
                 <h3>Fique por dentro das novidades do nosso projeto ;)</h3>
-                <div class="flex">
+               
+                <form action="" class='flex'>
                     <input type="text" class='input-news' placeholder="Digite seu email">
                     <button class='button-news'>Receber novidades</button>
-                </div>
+                </form>
+               
             </div>
         </div>
 
@@ -331,7 +333,7 @@
                 <h3>Outros Links</h3>
                 <ul class='menu-footer'>
                     <li>
-                        <a href="#home"> <i class='fa fa-angle-right icon'></i> Simulador Financeiro</a>
+                        <a href="../simulador/simulador.html"> <i class='fa fa-angle-right icon'></i> Simulador Financeiro</a>
                     </li>
                     <li >
                         <a href="#about-us"> <i class='fa fa-angle-right icon'></i> Login</a>
@@ -349,6 +351,37 @@
         </div>
     </footer>
 
+    <div id="modal-login" onclick='closeModal()'>
+        <div class="container flex" id='container-modal'>
+            <div class="login-area flex">
+                <div class="close-area">
+                    <i class="fa fa-times" id="icon-close-modal"></i>
+                </div>
+
+                <div class='content'>
+                    <div class="container">
+                        <h2>Bem-vindo(a) ao BookCare</h2>
+
+                        <form class='form-login'>
+                            <input type="text" placeholder="E-mail" class='input-login'>
+
+                            <input type="text" placeholder="Senha" class='input-login'>
+
+                            <button class='btn-login'>Login</button>
+                        </form>
+
+                        <a href="" class='link-registro'>ou clique aqui para se <span>registrar</span></a>
+                    </div>
+                </div>
+
+                <div class="image flex">
+                    <img src="./img/img-login.jpg" alt="Mulher em uma biblioteca">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/modal.js"></script>
     <script src='js/content-js.js'></script>
     <script src="js/menu-animation.js"></script>
 </body>
