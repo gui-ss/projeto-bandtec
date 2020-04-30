@@ -1,0 +1,23 @@
+body.darkMode *{
+    color: white;
+}
+
+body.darkMode section {
+    background-color: rgb(34, 34, 34);
+}
+
+body.darkMode div.box-graph-top {
+    background-color: rgb(58, 58, 58);
+}
+
+body.darkMode div.box-graph-big {
+    background-color: rgb(58, 58, 58);
+}
+
+body.darkMode div.box-graph-medium {
+    background-color: rgb(58, 58, 58);
+}
+
+body.darkMode nav#menu {
+    background-color: rgb(58, 58, 58);
+}

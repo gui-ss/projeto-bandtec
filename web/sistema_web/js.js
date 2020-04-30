@@ -48,11 +48,9 @@ function enableDarkMode(){
     
     var teste = document.getElementById('checkDarkMode');
     if(teste.checked){
-        document.getElementById("principal").classList.remove("offNightMode");
-        document.getElementById("principal").classList.add("nightMode");
+        document.body.classList.add('darkMode');
     }else{
-        document.getElementById("principal").classList.remove("nightMode");
-        document.getElementById("principal").classList.add("offNightMode");
+        document.body.classList.remove('darkMode');
     }
 }
 

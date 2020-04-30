@@ -354,11 +354,3 @@ hr{
 .slider.round:before {
     border-radius: 50%;
 }
-
-.nightMode{
-    background-color: rgb(41, 41, 41);
-}
-
-.offNightMode{
-    background-color: rgb(255, 255, 255);
-}
