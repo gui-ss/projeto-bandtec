@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>Line Chart</title>
+	<title>Dashboard</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
 	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
@@ -48,7 +48,11 @@
 			</div>
 			<div class="contour-icon">
 				<i class="material-icons">brightness_medium</i>
-				<a href="#" class="funcao" onclick="noturnmode()">Modo escuro</a>
+				<a href="#" class="funcao">Modo escuro</a>
+				<label class="switch" id='labelSwitch'>
+					<input type="checkbox" id='checkDarkMode'>
+					<span class="slider round"></span>
+				</label>
 			</div>
 		</div>
 	</nav>

@@ -16,6 +16,8 @@ function abrir(){
     }
    
     document.getElementById("chart").style.width="90%";
+    
+    document.getElementById("labelSwitch").style.display = 'block';
 }
 
 function fechar(){
@@ -35,5 +37,8 @@ function fechar(){
         circulo[i].style.width="15%";
     }
 
-    document.getElementById("chart").style.width="100%";
+    document.getElementById("chart").style.width="100%"; 
+    
+    
+    document.getElementById("labelSwitch").style.display = 'none';
 }
