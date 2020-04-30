@@ -1,0 +1,328 @@
+
+<!doctype html>
+<html>
+
+<head>
+	<title>Line Chart</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="js.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<nav id="menu" onmouseover="abrir()">
+		<div class="contour-icon" id="logo">
+			<p id="closed">b</p>
+			<p id="open">bookcare</p>
+		</div>
+		<div class="contour-icon" id="contour-icon">
+			<i class="material-icons">dashboard</i>
+			<a href="#" class="funcao">Dashboard</a>
+		</div>
+
+		<div class="contour-icon" id="contour-icon">
+			<i class="material-icons">home</i>
+			<a href="#" class="funcao">Salas</a>
+		</div>
+
+		<div class="contour-icon" id="contour-icon">
+			<i class="material-icons">equalizer</i>
+			<a href="#" class="funcao">Relatórios</a>
+		</div>
+		<div class="baixo">
+			<hr>
+			<div class="contour-icon" id="contour-icon">
+				<i class="material-icons">build</i>
+				<a href="#" class="funcao">Configurações</a>
+			</div>
+			<div class="contour-icon">
+				<i class="material-icons">brightness_medium</i>
+				<a href="#" class="funcao" onclick="noturnmode()">Modo escuro</a>
+			</div>
+		</div>
+	</nav>
+
+	<section id="principal" onmouseover="fechar()">
+		<div class="dashboard">
+			<div class="nav-principal" id="nav-princial">
+				<div class="title-dash">
+					<h1>Dashboard</h1>
+				</div>
+				<div class="conta" id="conta">
+					<img src="img/avatar.png">
+					<p>Admin</p>
+					<a href="#"><i class="material-icons">arrow_drop_down</i></a>
+				</div>
+			</div>
+			<div class="graph-top">
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Temperatura</label>
+						<div class="circle" id="circle"></div>
+					</div>
+					<h2>Média: <label id='average'>0.00</label></h2>
+					<h2>Média Hora: <label id='averageHour'>0.00</label></h2>
+				</div>
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Umidade</label>
+						<div class="circle" id="circle"></div>
+					</div>
+					<h2>Média: <label id='average'>22.01</label></h2>
+					<h2>Média Hora: <label id='averageHour'>0.00</label></h2>
+				</div>
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Temperatura</label>
+						<div class="circle" id="circle"></div>
+					</div>
+					<h2>Média: <label id='average'>23.08</label></h2>
+					<h2>Média Hora: <label id='averageHour'>0.00</label></h2>
+				</div>
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Umidade</label>
+						<div class="circle" id="circle"></div>
+					</div>
+					<h2>Média: <label id='average'>21.30</label></h2>
+					<h2>Média Hora: <label id='averageHour'>0.00</label></h2>
+				</div>
+			</div>
+			<div class="graph-bottom">
+				<div class="box-graph-big">
+					<div id="teste-grafico">
+						<canvas id="chart" style="transition: 0.5s;"></canvas>
+					</div>		
+				</div>
+				<div class="box-graph-medium">
+					<div id="pizza-grafico">
+						<canvas id="chart-area"></canvas>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+
+
+<script>
+							
+	var context = document.getElementById("chart").getContext("2d");
+	context.canvas.width = 1000;
+	context.canvas.height = 300;
+	
+	var configuration = {
+		type: 'line',
+		data: {
+			datasets: [{
+				label: "Temperature x Time",
+				type: 'line',
+				borderColor: window.chartColors.blue,
+			}]
+		},
+		options: {
+			scales: {
+				xAxes: [{
+					//type: 'value',
+					distribution: 'series',
+					ticks: {
+						beginAtZero:true
+					}
+				}],
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Temperature'
+					},
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			animation: {
+				duration: 0
+			}
+		}
+	};
+	
+	var chart = new Chart(context, configuration);
+
+	//Função para obter os dados de temperatura do server
+	//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+	
+	//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+	//hora de montar/atualizar o gráfico
+	this.lastIndexTemp = 0;
+	this.time = 0;
+
+	function get_data(){
+
+		var http = new XMLHttpRequest();
+		http.open('GET', 'http://localhost:3000/api', false);
+		http.send(null);        
+		
+		var obj = JSON.parse(http.responseText);
+		console.log(obj)
+		if (obj.data.length == 0){
+			return;
+		}
+
+		var _lastIndexTemp = this.lastIndexTemp;
+		this.lastIndexTemp = obj.data.length;
+		listTemp = obj.data.slice(_lastIndexTemp);
+
+		listTemp.forEach(data => {
+			//Máximo de 60 itens exibidos no gráfico
+			if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){
+				chart.data.labels.shift();
+				chart.data.datasets[0].data.shift();
+			}
+
+			chart.data.labels.push(this.time++);
+			chart.data.datasets[0].data.push(parseFloat(data));
+			chart.update();
+		});
+		
+		document.getElementById('average').textContent = obj.average;
+		document.getElementById('averageHour').textContent = obj.averageHour;
+	} 
+	
+	get_data();
+
+	setInterval(() => {
+		get_data();
+	}, 1000);
+
+</script>
+
+<script>
+		var randomScalingFactor = function() {
+			return Math.round(Math.random() * 100);
+		};
+
+		var config = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+					],
+					backgroundColor: [
+						window.chartColors.ocean,
+						window.chartColors.blue,
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					'Média',
+					'Hora'
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: ''
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myDoughnut = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+			});
+
+			window.myDoughnut.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var newDataset = {
+				backgroundColor: [],
+				data: [],
+				label: 'New dataset ' + config.data.datasets.length,
+			};
+
+			for (var index = 0; index < config.data.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+
+				var colorName = colorNames[index % colorNames.length];
+				var newColor = window.chartColors[colorName];
+				newDataset.backgroundColor.push(newColor);
+			}
+
+			config.data.datasets.push(newDataset);
+			window.myDoughnut.update();
+		});
+
+		document.getElementById('addData').addEventListener('click', function() {
+			if (config.data.datasets.length > 0) {
+				config.data.labels.push('data #' + config.data.labels.length);
+
+				var colorName = colorNames[config.data.datasets[0].data.length % colorNames.length];
+				var newColor = window.chartColors[colorName];
+
+				config.data.datasets.forEach(function(dataset) {
+					dataset.data.push(randomScalingFactor());
+					dataset.backgroundColor.push(newColor);
+				});
+
+				window.myDoughnut.update();
+			}
+		});
+
+		document.getElementById('removeDataset').addEventListener('click', function() {
+			config.data.datasets.splice(0, 1);
+			window.myDoughnut.update();
+		});
+
+		document.getElementById('removeData').addEventListener('click', function() {
+			config.data.labels.splice(-1, 1); // remove the label first
+
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data.pop();
+				dataset.backgroundColor.pop();
+			});
+
+			window.myDoughnut.update();
+		});
+
+		document.getElementById('changeCircleSize').addEventListener('click', function() {
+			if (window.myDoughnut.options.circumference === Math.PI) {
+				window.myDoughnut.options.circumference = 2 * Math.PI;
+				window.myDoughnut.options.rotation = -Math.PI / 2;
+			} else {
+				window.myDoughnut.options.circumference = Math.PI;
+				window.myDoughnut.options.rotation = -Math.PI;
+			}
+
+			window.myDoughnut.update();
+		});
+	</script>
