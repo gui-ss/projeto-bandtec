@@ -298,8 +298,8 @@ hr{
 .switch {
     display: none;
     position: relative;
-    width: 60px;
-    height: 34px;
+    width: 40px;
+    height: 24px;
 }
 
 .switch input {
@@ -323,13 +323,14 @@ hr{
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 16px;
+    width: 16px;
     left: 4px;
     bottom: 4px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+    margin-left: 2%;
 }
 
 #checkDarkMode:checked + .slider {
@@ -352,4 +353,12 @@ hr{
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.nightMode{
+    background-color: rgb(41, 41, 41);
+}
+
+.offNightMode{
+    background-color: rgb(255, 255, 255);
 }

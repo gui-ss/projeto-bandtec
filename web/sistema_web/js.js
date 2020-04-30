@@ -41,4 +41,18 @@ function fechar(){
     
     
     document.getElementById("labelSwitch").style.display = 'none';
+
 }
+
+function enableDarkMode(){
+    
+    var teste = document.getElementById('checkDarkMode');
+    if(teste.checked){
+        document.getElementById("principal").classList.remove("offNightMode");
+        document.getElementById("principal").classList.add("nightMode");
+    }else{
+        document.getElementById("principal").classList.remove("nightMode");
+        document.getElementById("principal").classList.add("offNightMode");
+    }
+}
+
