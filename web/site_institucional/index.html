@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chameleon Solutions</title>
 
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/global.css">
@@ -62,8 +62,8 @@
             <div class="container">
                 <div class="content flex">
                     <div class="text">
-                        <h1 id='home-title'>Lorem ipsum dolor</h1>
-                        <p id='home-desc'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur doloremque maiores rerum totam incidunt. Tempora necessitatibus, saepe praesentium reprehenderit tempore repellendus consequatur optio fuga in eaque nulla sit temporibus assumenda.</p>
+                        <h1 id='home-title'>Faça parte da nossa hístoria</h1>
+                        <p id='home-desc'>A Chameleon digital solutions é uma empresa criada no ano de 2020 nas dependencias da faculdade Bandtec, e é especializada no desenvolvimento em soluções na área de técnologia, sempre visando a satisfação e buscando a resolução do jeito que o cliente espera.</p>
                         <div class='buttons'>
                             <button class='more'>
                                 Veja mais
@@ -98,7 +98,7 @@
                 <img src="img/img-sobre.jpg">
                 <div class="about-component">
                     <h1>Conheça um pouco mais sobre a nossa empresa</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae maiores reiciendis, nam natus itaque explicabo ad quos harum, est dolore!</p>
+                    <p>O nosso time está sempre atento ao mercado e as novas tecnologias para desenvolvimento, se mantendo atualizada e pronta para agir!</p>
                     
                     <div class="card-info">
                         <div class="card-icon">
@@ -108,7 +108,7 @@
                         </div>
                         <div class="card-text">
                             <h2>Missão</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum rem consequuntur ipsum autem mollitia.</p>
+                            <p>Desenvolver soluções de qaulidade, visando sempre a satisfação de nossos clientes.</p>
                         </div>
                     </div>
                     <div class="card-info">
@@ -119,7 +119,7 @@
                         </div>
                         <div class="card-text">
                             <h2>Visão</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum rem consequuntur ipsum autem mollitia.</p>
+                            <p>Ser uma empresa conceituada no mercado de técnologia através de grandes projetos.</p>
                         </div>
                     </div>
                     <div class="card-info">
@@ -130,7 +130,7 @@
                         </div>
                         <div class="card-text">
                             <h2>Valores</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit.</p>
+                            <p>Confiança, transparência e empenho.</p>
                         </div>
                     </div>
                 </div>
@@ -141,19 +141,19 @@
             <div class="container">
                 <div class="project-content">
                     <h1>Conheça um pouco mais sobre e entenda melhor o nosso projeto bookcare :)</h1>
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis veritatis quis ratione commodi similique veniam quia, quibusdam, deleniti laborum maiores ut dicta quos ullam perspiciatis blanditiis recusandae eius, voluptate iusto.</h3>
+                    <h3>O objetivo é auxiliar bibliotecas e sebos na preservação de seus acervos através de um software que possui um monitoramento eficaz da temperatura e umidade do local por meio de sensores DHT11.</h3>
 
                     <p>
                         <i class="fa fa-check" id="check"></i>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel laboriosam facilis assumenda asperiores quae doloribus dolorum provident? 
+                        Dados em tempo real captados pelos sensores.
                     </p>
                     <p>
                         <i class="fa fa-check" id="check"></i>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel laboriosam facilis assumenda asperiores quae doloribus dolorum provident? 
+                        Informações intuitivas disponibilizadas em um Dashboard.
                     </p>
                     <p>
                         <i class="fa fa-check" id="check"></i>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel laboriosam facilis assumenda asperiores quae doloribus dolorum provident? 
+                        Relatórios sobre os dados captados para uma melhor compreensão.
                     </p>
                     
                 </div>
@@ -336,7 +336,7 @@
                         <a href="../simulador/simulador.html"> <i class='fa fa-angle-right icon'></i> Simulador Financeiro</a>
                     </li>
                     <li >
-                        <a href="#about-us"> <i class='fa fa-angle-right icon'></i> Login</a>
+                        <a onclick='openModal()'> <i class='fa fa-angle-right icon'></i> Login</a>
                     </li>
                 </ul>
             </div>
@@ -363,11 +363,11 @@
                         <h2>Bem-vindo(a) ao BookCare</h2>
 
                         <form class='form-login'>
-                            <input type="text" placeholder="E-mail" class='input-login'>
+                            <input type="text" placeholder="E-mail" class='input-login' id='input_email'>
 
-                            <input type="text" placeholder="Senha" class='input-login'>
+                            <input type="text" placeholder="Senha" class='input-login' id='input_pass'>
 
-                            <button class='btn-login'>Login</button>
+                            <button class='btn-login' id='btlogin'>Login</button>
                         </form>
 
                         <a href="" class='link-registro'>ou clique aqui para se <span>registrar</span></a>
@@ -384,6 +384,7 @@
     <script src="js/modal.js"></script>
     <script src='js/content-js.js'></script>
     <script src="js/menu-animation.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
 
