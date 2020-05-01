@@ -21,3 +21,7 @@ body.darkMode div.box-graph-medium {
 body.darkMode nav#menu {
     background-color: rgb(58, 58, 58);
 }
+
+body.darkMode label {
+    color: white !important;
+}
