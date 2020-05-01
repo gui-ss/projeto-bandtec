@@ -126,7 +126,7 @@
 							
 	var context = document.getElementById("chart").getContext("2d");
 	context.canvas.width = 1000;
-	context.canvas.height = 300;
+	context.canvas.height = 350;
 	
 	var configuration = {
 		type: 'line',
@@ -213,6 +213,11 @@
 </script>
 
 <script>
+
+	var context = document.getElementById("chart-area").getContext("2d");
+	context.canvas.width = 600;
+	context.canvas.height = 350;
+
 		var randomScalingFactor = function() {
 			return Math.round(Math.random() * 100);
 		};
