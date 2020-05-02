@@ -30,7 +30,7 @@ function log(e) {
     if(user_login == '' && user_pass == ''){
         alert('Você deve preencher os campos :)');
     } else if(user_login == email && user_pass == pass) {
-        window.location.href = './../sistema_web/index.html'
+        window.location.href = 'splash.html';
     } else {
         alert('Login ou senha incorreta');
         document.getElementById('input_email').value = '';
