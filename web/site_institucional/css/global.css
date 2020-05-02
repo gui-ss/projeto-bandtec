@@ -778,7 +778,7 @@ div.login-area {
   height: 85%;
   background-size: 100% 100%;
   border-radius: 5px;
-  padding-top: 5%;
+  padding-top: 0%;
   box-sizing: border-box;
   background: white;
 }
@@ -845,13 +845,14 @@ form.form-login .input-login::placeholder {
   
 }
 
-a.link-registro {
+.link-registro {
   color: rgb(54, 54, 54);
   text-decoration: none;
   font-size: 14px;
+  cursor: pointer;
 }
 
-a.link-registro span {
+.link-registro span {
   color: #0078d7;
 }
 
@@ -875,4 +876,21 @@ a.link-registro span:hover {
 
 #icon-close-modal:hover {
   color: rgb(255, 42, 42);
+}
+
+/*CADSTRO*/
+
+#removeLogin{
+  transition: 0.7s;
+  height: 100%;
+}
+
+#addCadastro{
+  display: none;
+  width: 100%;
+}
+
+#imagemCadastro{
+  display: none;
+  width: 60%;
 }
