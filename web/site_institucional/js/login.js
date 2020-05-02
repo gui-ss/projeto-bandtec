@@ -27,9 +27,11 @@ function log(e) {
     let user_login = document.querySelector('#input_email').value;
     let user_pass = document.querySelector('#input_pass').value;
 
-    if(user_login == email && user_pass == pass) {
+    if(user_login == '' && user_pass == ''){
+        alert('Você deve preencher os campos :)');
+    } else if(user_login == email && user_pass == pass) {
         window.location.href = './../sistema_web/index.html'
-    }else {
+    } else {
         alert('Login ou senha incorreta');
         document.getElementById('input_email').value = '';
         document.getElementById('input_pass').value = '';

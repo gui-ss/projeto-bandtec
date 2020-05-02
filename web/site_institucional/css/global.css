@@ -837,8 +837,13 @@ form.form-login .btn-login {
   color: white;
   font-weight: bold;
   font-size: 18px;
+  transition: 0.3s;
 }
 
+form.form-login .btn-login:hover {
+  background: #105fa0;
+  cursor: pointer;
+}
 form.form-login .input-login::placeholder {
   font-size: 16px;
   color: rgb(141, 141, 141);
@@ -856,7 +861,7 @@ form.form-login .input-login::placeholder {
   color: #0078d7;
 }
 
-a.link-registro span:hover {
+.link-registro:hover {
   text-decoration: underline;
 }
 
@@ -892,5 +897,5 @@ a.link-registro span:hover {
 
 #imagemCadastro{
   display: none;
-  width: 60%;
+  width: 100%;
 }
