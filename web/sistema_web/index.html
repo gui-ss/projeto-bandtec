@@ -79,7 +79,7 @@
 						</div>
 					</div>
 					<h2>Temperatura: 16,5 °C</h2>
-					<h2>Nivel: Médio</h2>
+					<h2>Nivel: <span style="color:#0078d7;">Médio</span></h2>
 				</div>
 				<div class="box-graph-top" id="box-graph-top">
 					<div class="top-graph">
@@ -89,7 +89,7 @@
 						</div>
 					</div>
 					<h2>Temperatura: 24,2 °C</h2>
-					<h2>Nivel: Máximo</h2>
+					<h2>Nivel: <span style="color:rgb(255,165,36);">Máximo</span></h2>
 				</div>
 				<div class="box-graph-top" id="box-graph-top">
 					<div class="top-graph">
@@ -99,7 +99,7 @@
 						</div>
 					</div>
 					<h2>Temperatura: 22,6 °C</h2>
-					<h2>Nivel: Ideal</h2>
+					<h2>Nivel: <span style="color:rgb(35, 197, 62);">Ideal</span></h2>
 				</div>
 				<div class="box-graph-top" id="box-graph-top">
 					<div class="top-graph">
@@ -109,13 +109,15 @@
 						</div>
 					</div>
 					<h2>Temperatura: 28,8 °C</h2>
-					<h2>Nivel: Alto</h2>
+					<h2>Nivel: <span style="color:rgb(238, 34, 44);">Alto</span></h2>
 				</div>
 			</div>
 			<div class="graph-bottom">
 				<div class="box-graph-big">
 					<div id="teste-grafico">
 						<canvas id="chart" style="transition: 0.5s;"></canvas>
+						<h2 span style="display: none">Média: <label id='average'>0.00</label></h2>
+						<h2 style="display: none">Média Hora: <label id='averageHour'>0.00</label></h2>		
 					</div>		
 				</div>
 				<div class="box-graph-medium">
@@ -143,7 +145,7 @@
 			datasets: [{
 				label: "Temperature x Time",
 				type: 'line',
-				borderColor: window.chartColors.blue,
+				borderColor: window.chartColors = "#0078d7"
 				
 			}]
 		},
@@ -298,9 +300,9 @@
 				datasets: [{
 					data: [1, 1, 1],
 					backgroundColor: [
-						window.chartColors.orange,
-						window.chartColors.blue,
-						window.chartColors.red
+						window.chartColors = "rgb(255,165,36)",
+						window.chartColors = "#0078d7",
+						window.chartColors = "rgba(197,35,42)"
 					],
 				}],
 				labels: [

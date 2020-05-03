@@ -16,7 +16,9 @@ function abrir(){
     }
    
     document.getElementById("chart").style.width="90%";
-    
+    document.getElementById("chart-area").style.width="90%";
+    document.getElementById("chart-area").style.height="90%";
+
     document.getElementById("labelSwitch").style.display = 'block';
 }
 
@@ -38,7 +40,7 @@ function fechar(){
     }
 
     document.getElementById("chart").style.width="100%";
-    
+
     document.getElementById("labelSwitch").style.display = 'none';
 
 }
