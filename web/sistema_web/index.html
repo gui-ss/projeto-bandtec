@@ -51,7 +51,7 @@
 				<i class="material-icons">brightness_medium</i>
 				<a href="#" class="funcao">Modo escuro</a>
 				<label class="switch" id='labelSwitch'>
-					<input type="checkbox" id='checkDarkMode'  value='0' onclick="enableDarkMode()">
+					<input type="checkbox" id='checkDarkMode' onclick="enableDarkMode()">
 					<span class="slider round"></span>
 				</label>
 			</div>
@@ -124,26 +124,31 @@
 
 <script>
 							
-	var context = document.getElementById("chart").getContext("2d");
-	context.canvas.width = 1000;
-	context.canvas.height = 350;
+	var fcontext = document.getElementById("chart").getContext("2d");
+	fcontext.canvas.width = 1000;
+	fcontext.canvas.height = 350;
 	
 	var configuration = {
 		type: 'line',
 		data: {
+			labels: [],
 			datasets: [{
 				label: "Temperature x Time",
 				type: 'line',
 				borderColor: window.chartColors.blue,
+				
 			}]
 		},
 		options: {
 			scales: {
 				xAxes: [{
-					//type: 'value',
-					distribution: 'series',
 					ticks: {
 						beginAtZero:true
+					},
+					display: true,
+					scaleLabel: {
+						display: true,
+						labelString: 'Horário da Leitura'
 					}
 				}],
 				yAxes: [{
@@ -162,7 +167,68 @@
 		}
 	};
 	
-	var chart = new Chart(context, configuration);
+	var dm_configuration = {
+		type: 'line',
+		data: {
+			datasets: [{
+				label: "Temperature x Time",
+				type: 'line',
+				borderColor: window.chartColors.blue,
+			}]
+		},
+		options: {
+			legend: {
+				labels: {
+					fontColor: 'white'
+				}
+			},
+			scales: {
+				xAxes: [{
+					ticks: {
+						beginAtZero:true,
+						fontColor: 'white'
+					},
+					gridLines: {
+						color: 'rgb(85, 85, 85)'
+					}
+				}],
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Temperature',
+						fontColor: 'white'
+					},
+					ticks: {
+						beginAtZero:true,
+						fontColor: 'white'
+					},
+					gridLines: {
+						color: 'rgb(85, 85, 85)'
+					}
+				}]
+			},
+			animation: {
+				duration: 0
+			},
+		}
+	};
+	
+	var chart = new Chart(fcontext, configuration);
+
+	let lb_switch = document.getElementById("labelSwitch");
+
+	lb_switch.addEventListener('click', function () {
+		let bdClass = document.body.getAttribute('class');
+
+		if(bdClass == 'darkMode') {
+			chart.destroy();
+			chart = new Chart(fcontext, dm_configuration);
+		}
+		else {
+			chart.destroy();
+			chart = new Chart(fcontext, configuration);
+		}
+	});
 
 	//Função para obter os dados de temperatura do server
 	//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
@@ -215,40 +281,32 @@
 <script>
 
 	var context = document.getElementById("chart-area").getContext("2d");
-	context.canvas.width = 600;
+	context.canvas.width = 500;
 	context.canvas.height = 350;
-
-		var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
-		};
 
 		var config = {
 			type: 'doughnut',
 			data: {
 				datasets: [{
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-					],
+					data: [1, 1, 1],
 					backgroundColor: [
-						window.chartColors.ocean,
+						window.chartColors.orange,
 						window.chartColors.blue,
+						window.chartColors.red
 					],
-					label: 'Dataset 1'
 				}],
 				labels: [
-					'Média',
-					'Hora'
+					'Muito Baixa',
+					'Normal',
+					'Muito Alta'
 				]
 			},
 			options: {
 				responsive: true,
-				legend: {
-					position: 'top',
-				},
 				title: {
 					display: true,
-					text: ''
+					text: 'Média de temperaturas ao longo do dia',
+					fontSize: 16
 				},
 				animation: {
 					animateScale: true,
@@ -257,82 +315,23 @@
 			}
 		};
 
+		function generateRandomData() {
+			let value_1 = parseInt(Math.random() * 5) + 1;
+			let value_2 = parseInt(Math.random() * 5) + 1;
+			let value_3 = parseInt(Math.random() * 5) + 1;
+
+			let values = [value_1, value_2, value_3];
+
+			config.data.datasets[0].data = values;
+			myDoughnut.update();
+		}
+
+		setInterval(() => {
+			generateRandomData()
+		}, 5000);
+
 		window.onload = function() {
 			var ctx = document.getElementById('chart-area').getContext('2d');
-			window.myDoughnut = new Chart(ctx, config);
+			window.myDoughnut = new Chart(ctx, config);	
 		};
-
-		document.getElementById('randomizeData').addEventListener('click', function() {
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data = dataset.data.map(function() {
-					return randomScalingFactor();
-				});
-			});
-
-			window.myDoughnut.update();
-		});
-
-		var colorNames = Object.keys(window.chartColors);
-		document.getElementById('addDataset').addEventListener('click', function() {
-			var newDataset = {
-				backgroundColor: [],
-				data: [],
-				label: 'New dataset ' + config.data.datasets.length,
-			};
-
-			for (var index = 0; index < config.data.labels.length; ++index) {
-				newDataset.data.push(randomScalingFactor());
-
-				var colorName = colorNames[index % colorNames.length];
-				var newColor = window.chartColors[colorName];
-				newDataset.backgroundColor.push(newColor);
-			}
-
-			config.data.datasets.push(newDataset);
-			window.myDoughnut.update();
-		});
-
-		document.getElementById('addData').addEventListener('click', function() {
-			if (config.data.datasets.length > 0) {
-				config.data.labels.push('data #' + config.data.labels.length);
-
-				var colorName = colorNames[config.data.datasets[0].data.length % colorNames.length];
-				var newColor = window.chartColors[colorName];
-
-				config.data.datasets.forEach(function(dataset) {
-					dataset.data.push(randomScalingFactor());
-					dataset.backgroundColor.push(newColor);
-				});
-
-				window.myDoughnut.update();
-			}
-		});
-
-		document.getElementById('removeDataset').addEventListener('click', function() {
-			config.data.datasets.splice(0, 1);
-			window.myDoughnut.update();
-		});
-
-		document.getElementById('removeData').addEventListener('click', function() {
-			config.data.labels.splice(-1, 1); // remove the label first
-
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data.pop();
-				dataset.backgroundColor.pop();
-			});
-
-			window.myDoughnut.update();
-		});
-
-		document.getElementById('changeCircleSize').addEventListener('click', function() {
-			if (window.myDoughnut.options.circumference === Math.PI) {
-				window.myDoughnut.options.circumference = 2 * Math.PI;
-				window.myDoughnut.options.rotation = -Math.PI / 2;
-			} else {
-				window.myDoughnut.options.circumference = Math.PI;
-				window.myDoughnut.options.rotation = -Math.PI;
-			}
-
-			window.myDoughnut.update();
-		});
 	</script>

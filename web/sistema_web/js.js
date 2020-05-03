@@ -37,8 +37,7 @@ function fechar(){
         circulo[i].style.width="15%";
     }
 
-    document.getElementById("chart").style.width="100%"; 
-    
+    document.getElementById("chart").style.width="100%";
     
     document.getElementById("labelSwitch").style.display = 'none';
 
