@@ -40,6 +40,8 @@ function fechar(){
     }
 
     document.getElementById("chart").style.width="100%";
+    document.getElementById("chart-area").style.width="100%";
+    document.getElementById("chart-area").style.height="100%";
 
     document.getElementById("labelSwitch").style.display = 'none';
 
