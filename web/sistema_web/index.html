@@ -143,10 +143,14 @@
 		data: {
 			labels: [],
 			datasets: [{
-				label: "Temperature x Time",
+				label: "Umidade",
 				type: 'line',
-				borderColor: window.chartColors = "#0078d7"
-				
+				borderColor: window.chartColors = "#0078d7",
+			},
+			{
+				label: "Temperatura",
+				type: 'line',
+				borderColor: window.chartColors = "rgb(255,165,36)",
 			}]
 		},
 		options: {
@@ -181,9 +185,14 @@
 		type: 'line',
 		data: {
 			datasets: [{
-				label: "Temperature x Time",
+				label: "Umidade",
 				type: 'line',
-				borderColor: window.chartColors.blue,
+				borderColor: window.chartColors = "#0078d7",
+			},
+			{
+				label: "Temperatura",
+				type: 'line',
+				borderColor: window.chartColors = "rgb(255,165,36)",
 			}]
 		},
 		options: {
@@ -200,6 +209,11 @@
 					},
 					gridLines: {
 						color: 'rgb(85, 85, 85)'
+					},
+					scaleLabel: {
+						display: true,
+						labelString: 'Horário da Leitura',
+						fontColor: '#e3e3e3'
 					}
 				}],
 				yAxes: [{
@@ -269,10 +283,12 @@
 			if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){
 				chart.data.labels.shift();
 				chart.data.datasets[0].data.shift();
+				chart.data.datasets[1].data.shift();
 			}
 
 			chart.data.labels.push(this.time++);
-			chart.data.datasets[0].data.push(parseFloat(data));
+			chart.data.datasets[0].data.push(parseFloat(data[0]));
+			chart.data.datasets[1].data.push(parseFloat(data[1]));
 			chart.update();
 		});
 		
@@ -316,7 +332,8 @@
 				title: {
 					display: true,
 					text: 'Média de temperaturas ao longo do dia',
-					fontSize: 16
+					fontSize: 16,
+					fontColor: document.body.getAttribute("class") == 'darkMode' ? '#e3e3e3' : '#666'
 				},
 				animation: {
 					animateScale: true,
