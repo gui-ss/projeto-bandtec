@@ -242,12 +242,26 @@ hr{
     background: #0078d7;
     margin-right: 8%;
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#circle2{
+    background: rgb(255,165,36);
+}
+#circle3{
+    background: rgb(35, 197, 62);
+}
+#circle4{
+    background: rgba(197,35,42);
 }
 
 .box-graph-top label{
     margin-left: 8%;
-    font-size: 17px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: bold;
     color: rgb(70, 70, 70);
 }
 
@@ -261,7 +275,7 @@ hr{
 
 .box-graph-top h2{
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 500;
     margin: 0;
     margin-left: 8%;
     color: rgb(70, 70, 70);
