@@ -1,7 +1,7 @@
 var context = document.getElementById("chart-area").getContext("2d");
 	context.canvas.width = 600;
 	context.canvas.height = 350;
-
+// rgb(35, 197, 62)
 		var config = {
 			type: 'doughnut',
 			data: {
@@ -25,7 +25,6 @@ var context = document.getElementById("chart-area").getContext("2d");
 					display: true,
 					text: 'Média de temperaturas ao longo do dia',
 					fontSize: 16,
-					fontColor: document.body.getAttribute("class") == 'darkMode' ? '#e3e3e3' : '#666'
 				},
 				animation: {
 					animateScale: true,

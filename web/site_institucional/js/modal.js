@@ -12,16 +12,3 @@ function closeModal() {
    }
 }
 
-function cadastro(){
-    document.getElementById('removeLogin').style.display="none";
-    document.getElementById('imagemLogin').style.display="none";
-    document.getElementById('addCadastro').style.display="block";
-    document.getElementById('imagemCadastro').style.display="block";
-}
-
-function voltarLogin(){
-    document.getElementById('removeLogin').style.display="block";
-    document.getElementById('imagemLogin').style.display="block";
-    document.getElementById('addCadastro').style.display="none";
-    document.getElementById('imagemCadastro').style.display="none";
-}

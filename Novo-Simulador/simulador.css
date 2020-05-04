@@ -230,6 +230,9 @@ body {
     text-align: center;
     border-radius: 100%;
     border: 2px solid #2ab181;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .number:hover {

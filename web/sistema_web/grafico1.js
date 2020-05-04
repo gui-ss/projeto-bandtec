@@ -32,7 +32,7 @@ var fcontext = document.getElementById("chart").getContext("2d");
 				yAxes: [{
 					scaleLabel: {
 						display: true,
-						labelString: 'Temperature'
+						labelString: 'Temperatura'
 					},
 					ticks: {
 						beginAtZero:true

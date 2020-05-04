@@ -1,4 +1,18 @@
 
+function cadastro(){
+    document.getElementById('removeLogin').style.display="none";
+    document.getElementById('imagemLogin').style.display="none";
+    document.getElementById('addCadastro').style.display="block";
+    document.getElementById('imagemCadastro').style.display="block";
+}
+
+function voltarLogin(){
+    document.getElementById('removeLogin').style.display="block";
+    document.getElementById('imagemLogin').style.display="block";
+    document.getElementById('addCadastro').style.display="none";
+    document.getElementById('imagemCadastro').style.display="none";
+}
+
 
 var buttonLogin = document.querySelector('#btlogin');
 var buttonCad = document.querySelector('#btcad');
@@ -12,10 +26,10 @@ function cadastrar(e){
     if(input_pass_cad.value == input_pass_confirm.value){
         email = document.getElementById('input_email_cad').value;
         pass = document.getElementById('input_pass_cad').value;
-        alert('Você está cadastrado :)');
+        alert('Você foi cadastrado :)');
         voltarLogin();
     } else {
-        alert('As senhas não coicidem');
+        alert('As senhas não coincidem');
         document.getElementById('input_pass_confirm').value = '';
         document.getElementById('input_pass_cad').value = '';
     }
@@ -38,19 +52,7 @@ function log(e) {
     }
 }
 
-function cadastro(){
-    document.getElementById('removeLogin').style.display="none";
-    document.getElementById('imagemLogin').style.display="none";
-    document.getElementById('addCadastro').style.display="block";
-    document.getElementById('imagemCadastro').style.display="block";
-}
 
-function voltarLogin(){
-    document.getElementById('removeLogin').style.display="block";
-    document.getElementById('imagemLogin').style.display="block";
-    document.getElementById('addCadastro').style.display="none";
-    document.getElementById('imagemCadastro').style.display="none";
-}
 
 buttonLogin.addEventListener("click", log);
 buttonCad.addEventListener("click", cadastrar);
