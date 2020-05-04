@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+ /*BARRA DE MENU */
+
+.header {
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.89);
+    height: 30px;
+    /* border-top: 5px darkturquoise solid; */
+    margin: 0px;
+    padding: 15px 0px 17px;
+    color: #ffffff;
+    text-align: right;
+    
+    position: fixed;
+
+}
+
+.logo h2{
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+
+}
+
+.nav li {
+    list-style: none;
+    display: inline;
+
+}
+
+.nav li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    font-weight: 500;
+
+}
+
+/* PLANOS DISPONÍVEIS */
+
+.titulo {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    margin-top: 100px;
+    color: rgb(39, 38, 38);
+    text-transform: uppercase;
+
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-item-1 {
+	flex: 1;
+}
+
+/*  Conteudo dos quadrados */
+.item {
+	margin: 15px;
+    padding: 20px;
+    background: #ffffff;
+    color: rgb(51, 51, 51);
+    text-align: left;
+    font-size: 18px;
+    width: 276px;
+    height: 452px;
+    box-shadow: rgb(255, 255, 255,255) 0px 8px 0px 0px, rgba(0, 0, 0, 0.3) 20px 8px 8px;
+    border-radius: 10px;
+}
+
+.caixa {
+    margin: 80px auto;
+    height: 489px;
+    width: 856px;
+}
+
+
+.item .meses{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: rgb(255, 255, 255);
+    background-color: darkturquoise;
+    font-size: 14px;
+    display: inline-block;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-block-start: 0px;
+    margin-block-end: 10px;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+.item h1{
+    color: black;
+    border-bottom: darkturquoise 1px solid;
+}
+
+.item .valor_pacote {
+    display: block;
+    font-size: 20px;
+    color: black;
+    padding: 5px 0px;
+}
+
+.item span {
+    display: block;
+    font-size: 14px;
+}
+
+.item p {
+    margin-bottom: 210px;
+}
+
+/*SIMULADOR FINANCEIRO*/
+
+.simulador-financeiro {
+    height: 700px;
+    background-color: white;
+    padding: 15px;
+
+}
+
+.select-box h3 {
+    margin: 60px 10px 30px;
+    color: rgb(51, 51, 51);
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.combo {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    float: left;
+    color: #40cc9b;
+    background-color: #ffffff;
+    border: 1px solid #40cc9b;
+    outline: none;
+}
+
+.input_premium {
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 2px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 3px;
+    outline: none;
+
+}
+
+.input_premium:hover {
+    border: 1px solid #2ab181;
+}
+
+.botao_input {
+    display: block;
+    margin: 10px 0px;
+    width: 208px;
+    height: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #2ab181;
+    border: 2px solid #2ab181;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.botao_input:hover {
+    background-color: #ffffff;
+    color: #2ab181;
+}
+
+
+
+#plano_simples, #plano_plus, #plano_premium, #pergunta {
+    display: none;
+}
+
+.ilustracao img{
+    position: relative;
+    margin-top: 100px;
+    float: right;
+    width: 500px;
+    
+}
+
+.number {
+    box-sizing: border-box;
+    background-color: #2ab181;
+    color: #ffffff;
+    font-size: 30px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 100%;
+    border: 2px solid #2ab181;
+}
+
+.number:hover {
+    background-color: #ffffff;
+    color: #2ab181;
+    cursor: pointer;
+}
+
+.resultado {
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    color: rgb(51, 51, 51);
+    font-size: 18px;
+    font-weight: 300;
+
+}
+
+/*RODAPÉ*/
+
+.final-footer {
+    
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    font-style: italic;
+    padding: 20px;
+  }
+
+  .rodape {
+    background-color: rgba(26, 26, 26, 0.89);
+  }

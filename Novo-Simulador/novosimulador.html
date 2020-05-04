@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simulador</title>
+    <link rel="stylesheet" type="text/css" href="simulador.css">
+</head>
+
+<body>
+    <!--BARRA DE "MENU"-->
+    <header>
+
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <h2>Chameleon</h2>
+                </div>
+                <div class="nav">
+                    <li>
+                        <a href="#">Planos</a>
+                    </li>
+                    <li>
+                        <a href="#simulador">Simulador</a>
+                    </li>
+
+                    <li>
+                        <a href="../web/site_institucional/index.html">Voltar</a>
+                    </li>
+
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!--PLANOS DISPONÍVEIS-->
+    <main>
+        <div class="container">
+
+            <h1 class="titulo"> Conheça os nossos Planos! </h1>
+            <hr>
+
+            <section class="caixa flex">
+
+                <div class="item">
+                    <p class="meses">1 mês</p>
+                    <br>
+                    <h1>Simples</h1>
+                    <br>
+                    <p>
+                        Com o pacote simples, você tera o nosso produto com o preço padrão e todos os serviços.
+                    </p>
+                    <br>
+                    <b class="valor_pacote">R$ 150,00 / mês</b>
+                    <span>5 meses a vista: R$ 750,00</span>
+                </div>
+
+                <div class="item">
+                    <p class="meses">6 meses</p>
+                    <br>
+
+                    <h1>Plus</h1>
+                    <br>
+                    <p>
+                        A partir de 6 meses de contratação, você ganha <b>5% de desconto</b> no valor total da compra.
+                    </p>
+                    <span>De <s>R$ 150,00</s> por</span>
+                    <b class="valor_pacote">R$ 142,50 / mês</b>
+                    <span>6 meses a vista: R$ 855,00</span>
+                </div>
+                <div class="item">
+                    <p class="meses">12 meses</p>
+                    <br>
+                    <h1> Premium </h1>
+                    <br>
+                    <p>
+                        A partir de 12 meses de contratação, você ganha <b>15% de desconto</b> no valor total da compra.
+                    </p>
+                    <span>De <s>R$ 150,00</s> por</span>
+                    <b class="valor_pacote">R$ 127,50 / mês</b>
+                    <span>12 meses a vista: R$ 1.530,00</span>
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- SIMULADOR FINANCEIRO-->
+        <section class="simulador-financeiro" id="simulador">
+            <div class="container">
+                <h1 class="titulo">Simule aqui seu investimento</h1>
+                <hr>
+
+                <div class="ilustracao">
+                    <img src="img/livros.png" alt="">
+                </div>
+
+                <div class="select-box">
+                    <h3>
+                        <div class="number">1</div>
+                        Qual pacote você gostaria de contratar?
+                    </h3>
+
+                    <select id="planos" onchange="calcular_planos()" class="combo">
+                        <option value="">Selecione</option>
+                        <option value="simples">Simples</option>
+                        <option value="plus">Plus</option>
+                        <option value="premium">Premium</option>
+                    </select><br>
+
+                    <h3 id="pergunta">
+                        <div class="number">2</div>
+                        Por quantos meses você gostaria de contratar?
+                    </h3>
+
+                    <div class="meses-combo">
+
+                        <select id="plano_simples" onchange="calcular_simples()" class="combo">
+
+                            <option value="">Selecione</option>
+                            <option value="1">1 mês</option>
+                            <option value="2">2 meses</option>
+                            <option value="3">3 meses</option>
+                            <option value="4">4 meses</option>
+                            <option value="5">5 meses</option>
+                        </select>
+                    </div>
+
+                    <div class="meses-combo">
+                        <select id="plano_plus" onchange="calcular_plus()" class="combo">
+
+                            <option value="">Selecione</option>
+                            <option value="6">6 meses</option>
+                            <option value="7">7 meses</option>
+                            <option value="8">8 meses</option>
+                            <option value="9">9 meses</option>
+                            <option value="10">10 meses</option>
+                            <option value="11">11 meses</option>
+                        </select>
+                    </div>
+
+                    <div id="plano_premium">
+
+                        <input placeholder="a partir de 12 meses" id="premium_valor" class="input_premium">
+                        <button onclick="calcular_premium()" class="botao_input">Calcular</button>
+                    </div>
+                </div>
+
+                <div id="resultado" class="resultado"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="rodape">
+            <div class="container">
+                <div class='final-footer'>
+                    &copy; Chameleon 2020
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script>
+
+    resultado.innerHTML = ``;
+
+
+    function calcular_planos() {
+        var plano = (planos.value);
+        plano_simples.style.display = 'none';
+        plano_plus.style.display = 'none';
+        plano_premium.style.display = 'none';
+        pergunta.style.display = 'block';
+
+        resultado.innerHTML = ``;
+
+
+        if (plano == 'simples') {
+            plano_simples.style.display = 'block';
+
+        }
+
+        else if (plano == 'plus') {
+            plano_plus.style.display = 'block';
+        }
+
+
+        else if (plano == 'premium') {
+            plano_premium.style.display = 'block';
+
+        }
+    }
+
+
+    function calcular_simples() {
+        var meses_simples = plano_simples.value;
+
+
+        if (meses_simples < 6) {
+            var total_simples = meses_simples * 150;
+
+            resultado.innerHTML = `Seu plano seria o Simples<br> E seu investimento seria o total de apenas <b> R$${total_simples.toFixed(2)} </b>!`
+        }
+    }
+
+    function calcular_plus() {
+        var meses_plus = plano_plus.value;
+        var total_plus = meses_plus * 150;
+        var plus = total_plus - (total_plus * 0.05);
+
+        resultado.innerHTML = `Seu plano seria o Plus<br> E seu investimento seria o total de apenas <b> R$${plus.toFixed(2)}! </b>`
+
+    }
+
+    function calcular_premium() {
+        var meses_premium = Number(premium_valor.value);
+
+
+        if (meses_premium >= 12) {
+            var total_premium = meses_premium * 150;
+            total_premium = total_premium - (total_premium * 0.15);
+
+            resultado.innerHTML = `Seu plano seria o Premium<br> E seu investimento seria o total de apenas <b> R$${total_premium.toFixed(2)}! </b>`;
+        } else {
+
+            resultado.innerHTML = `Valor inválido! Tente novamente`;
+        }
+    }
+
+</script>
