@@ -264,6 +264,12 @@
 
 	function get_data(){
 
+		var date = new Date();
+		var hour = date.getHours();
+		var minute = date.getMinutes();
+		var seconds = date.getSeconds();
+		var getDataTime = `${hour>9?'':'0'}${hour}:${minute>9?'':'0'}${minute}:${seconds>9?'':'0'}${seconds}`;
+
 		var http = new XMLHttpRequest();
 		http.open('GET', 'http://localhost:3000/api', false);
 		http.send(null);        
@@ -286,7 +292,7 @@
 				chart.data.datasets[1].data.shift();
 			}
 
-			chart.data.labels.push(this.time++);
+			chart.data.labels.push(getDataTime);
 			chart.data.datasets[0].data.push(parseFloat(data[0]));
 			chart.data.datasets[1].data.push(parseFloat(data[1]));
 			chart.update();
