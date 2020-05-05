@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #f8f8f8;
+    background-color: rgb(253, 242, 224);
 }
 
 .container {
@@ -94,7 +94,7 @@ body {
 }
 
 .caixa {
-    margin: 80px auto;
+    margin: 80px auto 150px;
     height: 489px;
     width: 856px;
 }
