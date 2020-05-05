@@ -129,13 +129,15 @@ body {
     padding: 5px 0px;
 }
 
-.item span {
+.item .valor_pacote span {
     display: block;
     font-size: 14px;
 }
 
-.item p {
-    margin-bottom: 210px;
+.item .imagem img{
+    width: 100px;
+    margin: 40px auto;
+
 }
 
 /*SIMULADOR FINANCEIRO*/
