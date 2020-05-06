@@ -192,6 +192,7 @@ hr{
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    border-left: 3px solid #2196F3;
 }
 
 .graph-bottom{
