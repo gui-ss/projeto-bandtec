@@ -27,10 +27,9 @@ function ldr(){
     let random = Math.floor(Math.random()*(max-min+1)+min);
 
     return random
-}
+} 
 
 function dht11(options){
-
     minHumidity = options.minHum;
     maxHumidity = options.maxHum;
 
@@ -57,6 +56,5 @@ function dht11(options){
     
     return [randomHumidity, randomTemperature]
 }
-
 
 module.exports = {lm35, trc5000, ldr, dht11};

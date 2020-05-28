@@ -7,6 +7,7 @@ body{
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
     margin: 0;
     padding: 0;
+    background: rgba(236, 236, 236, 0.575);
 }
 
 #menu {
@@ -20,7 +21,8 @@ body{
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 50px;
-    box-shadow: 0px 0px 10px #3030306c;
+    background: white;
+    /* box-shadow: 0px 0px 10px #3030306c; */
 }
 
 #logo{
@@ -29,7 +31,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 42px;
     color: white;
     font-size: 16px;
 }
@@ -55,8 +57,8 @@ body{
 }
 
 .contour-icon{
-    width: 70%;
-    height: 50px;
+    width: 65%;
+    height: 40px;
     margin-left: 15%;
     margin-bottom: 15px;
     color: rgb(107, 107, 107);
@@ -119,7 +121,7 @@ hr{
     width: 100%;
     height: 30%;
     float: bottom;
-    padding-top: 25px;
+    padding-top: 18px;
 }
 
 
@@ -188,7 +190,7 @@ hr{
     float: left;
     width: 23%;
     height: 150px;
-    background: rgba(226, 226, 226, 0.527);
+    background: rgb(255, 255, 255);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -207,7 +209,7 @@ hr{
     float: left;
     width: 67%;
     height: 300px;
-    background: rgba(226, 226, 226, 0.527);
+    background: rgb(255, 255, 255);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -218,7 +220,7 @@ hr{
     float: left;
     width: 30%;
     height: 300px;
-    background: rgba(226, 226, 226, 0.527);
+    background: rgb(255, 255, 255);
     border-radius: 5px;
     display: flex;
     align-items: center;
