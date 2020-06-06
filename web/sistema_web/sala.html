@@ -53,7 +53,7 @@
 		<div class="dashboard">
 			<div class="nav-principal" id="nav-princial">
 				<div class="title-dash">
-					<h1>Dashboard</h1>
+					<h1>Salas</h1>
 				</div>
 				<div class="conta" id="conta">
 					<img src="img/avatar.png">
@@ -61,9 +61,63 @@
 					<a href="#"><i class="material-icons">arrow_drop_down</i></a>
 				</div>
 			</div>
-			
+			<div class="graph-top">
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Ambiente 1</label>
+						<div class="circle" id="circle">
+							<i class="material-icons" id="icone">add_alert</i>
+						</div>
+					</div>
+					<h2>Temperatura: <span id="random1">16,5</span> °C</h2>
+					<h2>Nivel: <span style="color:#0078d7;" id="nivel">Médio</span></h2>
+				</div>
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Ambiente 2</label>
+						<div class="circle" id="circle2">
+							<i class="material-icons" id="icone2">cancel</i>
+						</div>
+					</div>
+					<h2>Temperatura: <span id="random2">24,2</span> °C</h2>
+					<h2>Nivel: <span style="color:rgb(255,165,36);" id="nivel2">Máximo</span></h2>
+				</div>
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Ambiente 3</label>
+						<div class="circle" id="circle3">
+							<i class="material-icons" id="icone3">check_circle</i>
+						</div>
+					</div>
+					<h2>Temperatura: <span id="random3">22,6</span> °C</h2>
+					<h2>Nivel: <span style="color:rgb(35, 197, 62);" id="nivel3">Ideal</span></h2>
+				</div>
+				<div class="box-graph-top" id="box-graph-top">
+					<div class="top-graph">
+						<label>Ambiente 4</label>
+						<div class="circle" id="circle4">
+							<i class="material-icons" id="icone4">warning</i>
+						</div>
+					</div>
+					<h2>Temperatura: <span id="random4">28,8</span> °C</h2>
+					<h2>Nivel: <span style="color:rgb(238, 34, 44);" id="nivel4">Alto</span></h2>
+				</div>
+			</div>
+			<div class="graph-bottom">
+				<div class="box-graph-big">
+					<div id="teste-grafico">
+						
+					</div>		
+				</div>
+				<div class="box-graph-medium">
+					<div id="pizza-grafico">
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<script type="text/javascript" src="js/js.js"></script>
+	<script type="text/javascript" src="js/card.js"></script>
 </body>
 </html>
