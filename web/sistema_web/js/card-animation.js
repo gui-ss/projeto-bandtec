@@ -11,7 +11,9 @@ function expandCard(e) {
                 card.classList.toggle('disabledCard');
             }
             else {
-                card.classList.toggle('expandedCard');
+                setTimeout(function () {
+                    card.classList.toggle('expandedCard');
+                }, 10);
             }
         });
     }
