@@ -187,14 +187,14 @@ hr{
 
 .box-graph-top{
     position: absolute;
-    width: 48%;
-    height: 205px;
+    width: 49%;
+    height: 220px;
     background: rgb(255, 255, 255);
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
     border-left: 3px solid #2196F3;
     transition: all .5s;
+    flex-direction: row;
 }
 
 #card1 {
@@ -299,10 +299,11 @@ hr{
 
 .top-graph{
     width: 100%;
-    height: 50%;
+    height: 35%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 15px;
+    padding-top: 30px;
 }
 
 .box-graph-top h2{
@@ -400,4 +401,63 @@ hr{
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+/* --------------------- */
+.area-left{
+    transition: all 0.3s;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-graph{
+    width: 100%;
+    height: 65%;
+    background: black;
+}
+.area-right{
+    transition: all 0.3s;
+    width: 60%;
+    height: 100%;
+    background: rgb(68, 0, 255);
+}
+
+.info-ambiente{
+    width: 60%;
+}
+
+.info-ambiente h2{
+    margin-top: 10px;
+}
+.none{
+    display: none;
+}
+
+
+.flex {
+    display: flex;
+}
+.div-area-graph{
+    width: 70%;
+    height: 100%;
+    justify-content: space-between;
+    background: red;
+}
+.graph{
+    width: 45%;
+    height: 100%;
+    background: rgb(153, 0, 255);
+}
+
+.info-disabled{
+    width: 100%;
+    height: 100%;
+}
+
+.area-left-disabled{
+    width: 100%;
+    height: 100%;
 }

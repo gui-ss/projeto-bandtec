@@ -1,5 +1,5 @@
-create database bdAcervo;
-use bdAcervo;
+create database bookcare;
+use bookcare;
 
 create table tbAcervo(
 idAcervo int primary key auto_increment,
@@ -60,25 +60,6 @@ foreign key(fkSensor) references tbSensor(idSensor)
 
 
 
-insert into tbAcervo values 
-(null, "Biblioteca Pública", "(11)94584-8455", "02.548520000169", "Biblioteca", "Avenida Paulista",  "497", "Bela Vista", "São Paulo", "SP", "01310-200");
 
-select * from tbAcervo;
 
-insert into tbUsuario values (null, "João Augusto", "17/10/1975", "789.458.784-57", "(11)94784-5468", "joaoaugusto@gmail.com", "joaoaugusto", "12345678", 1);
-
-select * from tbUsuario;
-
-insert into tbArea values (null, "Sala de Leitura", 3, 1);
-
-select * from tbArea;
-
-select tbAcervo.*, nomeUsuario, fkAcervo as 'Acervo' from tbAcervo,tbUsuario
-    where fkAcervo=idAcervo;
-    
-select tbAcervo.*, tipoArea, quantidadeArea, fkAcervo as 'Acervo' from tbAcervo, tbArea where fkAcervo=idAcervo;
-
-update tbUsuario set nomeUsuario = 'Paulo José' where idUsuario = 1; 
-
-delete nomeUsuario from tbUsuario where idUsuario = 1;
 

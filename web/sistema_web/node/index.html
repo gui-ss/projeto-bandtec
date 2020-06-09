@@ -10,6 +10,16 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/dark-mode-style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -61,9 +71,47 @@
 					<a href="#"><i class="material-icons">arrow_drop_down</i></a>
 				</div>
 			</div>
-			
+			<div>
+				<h1>Sensor LM35 - Temperatura</h1>
+					<section>
+						<h2>Média: <label id='average'>0.00</label></h2>
+						<h2>Média Hora: <label id='averageHour'>0.00</label></h2>
+					</section>
+					<section style="width:50%">
+						<canvas id="chart"></canvas>
+				<section>
+			</div>
+			<div style="display: none">
+				<section>
+					<h1>Sensor DHT11 - Umidade</h1>
+					<h2>Média: <label id='averageHumidity'>0.00</label></h2>
+					<h2>Média Hora: <label id='averageHourHumidity'>0.00</label></h2>
+				</section>
+				<section style="width:50%">
+					<canvas id="chart-humidity"></canvas>
+				<section>
+			</div>
+			<div style="display: none">
+				<section>
+					<h1>Sensor TRC5000 - Switch</h1>
+				</section>
+				<section style="width:50%">
+					<canvas id="chart-switch"></canvas>
+				<section>
+			</div>
+			<div style="display: none">
+				<section>
+					<h1>Sensor LDR - Luminosidade</h1>
+					<h2>Média: <label id='averageLumi'>0.00</label></h2>
+					<h2>Média Hora: <label id='averageHourLumi'>0.00</label></h2>
+				</section>
+				<section style="width:50%">
+					<canvas id="chart-lumi"></canvas>
+				<section>
+			</div>
 		</div>
 	</section>
 	<script type="text/javascript" src="js/js.js"></script>
+	<script type="text/javascript" src="sensores.js"></script>
 </body>
 </html>
