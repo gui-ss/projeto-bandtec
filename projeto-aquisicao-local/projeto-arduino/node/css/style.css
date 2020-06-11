@@ -461,3 +461,68 @@ hr{
     width: 100%;
     height: 100%;
 }
+
+
+/*  Dash Relatório */
+
+.nav_relatorio{
+    display: flex;
+    margin-top: 20px;
+}
+
+.box_relatorio{
+    height: 420px;
+    width: 30%;
+    background-color: white;
+    margin-right: 40px;
+    border-radius: 5px;
+}
+
+.box_relatorio .a{
+    height: 180px;
+    margin-left: 70px;
+    width: 64%;
+    margin-top: 20px;
+}
+
+.box_relatorio .b{
+    height: 180px;
+    margin-left: 60px;
+    width: 64%;
+    margin-top: 20px;
+}
+
+.box_relatorio .c{
+    height: 180px;
+    margin-left: 70px;
+    width: 64%;
+    margin-top: 20px;
+}
+
+.box_relatorio button{
+    height: 63px;
+    width: 72%;
+    background-color:#0078d7;
+    margin-left: 48px;
+    margin-top: -20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+.box_relatorio select{
+    height: 45px;
+    width: 72%;
+    margin-left: 48px;
+    border-radius: 5px;
+    background-color: #a29c9c40;
+}
+
+.box_relatorio h4{
+    margin-left: 42px;
+}
+
+
+   
+
+
