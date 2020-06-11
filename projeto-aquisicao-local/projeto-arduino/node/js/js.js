@@ -44,7 +44,6 @@ function enableDarkMode() {
 // ----------------------------------------
 
 let botoes = document.querySelectorAll('.funcao');
-console.log(botoes)
 
 botoes.forEach(botao => {
     botao.addEventListener('click', chamarpagina)
