@@ -26,7 +26,6 @@ body{
 }
 
 #logo{
-    background: #0078d7;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -34,6 +33,11 @@ body{
     margin-bottom: 42px;
     color: white;
     font-size: 16px;
+}
+
+
+#logo img{
+    width: 90%;
 }
 
 .menuOpened { 
@@ -57,7 +61,7 @@ body{
 }
 
 .contour-icon{
-    width: 65%;
+    width: 70%;
     height: 40px;
     margin-left: 15%;
     margin-bottom: 15px;
@@ -77,6 +81,7 @@ body{
 
 .menuOpened .contour-icon{
     justify-content: flex-start;
+    box-sizing: border-box;
     padding-left: 10px;
 }
 
@@ -104,10 +109,6 @@ body{
     display: none;
 }
 
-#closed{
-    font-size: 25px;
-    font-weight: 800;
-}
 
 hr{
     margin-top: 5px;
@@ -410,72 +411,76 @@ hr{
     height: 100%;
 }
 
-<<<<<<< HEAD
 
 /*  Dash Relatório */
 
 .nav_relatorio{
+    width: 100%;
+    height: 70%;
     display: flex;
-    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center; 
 }
 
 .box_relatorio{
     height: 420px;
-    width: 30%;
+    width: 32%;
     background-color: white;
-    margin-right: 40px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.box_relatorio .a{
-    height: 180px;
-    margin-left: 70px;
-    width: 64%;
-    margin-top: 20px;
+
+.container{
+    width: 75%;
+    height: 90%;
 }
 
-.box_relatorio .b{
-    height: 180px;
-    margin-left: 60px;
-    width: 64%;
-    margin-top: 20px;
+.container h4{
+    margin-top: 0;
+    font-size: 20px;
 }
 
-.box_relatorio .c{
-    height: 180px;
-    margin-left: 70px;
-    width: 64%;
-    margin-top: 20px;
+
+.img-card-relatório{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-card-relatório img{
+    width: 70%;
+}
+
+#img-mid{
+    width: 83%;
 }
 
 .box_relatorio button{
-    height: 63px;
-    width: 72%;
+    height: 50px;
+    width: 100%;
     background-color:#0078d7;
-    margin-left: 48px;
-    margin-top: -20px;
     border-radius: 5px;
+    border: 1px solid #0078d7;
     color: white;
     font-size: 15px;
 }
 
 .box_relatorio select{
-    height: 45px;
-    width: 72%;
-    margin-left: 48px;
+    height: 50px;
+    width: 100%;
     border-radius: 5px;
     background-color: #a29c9c40;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.box_relatorio h4{
-    margin-left: 42px;
-}
 
-
-   
-
-
-=======
 .bottom-graph{
     width: 100%;
     height: 65%;
@@ -488,4 +493,3 @@ hr{
     height: 100%;
     background: rgb(68, 0, 255);
 }
->>>>>>> b325f4d244dd650d74ab04b4c1575522bbf6b7ee
