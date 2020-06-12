@@ -38,14 +38,14 @@ foreign key(fkAcervo) references tbAcervo(idAcervo)
 
 create table tbSensor(
 idSensor int primary key auto_increment,
-umidadeMin int,
-umidadeMax int,
-temperaturaMin int,
-temperaturaMax int,
+umidade int,
+temperatura int,
+dataLeitura datetime,
 statusSensor varchar (20),
 fkArea int,
 foreign key(fkArea) references tbArea(idArea)
 );
+select * from tbsensor;
 
 create table tbRegistro(
 idRegistro int primary key auto_increment,

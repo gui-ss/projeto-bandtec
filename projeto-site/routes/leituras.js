@@ -14,9 +14,9 @@ router.get('/ultimas', function(req, res, next) {
 	const instrucaoSql = `select top ${limite_linhas} 
 						temperatura, 
 						umidade, 
-						momento,
-						FORMAT(momento,'HH:mm:ss') as momento_grafico 
-						from leitura order by id desc`;
+						dataleitura,
+						FORMAT(dataleitura,'HH:mm:ss') as momento_grafico 
+						from tbSensor order by idsensor desc`;
 
 	sequelize.query(instrucaoSql, {
 		model: Leitura,

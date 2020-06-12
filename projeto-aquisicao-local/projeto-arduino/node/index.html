@@ -21,8 +21,8 @@
 <body>
 	<nav id="menu" onmouseover="abrir()">
 		<div class="contour-icon" id="logo">
-			<p id="closed">b</p>
-			<p id="open">bookcare</p>
+			<img src="img/logos/icon.png" alt="" id="closed">
+			<img src="img/logos/logo-dark.png" id="open">
 		</div>
 		<div class="contour-icon" id="contour-icon">
 			<i class="material-icons" style="font-size: 20px;">dashboard</i>
@@ -67,44 +67,7 @@
 					<a href="#"><i class="material-icons">arrow_drop_down</i></a>
 				</div>
 			</div>
-			<div>
-				<h1>Sensor LM35 - Temperatura</h1>
-				<section>
-					<h2>Média: <label id='average'>0.00</label></h2>
-					<h2>Média Hora: <label id='averageHour'>0.00</label></h2>
-				</section>
-				<section style="width:50%">
-					<canvas id="chart"></canvas>
-					<section>
-			</div>
-			<div>
-				<section>
-					<h1>Sensor DHT11 - Umidade</h1>
-					<h2>Média: <label id='averageHumidity'>0.00</label></h2>
-					<h2>Média Hora: <label id='averageHourHumidity'>0.00</label></h2>
-				</section>
-				<section style="width:50%">
-					<canvas id="chart-humidity"></canvas>
-					<section>
-			</div>
-			<div style="display: none">
-				<section>
-					<h1>Sensor TRC5000 - Switch</h1>
-				</section>
-				<section style="width:50%">
-					<canvas id="chart-switch"></canvas>
-					<section>
-			</div>
-			<div style="display: none">
-				<section>
-					<h1>Sensor LDR - Luminosidade</h1>
-					<h2>Média: <label id='averageLumi'>0.00</label></h2>
-					<h2>Média Hora: <label id='averageHourLumi'>0.00</label></h2>
-				</section>
-				<section style="width:50%">
-					<canvas id="chart-lumi"></canvas>
-					<section>
-			</div>
+			
 		</div>
 	</section>
 	<script type="text/javascript" src="js/js.js"></script>
