@@ -846,7 +846,6 @@ form.form-login {
   font-weight: bold;
   font-size: 18px;
   transition: 0.3s;
-  margin-bottom: 10px;
 }
 
 .btn-login:hover {
@@ -985,9 +984,10 @@ form.form-login .input-login::placeholder {
 
 .input-cad{
     width: 48%;
-    height: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .area-alert{
