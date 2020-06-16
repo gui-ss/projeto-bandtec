@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+const router = require('./routes');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -12,7 +13,7 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use('/api', require('./app/controller'));
+// app.use('/api', require('./app/controller'));
+app.use(router);
 
-const server = app.listen(3000);
-console.log("Express started at port %s", server.address().port);
+module.exports = app;

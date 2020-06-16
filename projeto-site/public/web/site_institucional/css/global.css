@@ -328,6 +328,11 @@ transition: .5s;
   float: right;
 }
 
+.teste{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
 #our-project .container .project-content h3{
   font-size: 1rem;
   font-weight: 500;
@@ -813,12 +818,15 @@ div.login-area div.image img {
 }
 
 form.form-login {
-  width: 100%;
-  margin-top: 25px;
-  margin-bottom: 15px;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-form.form-login .input-login, .btn-login {
+.input-login, .btn-login {
   width: 100%;
   height: 50px;
   margin-top: 20px;
@@ -826,21 +834,22 @@ form.form-login .input-login, .btn-login {
   border: none;
 }
 
-form.form-login .input-login {
+.input-login {
   background: rgb(219, 219, 219);
   box-sizing: border-box;
   padding-left: 10px;
 }
 
-form.form-login .btn-login {
+.btn-login {
   background: #0078d7;
   color: white;
   font-weight: bold;
   font-size: 18px;
   transition: 0.3s;
+  margin-bottom: 10px;
 }
 
-form.form-login .btn-login:hover {
+.btn-login:hover {
   background: #105fa0;
   cursor: pointer;
 }
@@ -855,6 +864,16 @@ form.form-login .input-login::placeholder {
   text-decoration: none;
   font-size: 14px;
   cursor: pointer;
+}
+
+.area_input_login h2{
+  font-size: 40px;
+  width: 100%;
+}
+
+#imagemLogin{
+  width: 90%;
+  margin-left: 20px;
 }
 
 .link-registro span {
@@ -885,10 +904,146 @@ form.form-login .input-login::placeholder {
 
 /*CADSTRO*/
 
-#removeLogin{
-  transition: 0.7s;
-  height: 100%;
+.area-form{
+  width: 90%;
+  height: 88%;
+  display: flex;
 }
+
+#form_login{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.area_input_login{
+  width: 40%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+
+.area_img_login{
+  width: 60%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* -------------- */
+#proximo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#form_cad_usuario{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 25px;
+}
+
+#form_cad_acervo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 25px;
+}
+
+.title-cad-usuario{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-cad-usuario h2{
+    font-size: 40px;
+}
+
+.area-input-caduser{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-cad{
+    width: 48%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.area-alert{
+  width: 100%;
+  height: 15%;
+  box-sizing: border-box;
+  border: 2px solid #128a30;
+  background: #00ff4c3d;
+  border-radius: 5px;
+}
+
+.ruanumero{
+  width: 100%;
+  height: 50px;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: none;
+  background: rgb(219, 219, 219);
+  box-sizing: border-box;
+  padding: 0px;
+  position: relative;
+}
+
+#input_rua_acervo{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  margin: 0;
+}
+
+#input_numero_acervo{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  margin: 0;
+}
+
+#input-cad-acervo{
+  height: 80%;
+}
+/* -------------- */
+
+
+
+#modal-login .content{
+  background: #1acc8d;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 #addCadastro{
   display: none;
@@ -904,7 +1059,7 @@ form.form-login .input-login::placeholder {
 
 [data-anime] {
   opacity: 0;
-  transition: .3s;
+  transition: 0.5s;
 }
 
 [data-anime="left"] {
@@ -919,7 +1074,12 @@ form.form-login .input-login::placeholder {
   transform: translate3d(0, -50px, 0);
 }
 
+[data-animation="modal"]{
+  transform: translate3d(0, -30px, 0)
+}
+
 [data-anime].animate {
   opacity: 1;
   transform: translate3d(0px, 0px, 0px);
 }
+

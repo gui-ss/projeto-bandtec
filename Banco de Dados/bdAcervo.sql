@@ -45,7 +45,6 @@ statusSensor varchar (20),
 fkArea int,
 foreign key(fkArea) references tbArea(idArea)
 );
-select * from tbsensor;
 
 create table tbRegistro(
 idRegistro int primary key auto_increment,

@@ -1,5 +1,5 @@
 //Importando o módulo Sensors e atribuindo a uma constante para acesso as funções do mesmo.
-const sensors = require('./sensors.js')
+const sensors = require('./controllers/sensors');
 
 /*Atribuindo o retorno da função lm35 a variável temperatura.
 Exemplo atribuindo valores diferentes de minimo 15 e máximo 18
@@ -43,4 +43,3 @@ dht11 = sensors.dht11({minHum:50, maxHum:100, minTemp: 18, maxTemp: 23})
 
 console.log('DHT11 - Umidade: ' + dht11[0])
 console.log('DHT11 - Temperatura: ' + dht11[1].toFixed(2))
-

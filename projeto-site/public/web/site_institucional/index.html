@@ -564,44 +564,100 @@
                 <div class="close-area">
                     <i class="fa fa-times" id="icon-close-modal"></i>
                 </div>
+                <div class="area-form">
+                    <form action="" id="form_login">
+                        <div class="area_input_login">
+                                <h2>Bem-vindo(a) ao BookCare</h2>
 
-                <div class='content'>
-                    <div class="container">
-                        <div id="removeLogin">
-                            <h2>Bem-vindo(a) ao BookCare</h2>
-
-                            <form class='form-login'>
                                 <input type="text" placeholder="E-mail" class='input-login' id='input_email'>
 
                                 <input type="password" placeholder="Senha" class='input-login' id='input_pass'>
 
                                 <button class='btn-login' id='btlogin'>Login</button>
-                            </form>
 
-                            <span class='link-registro' onclick="cadastro()">ou clique aqui para se <span>registrar</span></span>
+                                <span class='link-registro' onclick="cadastro()">ou clique aqui para se <span>registrar</span></span>
                         </div>
-
-                        <div id="addCadastro">
-                            <h2>Cadastre-se</h2>
-
-                            <form class='form-login'>
-                                <input type="text" placeholder="E-mail" class='input-login' id='input_email_cad'>
-
-                                <input type="password" placeholder="Senha" class='input-login' id='input_pass_cad'>
-
-                                <input type="password" placeholder="Confirmar senha" class='input-login' id='input_pass_confirm'>
-
-                                <button class='btn-login' id='btcad'>Cadastrar</button>
-                            </form>
-
-                            <span class='link-registro' onclick="voltarLogin()">Voltar para a tela de <span>Login</span></span>
+                        <div class="area_img_login">
+                            <img src="./img/img-login.jpg" alt="Mulher em uma biblioteca" id="imagemLogin">
                         </div>
-                    </div>
-                </div>
+                    </form>
 
-                <div class="image flex">
-                    <img src="./img/img-login.jpg" alt="Mulher em uma biblioteca" id="imagemLogin">
-                    <img src="./img/img-cad.jpg" alt="Mulher em uma biblioteca" id="imagemCadastro">
+                    <form action="" id="form_cad_usuario" style="display: none">
+                        <div class="title-cad-usuario">
+                            <div>
+                                <h2>Cadastro de úsuario :)</h2>
+                                <h3>Preencha os campos.</h3>
+                            </div> 
+                            <h3>Passo 1/2</h3>
+                        </div>
+                        <div class="area-input-caduser">
+                            <div class="input-cad">
+                                    <input type="text" placeholder="Nome" class='input-login' id='input_nome_cad'>
+
+                                    <input type="password" placeholder="E-mail" class='input-login' id='input_email_cad'>
+                                    
+                                    <input type="text" placeholder="Login" class='input-login' id='input_login_cad'>
+
+                                    <input type="password" placeholder="Senha" class='input-login' id='input_pass_cad'>
+                            </div>
+                            <div class="input-cad">
+                                    <input type="text" placeholder="Data de nascimento" class='input-login' id='input_datanasc_cad'>
+
+                                    <input type="password" placeholder="CPF" class='input-login' id='input_cpf_cad'>
+                                    
+                                    <input type="text" placeholder="Telefone" class='input-login' id='input_email'>
+                                
+                                    <span class='btn-login' id='proximo' onclick="cadacervo()">Próximo</span>
+
+                            </div>
+                        </div>
+                        <div class="area-alert" style="display: none;">
+
+                        </div>
+                    </form>
+
+                    <form action="" id="form_cad_acervo" style="display: none">
+                        <div class="title-cad-usuario">
+                            <div>
+                                <h2>Cadastro de biblioteca :)</h2>
+                                <h3>Preencha os campos.</h3>
+                            </div> 
+                            <h3>Passo 2/2</h3>
+                        </div>
+                        <div class="area-input-caduser" id="input-cad-acervo">
+                            <div class="input-cad">
+                                    <input type="text" placeholder="Nome" class='input-login' id='input_nome_acervo'>
+
+                                    <input type="text" placeholder="Telefone" class='input-login' id='input_telefone_acervo'>
+                                    
+                                    <input type="text" placeholder="Tipo (ex: Biblioteca)" class='input-login' id='input_tipo_acervo'>
+
+                                    <input type="text" placeholder="CNPJ" class='input-login' id='input_cnpj_acervo'>
+
+                                    <div class="ruanumero">
+                                        <input type="text" placeholder="Logradouro" class='input-login' id='input_rua_acervo'>
+                                        <input type="text" placeholder="N°" class='input-login' id='input_numero_acervo'>
+                                    </div>
+
+                                    
+                            </div>
+                            <div class="input-cad">
+                                    <input type="password" placeholder="Cidade" class='input-login' id='input_cidade_acervo'>
+
+                                    <input type="text" placeholder="Bairro" class='input-login' id='input_bairro_acervo'>
+
+                                    <input type="text" placeholder="Estado" class='input-login' id='input_estado_acervo'>
+                                    
+                                    <input type="text" placeholder="Cep" class='input-login' id='input_cep_acervo'>
+                                
+                                    <button type="submit" class='btn-login' id='btlogin'>Finalizar Cadastro</button>
+
+                            </div>
+                        </div>
+                        <div class="area-alert" style="display: none;">
+
+                        </div>
+                    </form>
                 </div>
             </div>
             </div>
