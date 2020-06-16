@@ -16,12 +16,12 @@ function expandCard(id) {
             card.classList.toggle('disabledCard');
             arealeft.classList.toggle('area-left-disabled');
             arealefttop.classList.toggle('info-disabled');
-            bottom_graph.classList.toggle('none');
-            area_right.classList.toggle('none');
         }
         else {
             setTimeout(function () {
                 card.classList.toggle('expandedCard');
+                bottom_graph.classList.toggle('flex');
+                area_right.classList.toggle('flex');
             }, 10);
         }
     });

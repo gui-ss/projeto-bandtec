@@ -9,10 +9,6 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/dark-mode-style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
 </head>
 
 <body>
@@ -69,23 +65,25 @@
 				<div class="box-graph-top" id="card1" onclick='expandCard("card1")'>
 					<div class="area-left area-left-disabled">
 						<div class="top-graph info-disabled">
-							<div class="info-ambiente">
-								<label>Ambiente 1</label>
-								<h2>Temperatura: <span id="random1">16,5</span> °C</h2>
-								<h2>Nivel: <span style="color:#0078d7;" id="nivel">Médio</span></h2>
-							</div>
-							<div class="circle" id="circle">
-								<i class="material-icons" id="icone">add_alert</i>
+							<div class="top-graph-left-top">
+								<div class="info-ambiente">
+									<label>Ambiente 1</label>
+									<h2>Temperatura: <span id="random1">16,5</span> °C</h2>
+									<h2>Nivel: <span style="color:#0078d7;" id="nivel">Médio</span></h2>
+								</div>
+								<div class="circle" id="circle">
+									<i class="material-icons" id="icone">add_alert</i>
+								</div>
 							</div>
 						</div>
-						<div class="bottom-graph none">
+						<div class="bottom-graph">
 							<div class="card-graph" id="card-graph-bottom">
 
 							</div>
 						</div>
 					</div>
 
-					<div class="area-right none">
+					<div class="area-right">
 						<div class="card-graph">
 							
 						</div>
@@ -95,40 +93,56 @@
 				<div class="box-graph-top" id="card2" onclick='expandCard("card2")'>
 					<div class="area-left area-left-disabled">
 						<div class="top-graph info-disabled">
-							<div class="info-ambiente">
-								<label>Ambiente 2</label>
-								<h2>Temperatura: <span id="random2">24,2</span> °C</h2>
-								<h2>Nivel: <span style="color:rgb(255,165,36);" id="nivel2">Máximo</span></h2>
-							</div>
-							<div class="circle" id="circle2">
-								<i class="material-icons" id="icone2">cancel</i>
+							<div class="top-graph-left-top">
+								<div class="info-ambiente">
+									<label>Ambiente 2</label>
+									<h2>Temperatura: <span id="random2">24,2</span> °C</h2>
+									<h2>Nivel: <span style="color:rgb(255,165,36);" id="nivel2">Máximo</span></h2>
+								</div>
+								<div class="circle" id="circle2">
+									<i class="material-icons" id="icone2">cancel</i>
+								</div>
 							</div>
 						</div>
-						<div class="bottom-graph none">
+						<div class="bottom-graph">
+							<div class="card-graph" id="card-graph-bottom">
+
+							</div>
 						</div>
 					</div>
 
-					<div class="area-right none">
+					<div class="area-right">
+						<div class="card-graph">
+							
+						</div>
 					</div>
 				</div>
 
 				<div class="box-graph-top" id="card3" onclick='expandCard("card3")'>
 					<div class="area-left area-left-disabled">
 						<div class="top-graph info-disabled">
-							<div class="info-ambiente">
-								<label>Ambiente 3</label>
-								<h2>Temperatura: <span id="random3">22,6</span> °C</h2>
-								<h2>Nivel: <span style="color:rgb(35, 197, 62);" id="nivel3">Ideal</span></h2>
-							</div>
-							<div class="circle" id="circle3">
-								<i class="material-icons" id="icone3">check_circle</i>
+							<div class="top-graph-left-top">
+								<div class="info-ambiente">
+									<label>Ambiente 3</label>
+									<h2>Temperatura: <span id="random3">22,6</span> °C</h2>
+									<h2>Nivel: <span style="color:rgb(35, 197, 62);" id="nivel3">Ideal</span></h2>
+								</div>
+								<div class="circle" id="circle3">
+									<i class="material-icons" id="icone3">check_circle</i>
+								</div>
 							</div>
 						</div>
-						<div class="bottom-graph none">
+						<div class="bottom-graph">
+							<div class="card-graph" id="card-graph-bottom">
+
+							</div>
 						</div>
 					</div>
 
-					<div class="area-right none">
+					<div class="area-right">
+						<div class="card-graph">
+							
+						</div>
 					</div>
 				</div>
 
@@ -136,124 +150,36 @@
 				<div class="box-graph-top" id="card4" onclick='expandCard("card4")'>
 					<div class="area-left area-left-disabled">
 						<div class="top-graph info-disabled">
-							<div class="info-ambiente">
-								<label>Ambiente 4</label>
-								<h2>Temperatura: <span id="random4">28,8</span> °C</h2>
-								<h2>Nivel: <span style="color:rgb(238, 34, 44);" id="nivel4">Alto</span></h2>
-							</div>
-							<div class="circle" id="circle4">
-								<i class="material-icons" id="icone4">warning</i>
+							<div class="top-graph-left-top">
+								<div class="info-ambiente">
+									<label>Ambiente 4</label>
+									<h2>Temperatura: <span id="random4">28,8</span> °C</h2>
+									<h2>Nivel: <span style="color:rgb(238, 34, 44);" id="nivel4">Alto</span></h2>
+								</div>
+								<div class="circle" id="circle4">
+									<i class="material-icons" id="icone4">warning</i>
+								</div>
 							</div>
 						</div>
-						<div class="bottom-graph none">
+						<div class="bottom-graph">
+							<div class="card-graph" id="card-graph-bottom">
+
+							</div>
 						</div>
 					</div>
 
-					<div class="area-right none">
+					<div class="area-right">
+						<div class="card-graph">
+							
+						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
 	<script type="text/javascript" src="js/js.js"></script>
 	<script type="text/javascript" src="js/card.js"></script>
 	<script type="text/javascript" src="js/card-animation.js"></script>
-	<script type="text/javascript" src="sensores.js"></script>
 </body>
 </html>
 
-<script>
-	let context = document.getElementById("chart").getContext("2d");
-	context.canvas.width = 1000;
-	context.canvas.height = 500;
-
-	let config = {
-			type: 'line',
-			data: {
-				labels: [],
-				datasets: [{
-					label: 'Temperatura',
-					data: [],
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)'
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)'
-					],
-					borderWidth: 1
-				},
-				{
-					label: 'Umidade',
-					data: [],
-					backgroundColor: [
-						'rgba(0,0,255,0.3)'
-					],
-					borderColor: [
-						'rgba(0,0,255,0.3)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: true
-					}
-				}]
-			}
-		}
-
-	
-
-	let chart = new Chart(context, config);
-
-	function getData() {
-		let ajax = new XMLHttpRequest();
-
-		ajax.open('GET', 'http://localhost:3000/getData');
-		ajax.onreadystatechange = function() {
-			if(ajax.readyState == XMLHttpRequest.DONE) {
-				let arr = JSON.parse(ajax.responseText);
-
-				msg.innerHTML = `
-					<p>Média Umidade: ${arr.average.Hum}</p>
-					<p>Média Temperatura: ${arr.average.Temp}</p>
-				`;
-
-				fillChart(arr.data.Hum, arr.data.Temp.toFixed(2), arr.lastMoment);
-			}
-		}
-		ajax.send();
-	}
-
-	function fillChart(umidade, temperatura, data) {
-		
-		let date = new Date(data);
-		let moment = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-
-		chart.data.labels.push(moment);
-
-		if(chart.data.labels.length > 7) {
-			chart.data.labels.shift();
-			chart.data.datasets[0].data.shift();
-			chart.data.datasets[1].data.shift();
-		}
-
-		chart.data.datasets[0].data.push(parseFloat(temperatura));
-		chart.data.datasets[1].data.push(umidade);
-		chart.update();
-	}
-
-	
-	function sendData() {
-		var http = new XMLHttpRequest();
-		http.open('POST', 'http://localhost:3000/sendData', false);
-		http.send(null);
-	}
-
-	setInterval(()=> {
-		sendData();
-		getData();
-	}, 5000)
-</script>
