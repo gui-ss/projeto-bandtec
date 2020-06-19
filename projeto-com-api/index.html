@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+</head>
+<body>
+    <div id="msg"></div>
+
+    <canvas id="chart"></canvas>
+
+    <script>
+        let context = document.getElementById("chart").getContext("2d");
+
+        let config = {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Temperatura',
+                        data: [],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Umidade',
+                        data: [],
+                        backgroundColor: [
+                            'rgba(0,0,255,0.3)'
+                        ],
+                        borderColor: [
+                            'rgba(0,0,255,0.3)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+
+        
+
+        let chart = new Chart(context, config);
+
+        function getData() {
+            let ajax = new XMLHttpRequest();
+
+            ajax.open('GET', 'http://localhost:3333/sensor');
+            ajax.onreadystatechange = function() {
+                if(ajax.readyState == XMLHttpRequest.DONE) {
+                    let arr = JSON.parse(ajax.responseText);
+
+                    msg.innerHTML = `
+                        <p>Média Umidade: ${arr.average.Hum}</p>
+                        <p>Média Temperatura: ${arr.average.Temp}</p>
+                    `;
+
+                    fillChart(arr.data.Hum, arr.data.Temp.toFixed(2), arr.lastMoment);
+                }
+            }
+            ajax.send();
+        }
+
+        function fillChart(umidade, temperatura, data) {
+            
+            let date = new Date(data);
+            let moment = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+            chart.data.labels.push(moment);
+
+            if(chart.data.labels.length > 7) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+                chart.data.datasets[1].data.shift();
+            }
+
+            chart.data.datasets[0].data.push(parseFloat(temperatura));
+            chart.data.datasets[1].data.push(umidade);
+            chart.update();
+        }
+
+        
+        function sendData() {
+            let http = new XMLHttpRequest();
+            http.open('POST', 'http://localhost:3333/sensor');
+            http.onreadystatechange = function() {
+                if(http.status == 200 && http.readyState == 4) {
+                    getData();
+                }
+            }
+            http.send();
+        }
+
+        setInterval(() => {
+            sendData();
+        }, 5000)
+    </script>
+</body>
+</html>

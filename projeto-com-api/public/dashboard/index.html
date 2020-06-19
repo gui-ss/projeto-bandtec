@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dark-mode-style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+</head>
+
+<body>
+	<nav id="menu" onmouseover="abrir()">
+		<div class="contour-icon" id="logo">
+			<img src="img/logos/icon.png" alt="" id="closed">
+			<img src="img/logos/logo-dark.png" id="open">
+		</div>
+		<div class="contour-icon" id="contour-icon">
+			<i class="material-icons" style="font-size: 20px;">dashboard</i>
+			<a class="funcao" id="index">Dashboard</a>
+		</div>
+
+		<div class="contour-icon" id="contour-icon">
+			<i class="material-icons" style="font-size: 20px;">home</i>
+			<a class="funcao" id="sala">Salas</a>
+		</div>
+
+		<div class="contour-icon" id="contour-icon">
+			<i class="material-icons" style="font-size: 20px;">equalizer</i>
+			<a class="funcao" id="relatorios">Relatórios</a>
+		</div>
+		<div class="baixo">
+			<hr>
+			<div class="contour-icon" id="contour-icon">
+				<i class="material-icons" style="font-size: 20px;">build</i>
+				<a href="#" class="funcao">Configurações</a>
+			</div>
+			<div class="contour-icon">
+				<i class="material-icons" style="font-size: 20px;">brightness_medium</i>
+				<a href="#" class="funcao">Modo escuro</a>
+				<label class="switch" id='labelSwitch'>
+					<input type="checkbox" id='checkDarkMode' onclick="enableDarkMode()">
+					<span class="slider round"></span>
+				</label>
+			</div>
+		</div>
+	</nav>
+
+	<section id="principal" onmouseover="fechar()">
+		<div class="dashboard">
+			<div class="nav-principal" id="nav-princial">
+				<div class="title-dash">
+					<h1>Visão Geral</h1>
+				</div>
+				<div class="pesquisa">
+					<input type="text" placeholder="Pesquisar :)" id="">
+					<i class="material-icons" id="lupa">search</i>
+				</div>
+				<div class="conta" id="conta">
+					<img src="img/avatar.png">
+					<p>Admin</p>
+					<a href="#"><i class="material-icons">arrow_drop_down</i></a>
+				</div>
+			</div>
+			<div class="area">
+				<div class="area-content">
+					<div class="area-content-data">
+						<h1>Dado 1</h1>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis voluptates fuga quibusdam mollitia praesentium et exercitationem eveniet asperiores nemo! Obcaecati, pariatur? Reprehenderit magni unde nihil, aspernatur aliquam voluptatum officiis cum.</p>
+					</div>
+					<div class="area-content-data">
+						<h1>Dado 2</h1>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis voluptates fuga quibusdam mollitia praesentium et exercitationem eveniet asperiores nemo! Obcaecati, pariatur? Reprehenderit magni unde nihil, aspernatur aliquam voluptatum officiis cum.</p>
+					</div>
+				</div>
+				<div class="area-content">
+					<div class="area-content-data" id="area-content-menor">
+						<div class="card-data">
+
+						</div>
+						<div class="card-data">
+							
+						</div>
+						<div class="card-data">
+							
+						</div>
+					</div>
+					<div class="area-content-data" id="area-content-maior">
+						<h1>Dado 4</h1>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis voluptates fuga quibusdam mollitia praesentium et exercitationem eveniet asperiores nemo! Obcaecati, pariatur? Reprehenderit magni unde nihil, aspernatur aliquam voluptatum officiis cum.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/js.js"></script>
+</body>
+
+</html>

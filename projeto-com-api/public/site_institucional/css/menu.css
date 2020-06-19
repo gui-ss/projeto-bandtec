@@ -1,0 +1,98 @@
+nav#nav-menu {
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+    position: fixed;
+    font-weight: 500;
+    transition: .5s;
+}
+
+nav#nav-menu div.container{
+    flex-wrap: wrap;
+}
+
+div.logo-container {
+    flex: 1;
+    justify-content: start;
+}
+
+img.logo {
+    width: 40px;
+}
+
+h2.logo-name {
+    color: white;
+    font-size: 30px;
+}
+
+div.menu-container {
+    flex: 1;
+}
+
+div.login-container {
+    flex: .5;
+}
+
+div.login-container ul.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.login-container ul.menu li.item-menu {
+    padding-left: 30px;
+}
+
+ul.menu {
+    list-style: none;
+    justify-content: space-around;
+}
+
+a.page-link {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.menu-link {
+    position: relative;
+    color: rgb(219, 219, 219);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+a.menu-link::after {
+    position: absolute;
+    content: ' ';
+    height: 2px;
+    bottom: -6px;
+    margin: 0 auto;
+    left: 0;
+    width: 0%;
+    transition:.5s;
+}
+
+a.menu-link:hover::after {
+    display: block;
+    width: 50%;
+    background: #36BD95;
+}
+
+a.menu-link:hover {
+    color: white;
+}
+
+a.active {
+    color: white;
+}
+
+a.active::after {
+    display: block;
+    width: 50%;
+    background: #36BD95;
+}
+
+/* APOS O SCROLL */
+
+nav.scrolled {
+    background: rgba(26, 26, 26, 0.89);
+}
