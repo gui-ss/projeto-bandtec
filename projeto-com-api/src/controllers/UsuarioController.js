@@ -20,7 +20,7 @@ module.exports = {
         
         database.connect().then(() => {
             return database.sql
-                    .query(`INSERT INTO tbUsuario (nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha, fkAcervo) VALUES ('${nomeUsuario}', CONVERT(Datetime, '${dataNasc}', 120), '${cpf}', '${telefoneUsuario}', '${email}', '${login}', '${senha}', ${fkAcervo});`)
+                    .query(`INSERT INTO tbUsuario (nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha, fkAcervo) VALUES ('${nomeUsuario}', CONVERT(Date, '${dataNasc}', 103), '${cpf}', '${telefoneUsuario}', '${email}', '${login}', '${senha}', ${fkAcervo});`)
                     .then(() => {
                         console.log("Registro inserido!");
                         response.sendStatus(200);

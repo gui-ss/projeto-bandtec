@@ -6,9 +6,17 @@ let dataNascUsuario = document.querySelector("#input_datanasc_cad");
 let cpfUsuario = document.querySelector("#input_cpf_cad");
 let telefoneUsuario = document.querySelector("#input_telefone");
 
+function convertData(userDate) {
+    let date = new Date(userDate);
+    let formatedDate = `${date.toLocaleDateString()}`;
+	return formatedDate;
+}
+
 function cadastroUsuario(fkAcervo) {
+
+    let date = convertData(dataNascUsuario.value);
     
-    let params = `nomeUsuario=${nomeUsuario.value}&dataNasc=${dataNascUsuario.value}&cpf=${cpfUsuario.value}&telefoneUsuario=${telefoneUsuario.value}&email=${emailUsuario.value}&login=${loginUsuario.value}&senha=${senhaUsuario.value}&fkAcervo=${fkAcervo}`;
+    let params = `nomeUsuario=${nomeUsuario.value}&dataNasc=${date}&cpf=${cpfUsuario.value}&telefoneUsuario=${telefoneUsuario.value}&email=${emailUsuario.value}&login=${loginUsuario.value}&senha=${senhaUsuario.value}&fkAcervo=${fkAcervo}`;
 
     let ajax = new XMLHttpRequest();
     ajax.open('POST', "http://localhost:3333/usuario");
