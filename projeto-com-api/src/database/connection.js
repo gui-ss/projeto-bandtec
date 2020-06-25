@@ -19,7 +19,7 @@ const connection = {
 }
 
 function connect() {
-    sql.close();
+    // sql.close();
     return sql.connect(connection.config);
 }
 

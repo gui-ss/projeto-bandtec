@@ -5,9 +5,11 @@ const { ArduinoDataHumidity } = require('./../sensors/serialHumidity');
 
 module.exports = {
     async index(request, response) {
+        const fkArea = request.params.area;
+
         database.connect().then(() => {
             return database.sql
-                    .query(`SELECT * FROM tbSensor;`)
+                    .query(`SELECT umidade, temperatura, dataLeitura FROM tbSensor WHERE fkArea = ${fkArea};`)
                     .then(result => {
                         let data = result.recordset[result.recordset.length - 1];
 
@@ -39,11 +41,13 @@ module.exports = {
         }).catch(error => {
             console.log("ERRO: "+error);
         }).finally(() => {
-            // database.sql.close();
+            database.sql.close();
         });
     },
 
     async create(request, response) {
+        const { fkArea } = request.body;
+
         let temperature = ArduinoDataTemp.List[ArduinoDataTemp.List.length - 1];
         let humidity = ArduinoDataHumidity.List[ArduinoDataHumidity.List.length - 1];
 
@@ -52,8 +56,8 @@ module.exports = {
 
         database.connect().then(() => {
             return database.sql
-                .query(`INSERT into tbSensor (umidade, temperatura, dataLeitura)
-                values (${humidity}, ${temperature}, CONVERT(Datetime, '${moment}', 120));`)
+                .query(`INSERT into tbSensor (umidade, temperatura, dataLeitura, fkArea)
+                values (${humidity}, ${temperature}, CONVERT(Datetime, '${moment}', 120), ${fkArea});`)
                 .then(() => {
                     console.log('Registro inserido com sucesso!');
                     response.sendStatus(200);
@@ -61,7 +65,7 @@ module.exports = {
         }).catch(error => {
             console.log("Erro: "+error);
         }).finally(() => {
-            // database.sql.close();
+            database.sql.close();
         });
     },
 }

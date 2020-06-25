@@ -1,132 +1,96 @@
-function card1(){
-    var num = (Math.random() * 30) + 1;
-    document.getElementById('random1').innerHTML = num.toFixed(2);
+let div_cards = document.querySelector("#area-cards");
+let id_areas = [];
 
-    if(num>= 1 && num<=10){
-        document.getElementById('icone').innerHTML = 'warning';
-        document.getElementById('circle').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel').innerHTML = 'Baixo';
-        document.getElementById('nivel').style.color = 'rgb(238, 34, 44)';
-    }else if(num>=11 && num<=18){
-        document.getElementById('icone').innerHTML = 'add_alert';
-        document.getElementById('circle').style.background = '#0078d7';
-        document.getElementById('nivel').innerHTML = 'Médio';
-        document.getElementById('nivel').style.color = '#0078d7'; 
-    }else if(num>=19 && num<=23){
-        document.getElementById('icone').innerHTML = 'check_circle';
-        document.getElementById('circle').style.background = 'rgb(35, 197, 62)';
-        document.getElementById('nivel').innerHTML = 'Ideal';
-        document.getElementById('nivel').style.color = 'rgb(35, 197, 62)'; 
-    }else if(num>=24 && num<=25){
-        document.getElementById('icone').innerHTML = 'cancel';
-        document.getElementById('circle').style.background = 'rgb(255,165,36)';
-        document.getElementById('nivel').innerHTML = 'Alto';
-        document.getElementById('nivel').style.color = 'rgb(255,165,36)';
-    }else{
-        document.getElementById('icone').innerHTML = 'warning';
-        document.getElementById('circle').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel').innerHTML = 'Maximo';
-        document.getElementById('nivel').style.color = 'rgb(238, 34, 44)';
-    }
+function constroiCards(areas) {
+
+    id_areas = [];
+
+    div_cards.innerHTML = "";
+
+    areas.forEach(area => {
+        div_cards.innerHTML += 
+        `<div class='card' onclick='expandCard(this.id, event)' id='area${area.idArea}'>
+            <div class="first-column">
+                <div class="card-info">
+                    <div class="info-area">
+                        <h3 class='nome-area'>${area.nomeArea}</h3>
+                        <p class="temperatura">Temperatura: <span id="span_temperatura">0</span>ºC</p>
+                        <p class="umidade">Umidade: <span id="span_umidade">0</span></p>
+                        <p class='nivel' >Nivel: <span id="span_nivel">Normal</span></p>
+                    </div>
+                    <div class="alerta">
+                        <div class="icone-alerta" id='div_alerta'>
+                            <i class="material-icons" id="icone">add_alert</i>
+                        </div>
+                    </div>
+                    <button onclick="deletarArea(${area.idArea})" class='deleteBtn'>Deletar área</button>
+                </div>
+
+                <div class='grafico-secundario'>
+                    <div class="area-grafico">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class='grafico-principal'>
+                <div class="area-grafico">
+                    
+                </div>
+            </div>
+        </div>`;
+
+        id_areas.push(area.idArea);
+    });
+
+    div_cards.innerHTML += `
+    <div id='add-card' onclick="modalAmbiente()">
+        <span class="material-icons">
+            add_circle
+        </span>
+        <p>Cadastrar nova área</p>
+    </div>
+    `;
 }
 
-function card2(){
-    var num = (Math.random() * 30) + 1;
-    document.getElementById('random2').innerHTML = num.toFixed(2);
+function atualizarCard(temperatura, umidade, id) {
+    let card = document.querySelector(`#area${id}`);
+    
 
-    if(num>= 1 && num<=10){
-        document.getElementById('icone2').innerHTML = 'warning';
-        document.getElementById('circle2').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel2').innerHTML = 'Baixo';
-        document.getElementById('nivel2').style.color = 'rgb(238, 34, 44)';
-    }else if(num>=11 && num<=18){
-        document.getElementById('icone2').innerHTML = 'add_alert';
-        document.getElementById('circle2').style.background = '#0078d7';
-        document.getElementById('nivel2').innerHTML = 'Médio';
-        document.getElementById('nivel2').style.color = '#0078d7'; 
-    }else if(num>=19 && num<=23){
-        document.getElementById('icone2').innerHTML = 'check_circle';
-        document.getElementById('circle2').style.background = 'rgb(35, 197, 62)';
-        document.getElementById('nivel2').innerHTML = 'Ideal';
-        document.getElementById('nivel2').style.color = 'rgb(35, 197, 62)'; 
-    }else if(num>=24 && num<=25){
-        document.getElementById('icone2').innerHTML = 'cancel';
-        document.getElementById('circle2').style.background = 'rgb(255,165,36)';
-        document.getElementById('nivel2').innerHTML = 'Alto';
-        document.getElementById('nivel2').style.color = 'rgb(255,165,36)';
+    let span_temperatura = card.querySelector('#span_temperatura');
+    let span_umidade = card.querySelector('#span_umidade');
+    let span_nivel = card.querySelector('#span_nivel');
+
+    let div_alerta = card.querySelector("#div_alerta");
+    let div_icone = card.querySelector('#icone');
+
+    span_temperatura.innerHTML = temperatura;
+    span_umidade.innerHTML = umidade;
+
+    if(temperatura>= 1 && temperatura<=10){
+        div_icone.innerHTML = 'warning';
+        div_alerta.style.background = 'rgb(238, 34, 44)';
+        span_nivel.innerHTML = 'Baixo';
+        span_nivel.style.color = 'rgb(238, 34, 44)';
+    }else if(temperatura>=11 && temperatura<=18){
+        div_icone.innerHTML = 'add_alert';
+        div_alerta.style.background = '#0078d7';
+        span_nivel.innerHTML = 'Médio';
+        span_nivel.style.color = '#0078d7'; 
+    }else if(temperatura>=19 && temperatura<=23){
+        div_icone.innerHTML = 'check_circle';
+        div_alerta.style.background = 'rgb(35, 197, 62)';
+        span_nivel.innerHTML = 'Ideal';
+        span_nivel.style.color = 'rgb(35, 197, 62)'; 
+    }else if(temperatura>=24 && temperatura<=25){
+        div_icone.innerHTML = 'cancel';
+        div_alerta.style.background = 'rgb(255,165,36)';
+        span_nivel.innerHTML = 'Alto';
+        span_nivel.style.color = 'rgb(255,165,36)';
     }else{
-        document.getElementById('icone2').innerHTML = 'warning';
-        document.getElementById('circle2').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel2').innerHTML = 'Maximo';
-        document.getElementById('nivel2').style.color = 'rgb(238, 34, 44)';
+        div_icone.innerHTML = 'warning';
+        div_alerta.style.background = 'rgb(238, 34, 44)';
+        span_nivel.innerHTML = 'Máximo';
+        span_nivel.style.color = 'rgb(238, 34, 44)';
     }
 }
-
-function card3(){
-    var num = (Math.random() * 30) + 1;
-    document.getElementById('random3').innerHTML = num.toFixed(2);
-
-    if(num>= 1 && num<=10){
-        document.getElementById('icone3').innerHTML = 'warning';
-        document.getElementById('circle3').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel3').innerHTML = 'Baixo';
-        document.getElementById('nivel3').style.color = 'rgb(238, 34, 44)';
-    }else if(num>=11 && num<=18){
-        document.getElementById('icone3').innerHTML = 'add_alert';
-        document.getElementById('circle3').style.background = '#0078d7';
-        document.getElementById('nivel3').innerHTML = 'Médio';
-        document.getElementById('nivel3').style.color = '#0078d7'; 
-    }else if(num>=19 && num<=23){
-        document.getElementById('icone3').innerHTML = 'check_circle';
-        document.getElementById('circle3').style.background = 'rgb(35, 197, 62)';
-        document.getElementById('nivel3').innerHTML = 'Ideal';
-        document.getElementById('nivel3').style.color = 'rgb(35, 197, 62)'; 
-    }else if(num>=24 && num<=25){
-        document.getElementById('icone3').innerHTML = 'cancel';
-        document.getElementById('circle3').style.background = 'rgb(255,165,36)';
-        document.getElementById('nivel3').innerHTML = 'Alto';
-        document.getElementById('nivel3').style.color = 'rgb(255,165,36)';
-    }else{
-        document.getElementById('icone3').innerHTML = 'warning';
-        document.getElementById('circle3').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel3').innerHTML = 'Maximo';
-        document.getElementById('nivel3').style.color = 'rgb(238, 34, 44)';
-    }
-}
-
-function card4(){
-    var num = (Math.random() * 30) + 1;
-    document.getElementById('random4').innerHTML = num.toFixed(1);
-
-    if(num>= 1 && num<=10){
-        document.getElementById('icone4').innerHTML = 'warning';
-        document.getElementById('circle4').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel4').innerHTML = 'Baixo';
-        document.getElementById('nivel4').style.color = 'rgb(238, 34, 44)';
-    }else if(num>=11 && num<=18){
-        document.getElementById('icone4').innerHTML = 'add_alert';
-        document.getElementById('circle4').style.background = '#0078d7';
-        document.getElementById('nivel4').innerHTML = 'Médio';
-        document.getElementById('nivel4').style.color = '#0078d7'; 
-    }else if(num>=19 && num<=23){
-        document.getElementById('icone4').innerHTML = 'check_circle';
-        document.getElementById('circle4').style.background = 'rgb(35, 197, 62)';
-        document.getElementById('nivel4').innerHTML = 'Ideal';
-        document.getElementById('nivel4').style.color = 'rgb(35, 197, 62)'; 
-    }else if(num>=24 && num<=25){
-        document.getElementById('icone4').innerHTML = 'cancel';
-        document.getElementById('circle4').style.background = 'rgb(255,165,36)';
-        document.getElementById('nivel4').innerHTML = 'Alto';
-        document.getElementById('nivel4').style.color = 'rgb(255,165,36)';
-    }else{
-        document.getElementById('icone4').innerHTML = 'warning';
-        document.getElementById('circle4').style.background = 'rgb(238, 34, 44)';
-        document.getElementById('nivel4').innerHTML = 'Maximo';
-        document.getElementById('nivel4').style.color = 'rgb(238, 34, 44)';
-    }
-}
-setInterval(card1, 5000);
-setInterval(card2, 4000);
-setInterval(card3, 4000);
-setInterval(card4, 5000);
-

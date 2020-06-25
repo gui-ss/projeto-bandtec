@@ -1,28 +1,43 @@
-let cards = document.querySelectorAll(".box-graph-top");
+function expandCard(id, event) {
+    let cardClicado = document.querySelector(`#${id}`);
+    let deleteButton = cardClicado.querySelector(".deleteBtn");
 
-function expandCard(id) {
-    let card = document.querySelector(`#${id}`);
+    if (event.target != deleteButton) {
+        let cards = document.querySelectorAll(".card");
+        let addAreaButton = document.querySelector("#add-card");s
 
-    let arealeft = card.querySelector(".area-left");
-    let arealefttop = card.querySelector(".top-graph");
-    let bottom_graph = card.querySelector(".bottom-graph");
-    let area_right = card.querySelector(".area-right");
+        cards.forEach(card => {
+            let cardId = card.getAttribute("id");
 
+            if (cardId != id) {
+                if (card.classList.contains('disabledCard')) {
+                    setTimeout(() => {
+                        card.classList.remove('disabledCard');
+                    }, 400)
+                }
+                else {
+                    card.classList.add('disabledCard');
+                }
 
-    cards.forEach(card => {
-        let cardId = card.getAttribute("id");
+            }
+            else {
+                cardClicado.classList.toggle('expandedCard');
+            }
+        });
 
-        if (cardId != id) {
-            card.classList.toggle('disabledCard');
-            arealeft.classList.toggle('area-left-disabled');
-            arealefttop.classList.toggle('info-disabled');
+        if (addAreaButton.classList.contains('disabledCard')) {
+            setTimeout(() => {
+                addAreaButton.classList.remove("disabledCard");
+            }, 400);
         }
         else {
-            setTimeout(function () {
-                card.classList.toggle('expandedCard');
-                bottom_graph.classList.toggle('flex');
-                area_right.classList.toggle('flex');
-            }, 10);
+            addAreaButton.classList.add("disabledCard");
         }
-    });
+    }
+}
+
+let modal = document.querySelector("#modal-area");
+
+function modalAmbiente() {
+    modal.classList.toggle('disabled');
 }

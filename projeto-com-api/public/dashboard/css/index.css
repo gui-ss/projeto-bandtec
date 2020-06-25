@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+div#area-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    height: 75%;
+}
+
+div.card {
+    height: 150px;
+    width: 30%;
+    background: white;
+    border-left: 4px solid #2196F3;
+    border-radius: 5px;
+    transition: all .5s;
+    box-shadow: 3px 3px 10px 1px #3636362f;
+    margin-right: 4%;
+    display: inline-block;
+} 
+
+div.disabledCard {
+    display: none !important;
+}
+
+div.card:nth-child(3n) {
+    margin-right: 0;
+}
+
+div.card:hover {
+    cursor: pointer;
+}
+
+h3.nome-area {
+    font-size: 22px;
+}
+
+div.first-column {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.card-info {
+    width: 100%;
+    max-width: 310px;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    position: relative;
+}
+
+div.card-info button {
+    width: 100px;
+    height: 35px;
+    color: white;
+    background: #2196F3;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: none;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+div.card-info button:hover {
+    cursor: pointer;
+    background: #176fb6;
+}
+
+div.info-area {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+div.icone-alerta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: red;
+    color: white;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+div.grafico-principal {
+    display: none;
+    width: 70%;
+    height: 100%;
+    align-self: flex-start;
+    justify-self: flex-end;
+}
+
+div.grafico-secundario {
+    height: 60%;
+    width: 100%;
+    display: none;
+}
+
+div.card.expandedCard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+div.card.expandedCard div.first-column {
+    width: 30%;
+}
+
+div.card.expandedCard div.grafico-principal {
+    padding: 10px;
+}
+
+div.card.expandedCard div.grafico-principal,
+div.card.expandedCard div.grafico-secundario {
+    display: block;
+}
+
+div.area-grafico {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: #e3e3e3;
+}
+
+div.card.expandedCard div.card-info {
+    width: 310px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+div#add-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 200px;
+    background: #1c85db;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 3px 3px 10px 1px #3636362f;
+    transition: all .5s;
+}
+
+div#add-card:hover {
+    cursor: pointer;
+    background: #196fb6;
+}
+
+div#add-card span {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+div#modal-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #363636b7;
+    transition: all .5s;
+}
+
+.disabled {
+    visibility: hidden;
+    opacity: 0;
+}
+
+div#modal-form-area {
+    width: 32%;
+    height: 55%;
+    padding: 35px 0;
+    background: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+div#modal-form-area h2 {
+    font-size: 28px;
+    color: #363636;
+    width: 80%;
+    margin: 0 auto 10px auto;
+}
+
+div#modal-form-area p {
+    width: 80%;
+    margin: 5px auto;
+    color: #5f5f5f;
+    font-size: 14px;
+}
+
+div#modal-form-area form {
+    /* background: red; */
+    width: 80%;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+div#modal-form-area form input,
+div#modal-form-area form button {
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+
+
+div#modal-form-area form input {
+    background: #f1f1f1;
+    padding-left: 10px;
+}
+
+div#modal-form-area form button {
+    background: #2196F3;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    transition: all .5s;
+}
+
+div#modal-form-area form button:hover {
+    background: #1c85db;
+    cursor: pointer;
+}
+
+div#close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+div#close span {
+    font-size: 28px;
+    color: #5f5f5f;
+    transition: all .3s;
+}
+
+div#close span:hover {
+    color: rgb(220, 20, 20);
+    cursor: pointer;
+}
