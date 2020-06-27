@@ -12,7 +12,7 @@ const connection = {
         pool: {
             max: 4,
             min: 1,
-            idleTimeoutMillis: 30000,
+            idleTimeoutMillis: 10000,
             connectionTimeout: 5000
         }
     }

@@ -5,8 +5,6 @@ let senha_login = document.querySelector("#input_pass");
 
 function verificarUsuario(event) {
     event.preventDefault();
-    // luana@gmail.com
-    // nuvem11
 
     let email = email_login.value;
     let senha = senha_login.value;
@@ -40,7 +38,7 @@ function criarSessao(dados) {
         id: dados.idUsuario,
         nome: dados.nomeUsuario,
         acervo: dados.nomeAcervo,
-        idAcervo: dados.fkAcervo
+        idAcervo: dados.idAcervo
     }
 
     sessionStorage.setItem("usuario", JSON.stringify(usuario));

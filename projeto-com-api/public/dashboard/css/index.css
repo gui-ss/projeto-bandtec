@@ -103,8 +103,10 @@ div.grafico-principal {
     display: none;
     width: 70%;
     height: 100%;
-    align-self: flex-start;
-    justify-self: flex-end;
+}
+
+div.grafico-principal h3 {
+    margin-bottom: 10px;
 }
 
 div.grafico-secundario {
@@ -129,7 +131,8 @@ div.card.expandedCard div.grafico-principal {
 
 div.card.expandedCard div.grafico-principal,
 div.card.expandedCard div.grafico-secundario {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 div.area-grafico {
@@ -137,6 +140,8 @@ div.area-grafico {
     height: 100%;
     border-radius: 5px;
     background: #e3e3e3;
+    display: flex;
+    align-items: center;
 }
 
 div.card.expandedCard div.card-info {

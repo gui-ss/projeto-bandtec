@@ -6,7 +6,7 @@ module.exports = {
 
         database.connect().then(() => {
             return database.sql
-                .query(`SELECT idUsuario, nomeUsuario, fkAcervo, nomeAcervo FROM tbUsuario INNER JOIN tbAcervo ON idAcervo = fkAcervo WHERE email = '${email}' AND senha = '${senha}';`)
+                .query(`SELECT idUsuario, nomeUsuario, fkUsuario, idAcervo, nomeAcervo FROM tbUsuario INNER JOIN tbAcervo ON idUsuario = fkUsuario WHERE email = '${email}' AND senha = '${senha}';`)
                 .then(result => {
                     response.send(result.recordset);
                 });

@@ -582,7 +582,7 @@
                         </div>
                     </form>
 
-                    <form action="" id="form_cad_usuario" style="display: none">
+                    <form action="http://localhost:3333/usuario" method="POST" id="form_cad_usuario" style="display: none">
                         <div class="title-cad-usuario">
                             <div>
                                 <h2>Cadastro de úsuario :)</h2>
@@ -616,7 +616,7 @@
                         </div>
                     </form>
 
-                    <form action="http://localhost:3333/acervo" method="POST" id="form_cad_acervo" style="display: none">
+                    <form id="form_cad_acervo" style="display: none">
                         <div class="title-cad-usuario">
                             <div>
                                 <h2>Cadastro de biblioteca :)</h2>
@@ -650,7 +650,7 @@
                                     
                                     <input type="text" placeholder="Cep" class='input-login' id='input_cep_acervo'>
                                 
-                                    <button type="submit" class='btn-login' id='btlogin'>Finalizar Cadastro</button>
+                                    <button type="submit" class='btn-login' id='btlogin' onclick='cadastroUsuario(event)'>Finalizar Cadastro</button>
 
                             </div>
                         </div>
@@ -670,8 +670,8 @@
     <script src="js/login.js"></script>
     <script src="js/main-animation.js"></script>
 
-    <script src='./services/usuario.js'></script>
     <script src='./services/acervo.js'></script>
+    <script src='./services/usuario.js'></script>
     <script src='./services/sessao.js'></script>
 </body>
 </html>

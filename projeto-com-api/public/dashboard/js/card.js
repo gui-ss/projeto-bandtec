@@ -8,8 +8,8 @@ function constroiCards(areas) {
     div_cards.innerHTML = "";
 
     areas.forEach(area => {
-        div_cards.innerHTML += 
-        `<div class='card' onclick='expandCard(this.id, event)' id='area${area.idArea}'>
+        div_cards.innerHTML +=
+            `<div class='card' onclick='expandCard(this.id, event); construirGrafico(this.id); construirGraficoDoughnut(this.id);' id='area${area.idArea}'>
             <div class="first-column">
                 <div class="card-info">
                     <div class="info-area">
@@ -28,14 +28,16 @@ function constroiCards(areas) {
 
                 <div class='grafico-secundario'>
                     <div class="area-grafico">
-                    
+					    <canvas id="dg-chart-area${area.idArea}"></canvas>
                     </div>
                 </div>
             </div>
 
             <div class='grafico-principal'>
+                <h3>Média de temperatura: <span id="span_media_temperatura">0</span>ºC </h3>
+                <h3>Média de umidade: <span id="span_media_umidade">0</span> </h3>
                 <div class="area-grafico">
-                    
+					<canvas id="chart-area${area.idArea}"></canvas>
                 </div>
             </div>
         </div>`;
@@ -53,44 +55,106 @@ function constroiCards(areas) {
     `;
 }
 
-function atualizarCard(temperatura, umidade, id) {
+function expandCard(id, event) {
+    if (chart != null && dgchart != null) {
+        chart.destroy();
+        dgchart.destroy();
+    }
+
+    let cardClicado = document.querySelector(`#${id}`);
+    let deleteButton = cardClicado.querySelector(".deleteBtn");
+    let areaGrafico = cardClicado.querySelectorAll(".area-grafico");
+
+    if (event.target != deleteButton && event.target != areaGrafico[0] && event.target != areaGrafico[1]) {
+        let cards = document.querySelectorAll(".card");
+        let addAreaButton = document.querySelector("#add-card");
+
+        cards.forEach(card => {
+            let cardId = card.getAttribute("id");
+
+            if (cardId != id) {
+                if (card.classList.contains('disabledCard')) {
+                    setTimeout(() => {
+                        card.classList.remove('disabledCard');
+                    }, 400)
+                }
+                else {
+                    card.classList.add('disabledCard');
+                }
+
+            }
+            else {
+                cardClicado.classList.toggle('expandedCard');
+            }
+        });
+
+        if (addAreaButton.classList.contains('disabledCard')) {
+            setTimeout(() => {
+                addAreaButton.classList.remove("disabledCard");
+            }, 400);
+        }
+        else {
+            addAreaButton.classList.add("disabledCard");
+        }
+    }
+}
+
+function atualizarCard(temperatura, umidade, id, momento, media) {
     let card = document.querySelector(`#area${id}`);
-    
 
     let span_temperatura = card.querySelector('#span_temperatura');
     let span_umidade = card.querySelector('#span_umidade');
-    let span_nivel = card.querySelector('#span_nivel');
-
-    let div_alerta = card.querySelector("#div_alerta");
-    let div_icone = card.querySelector('#icone');
-
+    
     span_temperatura.innerHTML = temperatura;
     span_umidade.innerHTML = umidade;
 
-    if(temperatura>= 1 && temperatura<=10){
-        div_icone.innerHTML = 'warning';
-        div_alerta.style.background = 'rgb(238, 34, 44)';
-        span_nivel.innerHTML = 'Baixo';
-        span_nivel.style.color = 'rgb(238, 34, 44)';
-    }else if(temperatura>=11 && temperatura<=18){
-        div_icone.innerHTML = 'add_alert';
-        div_alerta.style.background = '#0078d7';
-        span_nivel.innerHTML = 'Médio';
-        span_nivel.style.color = '#0078d7'; 
-    }else if(temperatura>=19 && temperatura<=23){
-        div_icone.innerHTML = 'check_circle';
-        div_alerta.style.background = 'rgb(35, 197, 62)';
-        span_nivel.innerHTML = 'Ideal';
-        span_nivel.style.color = 'rgb(35, 197, 62)'; 
-    }else if(temperatura>=24 && temperatura<=25){
-        div_icone.innerHTML = 'cancel';
-        div_alerta.style.background = 'rgb(255,165,36)';
-        span_nivel.innerHTML = 'Alto';
-        span_nivel.style.color = 'rgb(255,165,36)';
-    }else{
-        div_icone.innerHTML = 'warning';
-        div_alerta.style.background = 'rgb(238, 34, 44)';
-        span_nivel.innerHTML = 'Máximo';
-        span_nivel.style.color = 'rgb(238, 34, 44)';
+    let span_nivel = card.querySelector('#span_nivel');
+    let div_alerta = card.querySelector("#div_alerta");
+    let div_icone = card.querySelector('#icone');
+
+    let estiloAlerta = classificarAlerta(temperatura);
+
+    div_icone.innerHTML = estiloAlerta[0];
+    div_alerta.style.background = estiloAlerta[1];
+    span_nivel.innerHTML = estiloAlerta[2];
+    span_nivel.style.color = estiloAlerta[3];
+
+    if (chart != null) {
+        let chartId = chart.canvas.getAttribute('id');
+        let subsChartId = chartId.substring(6, chartId.length);
+        let cardId = card.getAttribute("id");
+
+        if (subsChartId == cardId) {
+            let media_temperatura = card.querySelector('#span_media_temperatura');
+            let media_umidade = card.querySelector('#span_media_umidade');
+
+            media_temperatura.innerHTML = media.Temp;
+            media_umidade.innerHTML = media.Hum;
+
+            fillChart(umidade, temperatura.toFixed(2), momento);
+        }
     }
+}
+
+function classificarAlerta(temperatura) {
+    let estilo = [];
+
+    if (temperatura >= 1 && temperatura <= 10) {
+        estilo = ['warning', 'rgb(238, 34, 44)', 'Baixo', 'rgb(238, 34, 44)'];
+
+    } else if (temperatura >= 11 && temperatura <= 18) {
+        estilo = ['add_alert', '#0078d7', 'Médio', '#0078d7'];
+
+    } else if (temperatura >= 19 && temperatura <= 23) {
+        estilo = ['check_circle', 'rgb(35, 197, 62)', 'Ideal', 'rgb(35, 197, 62)'];
+
+    } else if (temperatura >= 24 && temperatura <= 25) {
+        estilo = ['cancel', 'rgb(255,165,36)', 'Alto', 'rgb(255,165,36)'];
+
+    } else {
+        estilo = ['warning', 'rgb(238, 34, 44)', 'Máximo', 'rgb(238, 34, 44)'];
+
+    }
+
+    return estilo;
 }

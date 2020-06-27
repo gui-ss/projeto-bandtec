@@ -7,8 +7,8 @@ module.exports = {
     async index(request, response) {
         const fkArea = request.params.area;
 
-        database.connect().then(() => {
-            return database.sql
+        database.connect().then(async () => {
+            return await database.sql
                     .query(`SELECT umidade, temperatura, dataLeitura FROM tbSensor WHERE fkArea = ${fkArea};`)
                     .then(result => {
                         let data = result.recordset[result.recordset.length - 1];
@@ -46,6 +46,7 @@ module.exports = {
     },
 
     async create(request, response) {
+        const registros_mantidos_tabela_leitura = 50;
         const { fkArea } = request.body;
 
         let temperature = ArduinoDataTemp.List[ArduinoDataTemp.List.length - 1];
@@ -54,10 +55,13 @@ module.exports = {
         let data = new Date();
         let moment = `${data.toLocaleDateString()} ${data.toLocaleTimeString()}`;
 
-        database.connect().then(() => {
-            return database.sql
+        database.connect().then(async () => {
+            return await database.sql
                 .query(`INSERT into tbSensor (umidade, temperatura, dataLeitura, fkArea)
-                values (${humidity}, ${temperature}, CONVERT(Datetime, '${moment}', 120), ${fkArea});`)
+                values (${humidity}, ${temperature}, CONVERT(Datetime, '${moment}', 120), ${fkArea});
+                
+                delete from tbSensor where idSensor not in 
+                (select top ${registros_mantidos_tabela_leitura} idSensor from tbSensor order by idSensor desc);`)
                 .then(() => {
                     console.log('Registro inserido com sucesso!');
                     response.sendStatus(200);

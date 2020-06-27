@@ -4,7 +4,7 @@ module.exports = {
     async index(request, response) {
         database.connect().then(() => {
             return database.sql
-                    .query(`SELECT idUsuario, nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha, fkAcervo FROM tbUsuario;`)
+                    .query(`SELECT idUsuario, nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha FROM tbUsuario;`)
                     .then(result => {
                         response.send(result.recordset);
                     });
@@ -16,11 +16,11 @@ module.exports = {
     },
 
     async create(request, response) {
-        const { nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha, fkAcervo } = request.body;
+        const { nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha } = request.body;
         
         database.connect().then(() => {
             return database.sql
-                    .query(`INSERT INTO tbUsuario (nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha, fkAcervo) VALUES ('${nomeUsuario}', CONVERT(Date, '${dataNasc}', 103), '${cpf}', '${telefoneUsuario}', '${email}', '${login}', '${senha}', ${fkAcervo});`)
+                    .query(`INSERT INTO tbUsuario (nomeUsuario, dataNasc, cpf, telefoneUsuario, email, login, senha) VALUES ('${nomeUsuario}', CONVERT(Date, '${dataNasc}', 103), '${cpf}', '${telefoneUsuario}', '${email}', '${login}', '${senha}');`)
                     .then(() => {
                         console.log("Registro inserido!");
                         response.sendStatus(200);

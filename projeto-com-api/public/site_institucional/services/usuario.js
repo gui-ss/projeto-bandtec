@@ -12,11 +12,12 @@ function convertData(userDate) {
 	return formatedDate;
 }
 
-function cadastroUsuario(fkAcervo) {
+function cadastroUsuario(event) {
+    event.preventDefault();
 
     let date = convertData(dataNascUsuario.value);
     
-    let params = `nomeUsuario=${nomeUsuario.value}&dataNasc=${date}&cpf=${cpfUsuario.value}&telefoneUsuario=${telefoneUsuario.value}&email=${emailUsuario.value}&login=${loginUsuario.value}&senha=${senhaUsuario.value}&fkAcervo=${fkAcervo}`;
+    let params = `nomeUsuario=${nomeUsuario.value}&dataNasc=${date}&cpf=${cpfUsuario.value}&telefoneUsuario=${telefoneUsuario.value}&email=${emailUsuario.value}&login=${loginUsuario.value}&senha=${senhaUsuario.value}`;
 
     let ajax = new XMLHttpRequest();
     ajax.open('POST', "http://localhost:3333/usuario");
@@ -24,8 +25,24 @@ function cadastroUsuario(fkAcervo) {
     ajax.onreadystatechange = function() {
         if(ajax.status == 200 && ajax.readyState == 4) {
             let resposta = ajax.responseText;
+            selectUsuario();
         }
     }
 
     ajax.send(params);
+}
+
+function selectUsuario() {
+    let ajax = new XMLHttpRequest();
+    ajax.open('GET', "http://localhost:3333/usuario");
+    ajax.onreadystatechange = function() {
+        if(ajax.status == 200 && ajax.readyState == 4) {
+            let resposta = JSON.parse(ajax.responseText);
+
+            let idUltimoUsuario = resposta[resposta.length-1].idUsuario;
+            cadastroAcervo(idUltimoUsuario);
+            
+        }
+    }
+    ajax.send();
 }
