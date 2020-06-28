@@ -2,8 +2,6 @@ let dgchart = null;
 let id_area = null;
 
 function updateDgChart(idArea) {
-    console.log(idArea);
-    
     let data = [
         id_areas[idArea].alertas.baixo,
         id_areas[idArea].alertas.medio,
@@ -16,13 +14,20 @@ function updateDgChart(idArea) {
 }
 
 function construirGraficoDoughnut(idArea) {
-    id_area = idArea;
+
+    for (let i = 0; i < id_areas.length; i++) {
+        if(id_areas[i].id == idArea) {
+            id_area = i;
+            break;
+        }
+    }
+    
     let data = [
-        id_areas[idArea].alertas.baixo,
-        id_areas[idArea].alertas.medio,
-        id_areas[idArea].alertas.ideal,
-        id_areas[idArea].alertas.alto,
-        id_areas[idArea].alertas.maximo
+        id_areas[id_area].alertas.baixo,
+        id_areas[id_area].alertas.medio,
+        id_areas[id_area].alertas.ideal,
+        id_areas[id_area].alertas.alto,
+        id_areas[id_area].alertas.maximo
     ];
     
 

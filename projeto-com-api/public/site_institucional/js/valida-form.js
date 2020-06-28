@@ -279,7 +279,7 @@ function validarCidade() {
     let cidade = input_estado_acervo.value.trim();
     let msg = document.getElementById('mensagem_cidade');
 
-    if (cidade) {
+    if (cidade.length >= 3) {
         msg.innerHTML = 'Cidade OK!';
         msg.style.color = '#008000';
         validado_cidade = true;
