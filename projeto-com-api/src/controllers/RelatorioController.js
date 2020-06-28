@@ -2,11 +2,9 @@ const database = require('./../database/connection');
 
 module.exports = {
     async index(request, response) {
-        const fkArea = request.params.area;
-
         database.connect().then(async () => {
             return await database.sql
-                    .query(`SELECT umidade, temperatura, dataLeitura FROM tbSensor WHERE fkArea = ${fkArea};`)
+                    .query(`SELECT umidade, temperatura, dataLeitura, fkArea FROM tbSensor;`)
                     .then(result => {
                         let data = result.recordset;
                         response.send(data);

@@ -13,7 +13,7 @@ module.exports = {
         }).catch(error => {
             console.log("ERRO: "+error);
         }).finally(() => {
-            database.sql.close();
+            // database.sql.close();
         });
     },
 
@@ -30,7 +30,7 @@ module.exports = {
         }).catch(error => {
             console.log("ERRO: "+error);
         }).finally(() => {
-            database.sql.close();
+            // database.sql.close();
         });
     },
 
@@ -49,7 +49,7 @@ module.exports = {
         }).catch(error => {
             console.log("ERRO: "+error);
         }).finally(() => {
-            database.sql.close();
+            // database.sql.close();
         });
     }
 }

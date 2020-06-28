@@ -6,17 +6,27 @@ let horaa = new Date().getHours();
 let minuto = new Date().getMinutes();
 let segundo = new Date().getSeconds();
 
-
-let a = 1;
-let dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
+let dadosTable = [];
 
 let area_relatorio = document.querySelector("#area-relatorio");
 function teste() {
-    selectDadosRelatorio(a);
-    console.log(dadosTable)
+    selectDadosRelatorio();
+    dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
+    
+    let dadosArea = [];
+
+    let areaEscolhida = sessionStorage.area;
+    
+
+    dadosTable.forEach(dado => {
+        if(dado.fkArea == areaEscolhida) {
+            dadosArea.push(dado);
+        }
+    });
+
     let contador = 0;
 
-    for (let i = 0; i <= parseInt(dadosTable.length / 17); i++) {
+    for (let i = 0; i <= parseInt(dadosArea.length / 14); i++) {
         area_relatorio.innerHTML += `
         <div class="folha">
             <div class="cabecalho">
@@ -54,37 +64,47 @@ function teste() {
         let table = document.querySelector(`#table${i}`);
 
         for (let j = 0; j < 14; j++) {
-            let data = new Date(dadosTable[contador].dataLeitura);
-            let dataLeitura = `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
-            let horaLeitura = `${data.getHours()}h${data.getMinutes()}m${data.getSeconds()}s`;
+            if(dadosArea[contador] != undefined) {
+                let data = new Date(dadosArea[contador].dataLeitura);
+                data.setHours(data.getHours() + 3);
+                let dataLeitura = `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
+                let horaLeitura = `${data.getHours()}h${data.getMinutes()}m${data.getSeconds()}s`;
 
-            table.innerHTML += ` 
-            <tr>
-                <td>${dataLeitura} ${horaLeitura}</th>
-                <td>${dadosTable[contador].umidade}%</th>
-                <td>${dadosTable[contador].temperatura} °C</th>
-            </tr>
+                table.innerHTML += ` 
+                <tr>
+                    <td>${dataLeitura} ${horaLeitura}</th>
+                    <td>${dadosArea[contador].umidade}%</th>
+                    <td>${dadosArea[contador].temperatura} °C</th>
+                </tr>
             `;
+            }
             contador++;
         }
+        
         if(i == 0){
             let somaTemp = 0;
             let somaUmidade = 0;
-            for (let c = 0; c <= dadosTable.length; c++) {
-                somaTemp += dadosTable[i].temperatura;
-                somaUmidade += dadosTable[i].umidade;
+            for (let c = 0; c < dadosArea.length; c++) {
+                if(dadosArea[c] != undefined) {
+                    somaTemp += dadosArea[c].temperatura;
+                    somaUmidade += dadosArea[c].umidade; 
+                }  
             }
+            
+
             geral.innerHTML = `
-            <h2>Média total</h2><br>
-            <label>Temperatura: ${(somaTemp/dadosTable.length).toFixed(2)}°C</label> <br><br>
-            <label>Humidade: ${(somaUmidade/dadosTable.length).toFixed(2)}%</label><br><br>
+            <h2>Média total da Área</h2><br>
+            <label>Temperatura: ${(somaTemp/dadosArea.length).toFixed(2)}°C</label> <br><br>
+            <label>Humidade: ${(somaUmidade/dadosArea.length).toFixed(2)}%</label><br><br>
             `;
         }
     }
 };
 
 function relatorioMes(){
-    selectDadosRelatorio(a);
+    selectDadosRelatorio();
+    dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
+
     let contador = 0;
     let param = sessionStorage.comboMesValue;
     let dadosMes = [];
@@ -96,7 +116,7 @@ function relatorioMes(){
         }
     }
     console.log(dadosMes);
-    for (let i = 0; i <= parseInt(dadosMes.length / 17); i++) {
+    for (let i = 0; i <= parseInt(dadosMes.length / 14); i++) {
         area_relatorio.innerHTML += `
         <div class="folha">
             <div class="cabecalho">
@@ -114,6 +134,7 @@ function relatorioMes(){
                 <br>
                 <table style="width:100%" id="table${i}">
                     <tr>
+                    <th>Ambiente</th>
                     <th>data de Leitura</th>
                     <th>Umidade</th>
                     <th>Temperatura</th>
@@ -134,17 +155,21 @@ function relatorioMes(){
         let table = document.querySelector(`#table${i}`);
 
         for (let j = 0; j < 14; j++) {
-            let data = new Date(dadosMes[contador].dataLeitura);
-            let dataLeitura = `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
-            let horaLeitura = `${data.getHours()}h${data.getMinutes()}m${data.getSeconds()}s`;
+            if(dadosMes[contador] != undefined) {
+                let data = new Date(dadosMes[contador].dataLeitura);
+                data.setHours(data.getHours() + 3);
+                let dataLeitura = `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
+                let horaLeitura = `${data.getHours()}h${data.getMinutes()}m${data.getSeconds()}s`;
 
-            table.innerHTML += ` 
-            <tr>
-                <td>${dataLeitura} ${horaLeitura}</th>
-                <td>${dadosMes[contador].umidade}%</th>
-                <td>${dadosMes[contador].temperatura} °C</th>
-            </tr>
-            `;
+                table.innerHTML += ` 
+                <tr>
+                    <td>${dadosMes[contador].fkArea}</th>
+                    <td>${dataLeitura} ${horaLeitura}</th>
+                    <td>${dadosMes[contador].umidade}%</th>
+                    <td>${dadosMes[contador].temperatura} °C</th>
+                </tr>
+                `;
+            }
             contador++;
         }
         if(i == 0){
@@ -152,8 +177,10 @@ function relatorioMes(){
             let somaUmidade = 0;
             let textoMes = sessionStorage.mesTexto;
             for (let c = 0; c <= dadosMes.length; c++) {
-                somaTemp += dadosMes[i].temperatura;
-                somaUmidade += dadosMes[i].umidade;
+               if(dadosMes[c] != undefined) {
+                    somaTemp += dadosMes[c].temperatura;
+                    somaUmidade += dadosMes[c].umidade;
+               }
             }
             geral.innerHTML = `
             <h2>Média total do mês de ${textoMes}</h2><br>
@@ -162,6 +189,8 @@ function relatorioMes(){
             `;
         }
     }
+    console.log(contador);
+    
 };
 
 
@@ -180,4 +209,3 @@ switch (expr) {
   default:
     console.log('foi');
 }
-

@@ -7,8 +7,6 @@ function selectAreas() {
     ajax.onreadystatechange = function () {
         if (ajax.readyState == XMLHttpRequest.DONE) {
             let resposta = JSON.parse(ajax.responseText);
-            // constroiCards(resposta);
-
             resposta.forEach(area => {
                areas.push({nome: area.nomeArea, id: area.idArea}); 
             });
@@ -46,7 +44,9 @@ function cadastrarArea(event) {
 
 let form_area = document.querySelector("#form-area");
 
-// form_area.addEventListener("submit", cadastrarArea);
+if(form_area != null) {
+    form_area.addEventListener("submit", cadastrarArea);
+}
 
 function deletarArea(id) {
 

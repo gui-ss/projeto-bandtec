@@ -9,11 +9,11 @@ function constroiCards(areas) {
 
     areas.forEach(area => {
         div_cards.innerHTML +=
-            `<div class='card' onclick='expandCard(this.id, event); construirGrafico(this.id); construirGraficoDoughnut(this.id);' id='area${area.idArea}'>
+            `<div class='card' onclick='expandCard(this.id, event); construirGrafico(this.id); construirGraficoDoughnut(this.id);' id='area${area.id}'>
             <div class="first-column">
                 <div class="card-info">
                     <div class="info-area">
-                        <h3 class='nome-area'>${area.nomeArea}</h3>
+                        <h3 class='nome-area'>${area.nome}</h3>
                         <p class="temperatura">Temperatura: <span id="span_temperatura">0</span>ºC</p>
                         <p class="umidade">Umidade: <span id="span_umidade">0</span></p>
                         <p class='nivel' >Nivel: <span id="span_nivel">Normal</span></p>
@@ -23,12 +23,12 @@ function constroiCards(areas) {
                             <i class="material-icons" id="icone">add_alert</i>
                         </div>
                     </div>
-                    <button onclick="deletarArea(${area.idArea})" class='deleteBtn'>Deletar área</button>
+                    <button onclick="deletarArea(${area.id})" class='deleteBtn'>Deletar área</button>
                 </div>
 
                 <div class='grafico-secundario'>
                     <div class="area-grafico">
-					    <canvas id="dg-chart-area${area.idArea}"></canvas>
+					    <canvas id="dg-chart-area${area.id}"></canvas>
                     </div>
                 </div>
             </div>
@@ -37,13 +37,16 @@ function constroiCards(areas) {
                 <h3>Média de temperatura: <span id="span_media_temperatura">0</span>ºC </h3>
                 <h3>Média de umidade: <span id="span_media_umidade">0</span> </h3>
                 <div class="area-grafico">
-					<canvas id="chart-area${area.idArea}"></canvas>
+					<canvas id="chart-area${area.id}"></canvas>
                 </div>
             </div>
         </div>`;
 
-        id_areas.push(area.idArea);
+        id_areas.push(area.id);
     });
+
+    console.log(id_areas);
+    
 
     div_cards.innerHTML += `
     <div id='add-card' onclick="modalAmbiente()">
@@ -54,6 +57,10 @@ function constroiCards(areas) {
     </div>
     `;
 }
+
+setTimeout(() => {
+    constroiCards(areas);
+}, 3500);
 
 function expandCard(id, event) {
     if (chart != null && dgchart != null) {

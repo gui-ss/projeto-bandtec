@@ -1,8 +1,11 @@
-
 let comboArea = document.querySelector('#comboArea');
 let comboMes = document.querySelector('#comboMes');
 
-sessionStorage.setItem('funcao', '');
+sessionStorage.removeItem('funcao');
+sessionStorage.removeItem('area');
+sessionStorage.removeItem('comboMesValue');
+sessionStorage.removeItem('mesTexto');
+
 
 function constroiOptions(areas){
     areas.forEach(area => {
@@ -11,7 +14,9 @@ function constroiOptions(areas){
 };
 
 function dadoRelatorio() {
-    sessionStorage.area = comboArea.value;
+    let areaEscolhida = comboArea.value;
+
+    sessionStorage.setItem('area', areaEscolhida);
     sessionStorage.setItem('funcao', '1');
 
     window.location = 'pdf/relatoriopdf.html'
