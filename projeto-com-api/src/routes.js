@@ -5,6 +5,7 @@ const AreaController = require('./controllers/AreaController');
 const UsuarioController = require('./controllers/UsuarioController');
 const SensorController = require('./controllers/SensorController');
 const SessaoController = require('./controllers/SessaoController');
+const RelatorioController = require('./controllers/RelatorioController');
 
 const router = express.Router();
 
@@ -22,5 +23,7 @@ router.get('/sensor/:area', SensorController.index);
 router.post('/sensor', SensorController.create);
 
 router.post('/sessao', SessaoController.index);
+
+router.get('/relatorio/:area', RelatorioController.index);
 
 module.exports = router;

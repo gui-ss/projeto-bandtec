@@ -46,7 +46,7 @@ module.exports = {
     },
 
     async create(request, response) {
-        const registros_mantidos_tabela_leitura = 50;
+        const registros_mantidos_tabela_leitura = 150;
         const { fkArea } = request.body;
 
         let temperature = ArduinoDataTemp.List[ArduinoDataTemp.List.length - 1];
