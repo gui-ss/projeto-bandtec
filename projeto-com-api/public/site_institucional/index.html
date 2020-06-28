@@ -432,7 +432,7 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Onde nos encontrar:</h3>
-                                <p>Rua Haddock Lobo, 595 - Cerqueira César - SP</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                             </div>
                         </div>
 
@@ -442,7 +442,7 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Nosso e-mail:</h3>
-                                <p>Sua dúvida em: 201grupo7a@bandtec.com.br</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                             </div>
                         </div>
 
@@ -452,7 +452,7 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Nosso telefone:</h3>
-                                <p>Estamos anciosos pra lhe ouvir: (xx) xxxxx-xxxx </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                             </div>
                         </div>
                     </div>
@@ -501,13 +501,13 @@
         <div class="container container-footer flex">
             <div class="info-footer">
                 <h2>Chameleon</h2>
-                <p class='desc'>As melhores soluções para seu negócio e para você! </p>
+                <p class='desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 
-                <p class='location'>Está presente no ramo de tecnologia desde 2020, faça parte! </p>
+                <p class='location'>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 
                 <div class="footer-contact">
                     <p> <b>Telefone:</b> (xx) xxxx-xxxx </p>
-                    <p> <b>Email:</b> 201grupo7a@bandtec.com.br</p>
+                    <p> <b>Email:</b> exemplo@chameleon.com</p>
                 </div>
             </div>
 
@@ -591,28 +591,39 @@
                             <h3>Passo 1/2</h3>
                         </div>
                         <div class="area-input-caduser">
+                            
                             <div class="input-cad">
-                                    <input type="text" placeholder="Nome" class='input-login' id='input_nome_cad'>
+                                    <input type="text" placeholder="Nome" class='input-login' id='input_nome_cad' onkeyup="validarNome()">
+                                    <div id="mensagem_nome"></div>
 
-                                    <input type="password" placeholder="E-mail" class='input-login' id='input_email_cad'>
+                                    <input type="text" placeholder="E-mail" class='input-login' id='input_email_cad' onkeyup="validarEmail()">
+                                    <div id="mensagem_email"></div>
                                     
-                                    <input type="text" placeholder="Login" class='input-login' id='input_login_cad'>
+                                    <input type="text" placeholder="Login" class='input-login' id='input_login_cad' onkeyup="validarLogin()">
+                                    <div id="mensagem_login"></div>
 
-                                    <input type="password" placeholder="Senha" class='input-login' id='input_pass_cad'>
+                                    <input type="password" placeholder="Senha" class='input-login' id='input_pass_cad' onkeyup="validarSenha()">
+                                    <div id="mensagem_senha"></div>
                             </div>
+
                             <div class="input-cad">
-                                    <input type="text" placeholder="Data de nascimento" class='input-login' id='input_datanasc_cad'>
-
-                                    <input type="password" placeholder="CPF" class='input-login' id='input_cpf_cad'>
-                                    
-                                    <input type="text" placeholder="Telefone" class='input-login' id='input_telefone'>
                                 
-                                    <span class='btn-login' id='proximo' onclick="cadacervo()">Próximo</span>
+                                    <input type="text" placeholder="Data de nascimento" class='input-login' id='input_datanasc_cad' onkeyup="validarNasc()">
+                                    <div id="mensagem_nasc"></div>
 
+                                    <input type="text" placeholder="CPF" class='input-login' id='input_cpf_cad' onkeyup="validarCPF()">
+                                    <div id="mensagem_cpf"></div>
+
+                                    <input type="text" placeholder="Telefone" class='input-login' id='input_telefone' onkeyup="validarTel()">
+                                    <div id="mensagem_tel"></div>
+
+                                    <span class='btn-login' id='proximo' onclick="cadacervo()">Próximo</span>
+                                    <div id="mensagem_erro"></div>
+                                    
                             </div>
                         </div>
                         <div class="area-alert" style="display: none;">
-
+                        
                         </div>
                     </form>
 
@@ -626,31 +637,41 @@
                         </div>
                         <div class="area-input-caduser" id="input-cad-acervo">
                             <div class="input-cad">
-                                    <input type="text" placeholder="Nome" class='input-login' id='input_nome_acervo'>
+                                    <input type="text" placeholder="Nome" class='input-login' id='input_nome_acervo' onkeyup="validarAcervo()">
+                                    <div id="mensagem_acervo"></div>
 
-                                    <input type="text" placeholder="Telefone" class='input-login' id='input_telefone_acervo'>
+                                    <input type="text" placeholder="Telefone" class='input-login' id='input_telefone_acervo' onkeyup="validarTelAc()">
+                                    <div id="mensagem_telAc"></div>
                                     
-                                    <input type="text" placeholder="Tipo (ex: Biblioteca)" class='input-login' id='input_tipo_acervo'>
+                                    <input type="text" placeholder="Tipo (ex: Biblioteca)" class='input-login' id='input_tipo_acervo' onkeyup="validarTipo()">
+                                    <div id="mensagem_tipo"></div>
 
-                                    <input type="text" placeholder="CNPJ" class='input-login' id='input_cnpj_acervo'>
+                                    <input type="text" placeholder="CNPJ" class='input-login' id='input_cnpj_acervo' onkeyup="validarCNPJ()">
+                                    <div id="mensagem_cnpj"></div>
 
                                     <div class="ruanumero">
-                                        <input type="text" placeholder="Logradouro" class='input-login' id='input_rua_acervo'>
+                                        <input type="text" placeholder="Logradouro" class='input-login' id='input_rua_acervo' onkeyup="validarRua()">
                                         <input type="text" placeholder="N°" class='input-login' id='input_numero_acervo'>
                                     </div>
+                                    <div id="mensagem_rua"></div>
 
                                     
                             </div>
                             <div class="input-cad">
-                                    <input type="password" placeholder="Cidade" class='input-login' id='input_cidade_acervo'>
+                                    <input type="text" placeholder="Cidade" class='input-login' id='input_cidade_acervo' onkeyup="validarCidade()">
+                                    <div id="mensagem_cidade"></div>
 
-                                    <input type="text" placeholder="Bairro" class='input-login' id='input_bairro_acervo'>
+                                    <input type="text" placeholder="Bairro" class='input-login' id='input_bairro_acervo' onkeyup="validarBairro()">
+                                    <div id="mensagem_bairro"></div>
 
-                                    <input type="text" placeholder="Estado" class='input-login' id='input_estado_acervo'>
-                                    
-                                    <input type="text" placeholder="Cep" class='input-login' id='input_cep_acervo'>
+                                    <input type="text" placeholder="Estado" class='input-login' id='input_estado_acervo' onkeyup="validarEstado()">
+                                    <div id="mensagem_es"></div>
+
+                                    <input type="text" placeholder="Cep" class='input-login' id='input_cep_acervo' onkeyup="validarCEP()">
+                                    <div id="mensagem_cep"></div>
                                 
                                     <button type="submit" class='btn-login' id='btlogin' onclick='cadastroUsuario(event)'>Finalizar Cadastro</button>
+                                    <div id="mensagem_erro_cad"></div>
 
                             </div>
                         </div>
@@ -665,6 +686,7 @@
     </div>
 
     <script src="js/modal.js"></script>
+    <script src="js/valida-form.js"></script>
     <script src='js/content-js.js'></script>
     <script src="js/menu-animation.js"></script>
     <script src="js/login.js"></script>

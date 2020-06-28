@@ -47,12 +47,21 @@ let formlogin = document.querySelector('#form_login');
 let formuser = document.querySelector('#form_cad_usuario');
 let formacervo = document.querySelector('#form_cad_acervo');
 
-function cadastro(){
+function cadastro() {
     formlogin.style.display = 'none';
     formuser.style.display = 'block';
 }
 
-function cadacervo(){ 
-    formuser.style.display = 'none';
-    formacervo.style.display = 'block';
+function cadacervo() {
+    if (validado_nome == false || validado_email == false || validado_senha == false || validado_login == false || validado_cpf == false || validado_nasc == false || validado_tel == false) {
+
+        mensagem_erro.innerHTML = '<b> Preencha os campos corretamente! </b>';
+        mensagem_erro.style.color = '#B22222';
+    }
+
+    else {
+        formuser.style.display = 'none';
+        formacervo.style.display = 'block';
+    }
+
 }
