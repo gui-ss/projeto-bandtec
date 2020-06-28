@@ -44,3 +44,19 @@ function dadoRelatorioMes() {
 
 let brnRelatorioMes = document.querySelector('#brnRelatorioMes');
 brnRelatorioMes.addEventListener('click', dadoRelatorioMes);
+
+
+function dadoRelatorioEstacao() {
+    sessionStorage.area = comboArea.value;
+    sessionStorage.setItem('comboEstacaoValue', comboEstacao.value);
+   
+    let estacaoText = document.getElementById('comboEstacao');
+    var text = estacaoText.options[estacaoText.selectedIndex].text;
+    sessionStorage.setItem('estacaoTexto', text);
+    sessionStorage.setItem('funcao', '3');
+
+    window.location = 'pdf/relatoriopdf.html'
+}
+
+let btnRelatorioEstacao = document.querySelector('#btnRelatorioEstacao');
+btnRelatorioEstacao.addEventListener('click', dadoRelatorioEstacao);
