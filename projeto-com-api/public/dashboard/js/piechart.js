@@ -1,11 +1,36 @@
 let dgchart = null;
+let id_area = null;
 
-function construirGraficoDoughnut(area) {
+function updateDgChart(idArea) {
+    console.log(idArea);
+    
+    let data = [
+        id_areas[idArea].alertas.baixo,
+        id_areas[idArea].alertas.medio,
+        id_areas[idArea].alertas.ideal,
+        id_areas[idArea].alertas.alto,
+        id_areas[idArea].alertas.maximo
+    ];
+    dgchart.data.datasets[0].data = data;
+    dgchart.update();
+}
+
+function construirGraficoDoughnut(idArea) {
+    id_area = idArea;
+    let data = [
+        id_areas[idArea].alertas.baixo,
+        id_areas[idArea].alertas.medio,
+        id_areas[idArea].alertas.ideal,
+        id_areas[idArea].alertas.alto,
+        id_areas[idArea].alertas.maximo
+    ];
+    
+
     let config = {
         type: 'doughnut',
         data: {
             datasets: [{
-                data: [1, 10, 20, 5, 1],
+                data: data,
                 backgroundColor: [
                     'rgb(238, 34, 44)',
                     '#0078d7',
@@ -31,7 +56,7 @@ function construirGraficoDoughnut(area) {
         }
     };
 
-    let dgcontext = document.getElementById(`dg-chart-${area}`).getContext("2d");
+    let dgcontext = document.getElementById(`dg-chart-area${idArea}`).getContext("2d");
     dgcontext.canvas.height = 250;
     dgchart = new Chart(dgcontext, config);    
 }
@@ -39,5 +64,6 @@ function construirGraficoDoughnut(area) {
 setInterval(() => {
     if(dgchart != null) {
         dgchart.resize();
+        updateDgChart(id_area);
     }
 }, 1000);

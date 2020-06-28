@@ -1,7 +1,7 @@
 let contador = 0;
 
 function inserirDadosSensor(areas) {
-    let areaAtual = areas[contador];
+    let areaAtual = areas[contador].id;
 
     let params = "fkArea=" + areaAtual; 
 

@@ -9,7 +9,7 @@ function constroiCards(areas) {
 
     areas.forEach(area => {
         div_cards.innerHTML +=
-            `<div class='card' onclick='expandCard(this.id, event); construirGrafico(this.id); construirGraficoDoughnut(this.id);' id='area${area.id}'>
+            `<div class='card' onclick='expandCard(this.id, event); construirGrafico(this.id); construirGraficoDoughnut(${area.id});' id='area${area.id}'>
             <div class="first-column">
                 <div class="card-info">
                     <div class="info-area">
@@ -42,11 +42,9 @@ function constroiCards(areas) {
             </div>
         </div>`;
 
-        id_areas.push(area.id);
+        let alertas = {baixo: 0, medio: 0, ideal: 0, alto: 0, maximo: 0}
+        id_areas.push({id: area.id, alertas: alertas});
     });
-
-    console.log(id_areas);
-    
 
     div_cards.innerHTML += `
     <div id='add-card' onclick="modalAmbiente()">
@@ -67,6 +65,7 @@ function expandCard(id, event) {
         chart.destroy();
         dgchart.destroy();
     }
+    
 
     let cardClicado = document.querySelector(`#${id}`);
     let deleteButton = cardClicado.querySelector(".deleteBtn");
@@ -119,7 +118,7 @@ function atualizarCard(temperatura, umidade, id, momento, media) {
     let div_alerta = card.querySelector("#div_alerta");
     let div_icone = card.querySelector('#icone');
 
-    let estiloAlerta = classificarAlerta(temperatura);
+    let estiloAlerta = classificarAlerta(temperatura, id);
 
     div_icone.innerHTML = estiloAlerta[0];
     div_alerta.style.background = estiloAlerta[1];
@@ -143,25 +142,41 @@ function atualizarCard(temperatura, umidade, id, momento, media) {
     }
 }
 
-function classificarAlerta(temperatura) {
+function classificarAlerta(temperatura, id) {
     let estilo = [];
 
-    if (temperatura >= 1 && temperatura <= 10) {
-        estilo = ['warning', 'rgb(238, 34, 44)', 'Baixo', 'rgb(238, 34, 44)'];
+    id_areas.forEach(area => {
 
-    } else if (temperatura >= 11 && temperatura <= 18) {
-        estilo = ['add_alert', '#0078d7', 'Médio', '#0078d7'];
-
-    } else if (temperatura >= 19 && temperatura <= 23) {
-        estilo = ['check_circle', 'rgb(35, 197, 62)', 'Ideal', 'rgb(35, 197, 62)'];
-
-    } else if (temperatura >= 24 && temperatura <= 25) {
-        estilo = ['cancel', 'rgb(255,165,36)', 'Alto', 'rgb(255,165,36)'];
-
-    } else {
-        estilo = ['warning', 'rgb(238, 34, 44)', 'Máximo', 'rgb(238, 34, 44)'];
-
-    }
-
+        if (temperatura >= 1 && temperatura <= 10) {
+            estilo = ['warning', 'rgb(238, 34, 44)', 'Baixo', 'rgb(238, 34, 44)'];
+            if(area.id == id) {
+                area.alertas.baixo++;
+            }
+    
+        } else if (temperatura >= 11 && temperatura <= 18) {
+            estilo = ['add_alert', '#0078d7', 'Médio', '#0078d7'];
+            if(area.id == id) {
+                area.alertas.medio++;
+            }
+    
+        } else if (temperatura >= 19 && temperatura <= 23) {
+            estilo = ['check_circle', 'rgb(35, 197, 62)', 'Ideal', 'rgb(35, 197, 62)'];
+            if(area.id == id) {
+                area.alertas.ideal++;
+            }
+    
+        } else if (temperatura >= 24 && temperatura <= 25) {
+            estilo = ['cancel', 'rgb(255,165,36)', 'Alto', 'rgb(255,165,36)'];
+            if(area.id == id) {
+                area.alertas.alto++;
+            }
+    
+        } else {
+            estilo = ['warning', 'rgb(238, 34, 44)', 'Máximo', 'rgb(238, 34, 44)'];
+            if(area.id == id) {
+                area.alertas.maximo++;
+            }
+        }
+    });
     return estilo;
 }
