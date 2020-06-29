@@ -35,8 +35,12 @@ function enableDarkMode() {
     var teste = document.getElementById('checkDarkMode');
     if (teste.checked) {
         document.body.classList.add('darkMode');
+        let logo = document.getElementById('open');
+        logo.src = 'img/logos/logo-white.png';
     } else {
         document.body.classList.remove('darkMode');
+        let logo = document.getElementById('open');
+        logo.src = 'img/logos/logo-dark.png';
     }
 }
 

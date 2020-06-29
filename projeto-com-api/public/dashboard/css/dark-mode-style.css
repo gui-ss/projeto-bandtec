@@ -29,3 +29,15 @@ body.darkMode div.box_relatorio{
 body.darkMode label {
     color: white !important;
 }
+
+body.darkMode .first-column, body.darkMode .card-info, body.darkMode .info-area,body.darkMode .grafico-principal{
+    background-color: rgb(58, 58, 58);
+}
+
+body.darkMode .area-grafico{
+    background-color: rgb(34, 34, 34);
+}
+
+body.darkMode{
+    background-color: rgb(34, 34, 34);
+}
