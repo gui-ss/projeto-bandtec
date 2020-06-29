@@ -10,6 +10,7 @@ let dadosTable = [];
 
 let area_relatorio = document.querySelector("#area-relatorio");
 function teste() {
+    dadosTable = [];
     dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
     
     let dadosArea = [];
@@ -102,6 +103,7 @@ function teste() {
 };
 
 function relatorioMes(){
+    dadosTable = [];
     dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
 
     let contador = 0;
@@ -193,6 +195,7 @@ function relatorioMes(){
 
 
 function relatorioEstacao(){
+    dadosTable = [];
     dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
 
     let contador = 0;
