@@ -15,7 +15,7 @@ function constroiCards(areas) {
                     <div class="info-area">
                         <h3 class='nome-area'>${area.nome}</h3>
                         <p class="temperatura">Temperatura: <span id="span_temperatura">0</span>ºC</p>
-                        <p class="umidade">Umidade: <span id="span_umidade">0</span></p>
+                        <p class="umidade">Umidade: <span id="span_umidade">0</span>%</p>
                         <p class='nivel' >Nivel: <span id="span_nivel">Normal</span></p>
                     </div>
                     <div class="alerta">

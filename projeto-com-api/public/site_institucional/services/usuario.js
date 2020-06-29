@@ -33,6 +33,7 @@ function cadastroUsuario(event) {
         ajax.onreadystatechange = function () {
             if (ajax.status == 200 && ajax.readyState == 4) {
                 let resposta = ajax.responseText;
+                voltalogin();
                 selectUsuario();
             }
         }
@@ -40,6 +41,7 @@ function cadastroUsuario(event) {
         ajax.send(params);
     }
 }
+
 function selectUsuario() {
     let ajax = new XMLHttpRequest();
     ajax.open('GET', "http://localhost:3333/usuario");

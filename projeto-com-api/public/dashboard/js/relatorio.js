@@ -27,7 +27,7 @@ btnRelatorioAmbiente.addEventListener('click', dadoRelatorio);
 
 setTimeout(() => {
     constroiOptions(areas);
-}, 5000);
+}, 3500);
 
 
 function dadoRelatorioMes() {

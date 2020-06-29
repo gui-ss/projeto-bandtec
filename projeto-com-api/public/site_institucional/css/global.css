@@ -929,7 +929,7 @@ form.form-login .input-login::placeholder {
 }
 
 .area_img_login{
-  width: 60%;
+  width: 50%;
   height: 80%;
   display: flex;
   align-items: center;

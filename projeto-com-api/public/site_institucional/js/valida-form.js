@@ -140,7 +140,7 @@ function validarCPF() {
     if (cpf) {
         for (let i = 0; i <= cpf.length - 1; i++) {
 
-            if (cpf.length == 11) {
+            if (cpf.length == 14) {
                 msg.innerHTML = 'CPF OK!'
                 msg.style.color = '#008000';
                 validado_cpf = true;
@@ -236,7 +236,7 @@ function validarCNPJ() {
                 validado_cnpj = true;
             }
             else {
-                msg.innerHTML = 'Digite o CNPJ no formato: xxxxxxxxxxxxxxxxxx'
+                msg.innerHTML = 'Digite o CNPJ no formato: 99.999.999/9999-99'
                 msg.style.color = '#0078d7';
             }
         }
@@ -276,7 +276,7 @@ function validarBairro() {
 }
 
 function validarCidade() {
-    let cidade = input_estado_acervo.value.trim();
+    let cidade = input_cidade_acervo.value.trim();
     let msg = document.getElementById('mensagem_cidade');
 
     if (cidade.length >= 3) {

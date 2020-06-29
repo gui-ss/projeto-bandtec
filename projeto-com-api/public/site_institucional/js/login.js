@@ -58,10 +58,16 @@ function cadacervo() {
         mensagem_erro.innerHTML = '<b> Preencha os campos corretamente! </b>';
         mensagem_erro.style.color = '#B22222';
     }
-
     else {
         formuser.style.display = 'none';
         formacervo.style.display = 'block';
     }
 
+}
+
+
+function voltalogin() {
+    formacervo.style.display = 'none';
+    formuser.style.display = 'none';
+    formlogin.style.display = 'flex';
 }
