@@ -6,7 +6,7 @@ module.exports = {
 
         database.connect().then(async () => {
             return await database.sql
-                    .query(`SELECT umidade, temperatura, dataLeitura, fkArea, nomeArea FROM tbSensor INNER JOIN tbArea ON fkArea = idArea INNER JOIN tbAcervo ON fkAcervo = ${acervo};`)
+                    .query(`SELECT DISTINCT umidade, temperatura, dataLeitura, fkArea, nomeArea FROM tbSensor INNER JOIN tbArea ON fkArea = idArea INNER JOIN tbAcervo ON fkAcervo = ${acervo};`)
                     .then(result => {
                         let data = result.recordset;
                         response.send(data);
