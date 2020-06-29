@@ -10,7 +10,6 @@ let dadosTable = [];
 
 let area_relatorio = document.querySelector("#area-relatorio");
 function teste() {
-    selectDadosRelatorio();
     dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
     
     let dadosArea = [];
@@ -96,14 +95,13 @@ function teste() {
             geral.innerHTML = `
             <h2>Média total da Área</h2><br>
             <label>Temperatura: ${(somaTemp/dadosArea.length).toFixed(2)}°C</label> <br><br>
-            <label>Humidade: ${(somaUmidade/dadosArea.length).toFixed(2)}%</label><br><br>
+            <label>Umidade: ${(somaUmidade/dadosArea.length).toFixed(2)}%</label><br><br>
             `;
         }
     }
 };
 
 function relatorioMes(){
-    selectDadosRelatorio();
     dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
 
     let contador = 0;
@@ -187,17 +185,14 @@ function relatorioMes(){
             geral.innerHTML = `
             <h2>Média total do mês de ${textoMes}</h2><br>
             <label>Temperatura: ${(somaTemp/dadosMes.length).toFixed(2)}°C</label> <br><br>
-            <label>Humidade: ${(somaUmidade/dadosMes.length).toFixed(2)}%</label><br><br>
+            <label>Umidade: ${(somaUmidade/dadosMes.length).toFixed(2)}%</label><br><br>
             `;
         }
     }
-    console.log(contador);
-    
 };
 
 
 function relatorioEstacao(){
-    selectDadosRelatorio();
     dadosTable = JSON.parse(sessionStorage.jsonRelatorio);
 
     let contador = 0;
@@ -296,11 +291,10 @@ function relatorioEstacao(){
             geral.innerHTML = `
             <h2>Média total da estação ${textoEstacao}</h2><br>
             <label>Temperatura: ${(somaTemp/dadosEstacao.length).toFixed(2)}°C</label> <br><br>
-            <label>Humidade: ${(somaUmidade/dadosEstacao.length).toFixed(2)}%</label><br><br>
+            <label>Umidade: ${(somaUmidade/dadosEstacao.length).toFixed(2)}%</label><br><br>
             `;
         }
     }
-    console.log(contador);
     
 };
 
