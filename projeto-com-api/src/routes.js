@@ -24,6 +24,6 @@ router.post('/sensor', SensorController.create);
 
 router.post('/sessao', SessaoController.index);
 
-router.get('/relatorio', RelatorioController.index);
+router.get('/relatorio/:acervo', RelatorioController.index);
 
 module.exports = router;

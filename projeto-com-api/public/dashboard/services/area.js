@@ -2,6 +2,8 @@ let acervo = dadosUsuario.idAcervo;
 let areas = [];
 
 function selectAreas() {
+    areas = [];
+
     let ajax = new XMLHttpRequest();
     ajax.open("GET", `http://localhost:3333/area/${acervo}`);
     ajax.onreadystatechange = function () {
@@ -10,6 +12,10 @@ function selectAreas() {
             resposta.forEach(area => {
                areas.push({nome: area.nomeArea, id: area.idArea}); 
             });
+
+            if(window.location.pathname == '/dashboard/index.html') {
+                constroiCards(areas);
+            }
         }
     }
     ajax.send();
